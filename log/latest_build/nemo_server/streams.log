@@ -1,0 +1,23 @@
+[0.839s] Invoking command in '/home/ros/nemo/src/nemo_server': PYTHONPATH=/home/ros/nemo/build/nemo_server/prefix_override:/home/ros/nemo/install/nemo_server/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/nemo_server build --build-base /home/ros/nemo/build/nemo_server/build install --record /home/ros/nemo/build/nemo_server/install.log --single-version-externally-managed
+[1.133s] running egg_info
+[1.134s] writing ../../build/nemo_server/nemo_server.egg-info/PKG-INFO
+[1.134s] writing dependency_links to ../../build/nemo_server/nemo_server.egg-info/dependency_links.txt
+[1.134s] writing entry points to ../../build/nemo_server/nemo_server.egg-info/entry_points.txt
+[1.134s] writing requirements to ../../build/nemo_server/nemo_server.egg-info/requires.txt
+[1.135s] writing top-level names to ../../build/nemo_server/nemo_server.egg-info/top_level.txt
+[1.137s] reading manifest file '../../build/nemo_server/nemo_server.egg-info/SOURCES.txt'
+[1.138s] writing manifest file '../../build/nemo_server/nemo_server.egg-info/SOURCES.txt'
+[1.138s] running build
+[1.138s] running build_py
+[1.139s] running install
+[1.139s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[1.139s]   warnings.warn(
+[1.140s] running install_lib
+[1.142s] running install_data
+[1.142s] running install_egg_info
+[1.144s] removing '/home/ros/nemo/install/nemo_server/lib/python3.10/site-packages/nemo_server-0.0.0-py3.10.egg-info' (and everything under it)
+[1.145s] Copying ../../build/nemo_server/nemo_server.egg-info to /home/ros/nemo/install/nemo_server/lib/python3.10/site-packages/nemo_server-0.0.0-py3.10.egg-info
+[1.146s] running install_scripts
+[1.173s] Installing camera_sub script to /home/ros/nemo/install/nemo_server/lib/nemo_server
+[1.174s] writing list of installed files to '/home/ros/nemo/build/nemo_server/install.log'
+[1.212s] Invoked command in '/home/ros/nemo/src/nemo_server' returned '0': PYTHONPATH=/home/ros/nemo/build/nemo_server/prefix_override:/home/ros/nemo/install/nemo_server/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/nemo_server build --build-base /home/ros/nemo/build/nemo_server/build install --record /home/ros/nemo/build/nemo_server/install.log --single-version-externally-managed

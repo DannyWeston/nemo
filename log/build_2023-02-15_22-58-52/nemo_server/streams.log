@@ -1,0 +1,42 @@
+[0.826s] Invoking command in '/home/ros/nemo/src/nemo_server': PYTHONPATH=/home/ros/nemo/build/nemo_server/prefix_override:/home/ros/nemo/install/nemo_server/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/nemo_server build --build-base /home/ros/nemo/build/nemo_server/build install --record /home/ros/nemo/build/nemo_server/install.log --single-version-externally-managed
+[1.119s] running egg_info
+[1.119s] creating ../../build/nemo_server/nemo_server.egg-info
+[1.120s] writing ../../build/nemo_server/nemo_server.egg-info/PKG-INFO
+[1.120s] writing dependency_links to ../../build/nemo_server/nemo_server.egg-info/dependency_links.txt
+[1.120s] writing entry points to ../../build/nemo_server/nemo_server.egg-info/entry_points.txt
+[1.120s] writing requirements to ../../build/nemo_server/nemo_server.egg-info/requires.txt
+[1.120s] writing top-level names to ../../build/nemo_server/nemo_server.egg-info/top_level.txt
+[1.120s] writing manifest file '../../build/nemo_server/nemo_server.egg-info/SOURCES.txt'
+[1.122s] reading manifest file '../../build/nemo_server/nemo_server.egg-info/SOURCES.txt'
+[1.123s] writing manifest file '../../build/nemo_server/nemo_server.egg-info/SOURCES.txt'
+[1.123s] running build
+[1.124s] running build_py
+[1.124s] creating /home/ros/nemo/build/nemo_server/build
+[1.124s] creating /home/ros/nemo/build/nemo_server/build/lib
+[1.124s] creating /home/ros/nemo/build/nemo_server/build/lib/nemo_server
+[1.124s] copying nemo_server/camera_sub.py -> /home/ros/nemo/build/nemo_server/build/lib/nemo_server
+[1.124s] copying nemo_server/__init__.py -> /home/ros/nemo/build/nemo_server/build/lib/nemo_server
+[1.124s] copying nemo_server/pressure_sub.py -> /home/ros/nemo/build/nemo_server/build/lib/nemo_server
+[1.124s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[1.125s]   warnings.warn(
+[1.125s] running install
+[1.125s] running install_lib
+[1.126s] creating /home/ros/nemo/install/nemo_server/lib/python3.10/site-packages/nemo_server
+[1.126s] copying /home/ros/nemo/build/nemo_server/build/lib/nemo_server/camera_sub.py -> /home/ros/nemo/install/nemo_server/lib/python3.10/site-packages/nemo_server
+[1.126s] copying /home/ros/nemo/build/nemo_server/build/lib/nemo_server/__init__.py -> /home/ros/nemo/install/nemo_server/lib/python3.10/site-packages/nemo_server
+[1.126s] copying /home/ros/nemo/build/nemo_server/build/lib/nemo_server/pressure_sub.py -> /home/ros/nemo/install/nemo_server/lib/python3.10/site-packages/nemo_server
+[1.127s] byte-compiling /home/ros/nemo/install/nemo_server/lib/python3.10/site-packages/nemo_server/camera_sub.py to camera_sub.cpython-310.pyc
+[1.127s] byte-compiling /home/ros/nemo/install/nemo_server/lib/python3.10/site-packages/nemo_server/__init__.py to __init__.cpython-310.pyc
+[1.128s] byte-compiling /home/ros/nemo/install/nemo_server/lib/python3.10/site-packages/nemo_server/pressure_sub.py to pressure_sub.cpython-310.pyc
+[1.128s] running install_data
+[1.129s] creating /home/ros/nemo/install/nemo_server/share/ament_index
+[1.129s] creating /home/ros/nemo/install/nemo_server/share/ament_index/resource_index
+[1.129s] creating /home/ros/nemo/install/nemo_server/share/ament_index/resource_index/packages
+[1.129s] copying resource/nemo_server -> /home/ros/nemo/install/nemo_server/share/ament_index/resource_index/packages
+[1.129s] copying package.xml -> /home/ros/nemo/install/nemo_server/share/nemo_server
+[1.129s] running install_egg_info
+[1.131s] Copying ../../build/nemo_server/nemo_server.egg-info to /home/ros/nemo/install/nemo_server/lib/python3.10/site-packages/nemo_server-0.0.0-py3.10.egg-info
+[1.132s] running install_scripts
+[1.169s] Installing camera_sub script to /home/ros/nemo/install/nemo_server/lib/nemo_server
+[1.169s] writing list of installed files to '/home/ros/nemo/build/nemo_server/install.log'
+[1.209s] Invoked command in '/home/ros/nemo/src/nemo_server' returned '0': PYTHONPATH=/home/ros/nemo/build/nemo_server/prefix_override:/home/ros/nemo/install/nemo_server/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/nemo_server build --build-base /home/ros/nemo/build/nemo_server/build install --record /home/ros/nemo/build/nemo_server/install.log --single-version-externally-managed
