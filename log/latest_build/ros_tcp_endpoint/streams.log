@@ -1,26 +1,26 @@
-[0.822s] Invoking command in '/home/ros/nemo/src/ros_tcp_endpoint': PYTHONPATH=/home/ros/nemo/build/ros_tcp_endpoint/prefix_override:/home/ros/nemo/install/ros_tcp_endpoint/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/ros_tcp_endpoint build --build-base /home/ros/nemo/build/ros_tcp_endpoint/build install --record /home/ros/nemo/build/ros_tcp_endpoint/install.log --install-scripts $base/lib/ros_tcp_endpoint --single-version-externally-managed
-[1.106s] /usr/lib/python3/dist-packages/setuptools/dist.py:723: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
-[1.106s]   warnings.warn(
-[1.117s] running egg_info
-[1.118s] writing ../../build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/PKG-INFO
-[1.119s] writing dependency_links to ../../build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/dependency_links.txt
-[1.119s] writing entry points to ../../build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/entry_points.txt
-[1.119s] writing requirements to ../../build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/requires.txt
-[1.119s] writing top-level names to ../../build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/top_level.txt
-[1.122s] reading manifest file '../../build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/SOURCES.txt'
-[1.123s] adding license file 'LICENSE'
-[1.124s] writing manifest file '../../build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/SOURCES.txt'
+[0.758s] Invoking command in '/home/ros/nemo/src/ros_tcp_endpoint': PYTHONPATH=/home/ros/nemo/build/ros_tcp_endpoint/prefix_override:/home/ros/nemo/install/ros_tcp_endpoint/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/ros_tcp_endpoint build --build-base /home/ros/nemo/build/ros_tcp_endpoint/build install --record /home/ros/nemo/build/ros_tcp_endpoint/install.log --install-scripts $base/lib/ros_tcp_endpoint --single-version-externally-managed
+[1.110s] /usr/lib/python3/dist-packages/setuptools/dist.py:723: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+[1.110s]   warnings.warn(
+[1.120s] running egg_info
+[1.120s] writing ../../build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/PKG-INFO
+[1.121s] writing dependency_links to ../../build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/dependency_links.txt
+[1.121s] writing entry points to ../../build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/entry_points.txt
+[1.121s] writing requirements to ../../build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/requires.txt
+[1.121s] writing top-level names to ../../build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/top_level.txt
+[1.123s] reading manifest file '../../build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/SOURCES.txt'
+[1.124s] adding license file 'LICENSE'
+[1.125s] writing manifest file '../../build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/SOURCES.txt'
 [1.125s] running build
 [1.125s] running build_py
-[1.127s] running install
-[1.127s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
-[1.127s]   warnings.warn(
-[1.128s] running install_lib
-[1.130s] running install_data
-[1.131s] running install_egg_info
-[1.134s] removing '/home/ros/nemo/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint-0.0.1-py3.10.egg-info' (and everything under it)
-[1.135s] Copying ../../build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info to /home/ros/nemo/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint-0.0.1-py3.10.egg-info
-[1.136s] running install_scripts
-[1.164s] Installing default_server_endpoint script to /home/ros/nemo/install/ros_tcp_endpoint/lib/ros_tcp_endpoint
+[1.126s] running install
+[1.126s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[1.126s]   warnings.warn(
+[1.127s] running install_lib
+[1.128s] running install_data
+[1.129s] running install_egg_info
+[1.131s] removing '/home/ros/nemo/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint-0.0.1-py3.10.egg-info' (and everything under it)
+[1.131s] Copying ../../build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info to /home/ros/nemo/install/ros_tcp_endpoint/lib/python3.10/site-packages/ros_tcp_endpoint-0.0.1-py3.10.egg-info
+[1.132s] running install_scripts
+[1.163s] Installing default_server_endpoint script to /home/ros/nemo/install/ros_tcp_endpoint/lib/ros_tcp_endpoint
 [1.164s] writing list of installed files to '/home/ros/nemo/build/ros_tcp_endpoint/install.log'
-[1.216s] Invoked command in '/home/ros/nemo/src/ros_tcp_endpoint' returned '0': PYTHONPATH=/home/ros/nemo/build/ros_tcp_endpoint/prefix_override:/home/ros/nemo/install/ros_tcp_endpoint/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/ros_tcp_endpoint build --build-base /home/ros/nemo/build/ros_tcp_endpoint/build install --record /home/ros/nemo/build/ros_tcp_endpoint/install.log --install-scripts $base/lib/ros_tcp_endpoint --single-version-externally-managed
+[1.187s] Invoked command in '/home/ros/nemo/src/ros_tcp_endpoint' returned '0': PYTHONPATH=/home/ros/nemo/build/ros_tcp_endpoint/prefix_override:/home/ros/nemo/install/ros_tcp_endpoint/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/ros_tcp_endpoint build --build-base /home/ros/nemo/build/ros_tcp_endpoint/build install --record /home/ros/nemo/build/ros_tcp_endpoint/install.log --install-scripts $base/lib/ros_tcp_endpoint --single-version-externally-managed

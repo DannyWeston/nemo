@@ -10,23 +10,21 @@ class MinimalSubscriber(Node):
     def __init__(self):
         super().__init__('camera_sub')
 
-        self.topic = '/image'
+        self.topic = '/nemo/image'
 
         self.subscription = self.create_subscription(Image, self.topic, self.listener_callback, 30)
         self.subscription  # prevent unused variable warning
         
-        self.get_logger().info(f'Subscribed to {self.topic} topic\n')
+        self.get_logger().info(f'Subscribed to {self.topic} topic')
 
         self.br = CvBridge()
 
     def listener_callback(self, msg):
-        self.get_logger().info('Video frame incoming\n')
-
         current_frame = self.br.imgmsg_to_cv2(msg, 'rgba8')
         
         current_frame = cv2.cvtColor(current_frame, cv2.COLOR_BGR2RGB)
 
-        cv2.imwrite("/home/ros/ros_ws/src/nemo_server/nemo_server/test.png", current_frame)
+        #cv2.imwrite("/home/ros/nemo/src/nemo_server/nemo_server/test.png", current_frame)
         
 def main(args=None):
     rclpy.init(args=args)

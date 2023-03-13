@@ -16,4 +16,9 @@ def generate_launch_description():
             executable='camera_sub',
             name='camera_sub',
         ),
+        Node(
+            package='rosbridge_server',
+            executable='rosbridge_websocket',
+            name='rosbridge'
+        )
     ])
