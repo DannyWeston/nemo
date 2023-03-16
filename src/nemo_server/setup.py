@@ -20,7 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'camera_sub = nemo_server.camera_sub:main'
+            'camera_sub = nemo_server.camera_sub:main',
+            'pressure_sub = nemo_server.pressure_sub:main'
         ],
     },
 )

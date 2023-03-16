@@ -31,7 +31,7 @@ def main(args=None):
 
     rclpy.spin(pressureSub)
 
-    pressu.destroy_node()
+    pressureSub.destroy_node()
     rclpy.shutdown()
 
 if __name__ == '__main__':
