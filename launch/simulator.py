@@ -13,8 +13,8 @@ def generate_launch_description():
         ),
         Node(
             package='nemo_server',
-            executable='camera_sub',
-            name='camera_sub',
+            executable='localiser',
+            name='localiser',
         ),
         Node(
             package='rosbridge_server',

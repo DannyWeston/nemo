@@ -1,0 +1,792 @@
+[0.319s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.319s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], ament_gradle_args=None, ament_gradle_task=None, cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, gradle_args=None, gradle_task=None, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7fc11bc47730>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7fc11c5bdab0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7fc11c5bdab0>>)
+[0.345s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.345s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.345s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.345s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.345s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.346s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.346s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/ros/nemo'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ament_gradle']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ament_gradle'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.356s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'gradle', 'python']
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'gradle'
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extensions ['ignore', 'ignore_ament_install']
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extension 'ignore'
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extension 'ignore_ament_install'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extensions ['colcon_pkg']
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extension 'colcon_pkg'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extensions ['colcon_meta']
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extension 'colcon_meta'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extensions ['ament_gradle']
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extension 'ament_gradle'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extensions ['ros']
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extension 'ros'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extensions ['cmake', 'gradle', 'python']
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extension 'cmake'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extension 'gradle'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extension 'python'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extensions ['python_setup_py']
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extension 'python_setup_py'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extensions ['ignore', 'ignore_ament_install']
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extension 'ignore'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extension 'ignore_ament_install'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extensions ['colcon_pkg']
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extension 'colcon_pkg'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extensions ['colcon_meta']
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extension 'colcon_meta'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extensions ['ament_gradle']
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extension 'ament_gradle'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extensions ['ros']
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extension 'ros'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extensions ['cmake', 'gradle', 'python']
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extension 'cmake'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extension 'gradle'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extension 'python'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extensions ['python_setup_py']
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extension 'python_setup_py'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['ignore', 'ignore_ament_install']
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'ignore'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'ignore_ament_install'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['colcon_pkg']
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'colcon_pkg'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['colcon_meta']
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'colcon_meta'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['ament_gradle']
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'ament_gradle'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['ros']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'ros'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['cmake', 'gradle', 'python']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'cmake'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'gradle'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'python'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['python_setup_py']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'python_setup_py'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/movement) by extensions ['ignore', 'ignore_ament_install']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/movement) by extension 'ignore'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/movement) by extension 'ignore_ament_install'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/movement) by extensions ['colcon_pkg']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/movement) by extension 'colcon_pkg'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/movement) by extensions ['colcon_meta']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/movement) by extension 'colcon_meta'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/movement) by extensions ['ament_gradle']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/movement) by extension 'ament_gradle'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/movement) by extensions ['ros']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/movement) by extension 'ros'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/movement) by extensions ['cmake', 'gradle', 'python']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/movement) by extension 'cmake'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/movement) by extension 'gradle'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/movement) by extension 'python'
+[0.361s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/movement) by extensions ['python_setup_py']
+[0.361s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/movement) by extension 'python_setup_py'
+[0.361s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.361s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.361s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.361s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.361s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.361s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.361s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.361s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ament_gradle']
+[0.361s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ament_gradle'
+[0.361s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.361s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.361s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'gradle', 'python']
+[0.361s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.361s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'gradle'
+[0.361s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.361s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.361s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.361s] Level 1:colcon.colcon_core.package_identification:_identify(src/nemo_server) by extensions ['ignore', 'ignore_ament_install']
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(src/nemo_server) by extension 'ignore'
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(src/nemo_server) by extension 'ignore_ament_install'
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(src/nemo_server) by extensions ['colcon_pkg']
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(src/nemo_server) by extension 'colcon_pkg'
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(src/nemo_server) by extensions ['colcon_meta']
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(src/nemo_server) by extension 'colcon_meta'
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(src/nemo_server) by extensions ['ament_gradle']
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(src/nemo_server) by extension 'ament_gradle'
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(src/nemo_server) by extensions ['ros']
+[0.362s] Level 1:colcon.colcon_core.package_identification:_identify(src/nemo_server) by extension 'ros'
+[0.364s] DEBUG:colcon.colcon_core.package_identification:Package 'src/nemo_server' with type 'ros.ament_python' and name 'nemo_server'
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_tcp_endpoint) by extensions ['ignore', 'ignore_ament_install']
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_tcp_endpoint) by extension 'ignore'
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_tcp_endpoint) by extension 'ignore_ament_install'
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_tcp_endpoint) by extensions ['colcon_pkg']
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_tcp_endpoint) by extension 'colcon_pkg'
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_tcp_endpoint) by extensions ['colcon_meta']
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_tcp_endpoint) by extension 'colcon_meta'
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_tcp_endpoint) by extensions ['ament_gradle']
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_tcp_endpoint) by extension 'ament_gradle'
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_tcp_endpoint) by extensions ['ros']
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_tcp_endpoint) by extension 'ros'
+[0.365s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros_tcp_endpoint' with type 'ros.ament_python' and name 'ros_tcp_endpoint'
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite) by extensions ['ignore', 'ignore_ament_install']
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite) by extension 'ignore'
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite) by extension 'ignore_ament_install'
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite) by extensions ['colcon_pkg']
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite) by extension 'colcon_pkg'
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite) by extensions ['colcon_meta']
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite) by extension 'colcon_meta'
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite) by extensions ['ament_gradle']
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite) by extension 'ament_gradle'
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite) by extensions ['ros']
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite) by extension 'ros'
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite) by extensions ['cmake', 'gradle', 'python']
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite) by extension 'cmake'
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite) by extension 'gradle'
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite) by extension 'python'
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite) by extensions ['python_setup_py']
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite) by extension 'python_setup_py'
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosapi) by extensions ['ignore', 'ignore_ament_install']
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosapi) by extension 'ignore'
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosapi) by extension 'ignore_ament_install'
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosapi) by extensions ['colcon_pkg']
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosapi) by extension 'colcon_pkg'
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosapi) by extensions ['colcon_meta']
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosapi) by extension 'colcon_meta'
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosapi) by extensions ['ament_gradle']
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosapi) by extension 'ament_gradle'
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosapi) by extensions ['ros']
+[0.366s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosapi) by extension 'ros'
+[0.367s] DEBUG:colcon.colcon_core.package_identification:Package 'src/rosbridge_suite/rosapi' with type 'ros.ament_cmake' and name 'rosapi'
+[0.367s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosapi_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.367s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosapi_msgs) by extension 'ignore'
+[0.367s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosapi_msgs) by extension 'ignore_ament_install'
+[0.367s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosapi_msgs) by extensions ['colcon_pkg']
+[0.367s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosapi_msgs) by extension 'colcon_pkg'
+[0.367s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosapi_msgs) by extensions ['colcon_meta']
+[0.367s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosapi_msgs) by extension 'colcon_meta'
+[0.367s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosapi_msgs) by extensions ['ament_gradle']
+[0.368s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosapi_msgs) by extension 'ament_gradle'
+[0.368s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosapi_msgs) by extensions ['ros']
+[0.368s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosapi_msgs) by extension 'ros'
+[0.368s] DEBUG:colcon.colcon_core.package_identification:Package 'src/rosbridge_suite/rosapi_msgs' with type 'ros.ament_cmake' and name 'rosapi_msgs'
+[0.368s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_library) by extensions ['ignore', 'ignore_ament_install']
+[0.368s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_library) by extension 'ignore'
+[0.368s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_library) by extension 'ignore_ament_install'
+[0.368s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_library) by extensions ['colcon_pkg']
+[0.368s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_library) by extension 'colcon_pkg'
+[0.369s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_library) by extensions ['colcon_meta']
+[0.369s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_library) by extension 'colcon_meta'
+[0.369s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_library) by extensions ['ament_gradle']
+[0.369s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_library) by extension 'ament_gradle'
+[0.369s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_library) by extensions ['ros']
+[0.369s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_library) by extension 'ros'
+[0.369s] DEBUG:colcon.colcon_core.package_identification:Package 'src/rosbridge_suite/rosbridge_library' with type 'ros.ament_cmake' and name 'rosbridge_library'
+[0.370s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.370s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_msgs) by extension 'ignore'
+[0.370s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_msgs) by extension 'ignore_ament_install'
+[0.370s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_msgs) by extensions ['colcon_pkg']
+[0.370s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_msgs) by extension 'colcon_pkg'
+[0.370s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_msgs) by extensions ['colcon_meta']
+[0.370s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_msgs) by extension 'colcon_meta'
+[0.370s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_msgs) by extensions ['ament_gradle']
+[0.370s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_msgs) by extension 'ament_gradle'
+[0.370s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_msgs) by extensions ['ros']
+[0.370s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_msgs) by extension 'ros'
+[0.370s] DEBUG:colcon.colcon_core.package_identification:Package 'src/rosbridge_suite/rosbridge_msgs' with type 'ros.ament_cmake' and name 'rosbridge_msgs'
+[0.371s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_server) by extensions ['ignore', 'ignore_ament_install']
+[0.371s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_server) by extension 'ignore'
+[0.371s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_server) by extension 'ignore_ament_install'
+[0.371s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_server) by extensions ['colcon_pkg']
+[0.371s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_server) by extension 'colcon_pkg'
+[0.371s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_server) by extensions ['colcon_meta']
+[0.371s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_server) by extension 'colcon_meta'
+[0.371s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_server) by extensions ['ament_gradle']
+[0.371s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_server) by extension 'ament_gradle'
+[0.371s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_server) by extensions ['ros']
+[0.371s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_server) by extension 'ros'
+[0.372s] DEBUG:colcon.colcon_core.package_identification:Package 'src/rosbridge_suite/rosbridge_server' with type 'ros.ament_cmake' and name 'rosbridge_server'
+[0.372s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_suite) by extensions ['ignore', 'ignore_ament_install']
+[0.372s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_suite) by extension 'ignore'
+[0.372s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_suite) by extension 'ignore_ament_install'
+[0.372s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_suite) by extensions ['colcon_pkg']
+[0.372s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_suite) by extension 'colcon_pkg'
+[0.372s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_suite) by extensions ['colcon_meta']
+[0.372s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_suite) by extension 'colcon_meta'
+[0.372s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_suite) by extensions ['ament_gradle']
+[0.372s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_suite) by extension 'ament_gradle'
+[0.372s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_suite) by extensions ['ros']
+[0.372s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_suite) by extension 'ros'
+[0.373s] DEBUG:colcon.colcon_core.package_identification:Package 'src/rosbridge_suite/rosbridge_suite' with type 'ros.ament_cmake' and name 'rosbridge_suite'
+[0.373s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_test_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.373s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_test_msgs) by extension 'ignore'
+[0.373s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_test_msgs) by extension 'ignore_ament_install'
+[0.373s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_test_msgs) by extensions ['colcon_pkg']
+[0.373s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_test_msgs) by extension 'colcon_pkg'
+[0.373s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_test_msgs) by extensions ['colcon_meta']
+[0.373s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_test_msgs) by extension 'colcon_meta'
+[0.373s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_test_msgs) by extensions ['ament_gradle']
+[0.373s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_test_msgs) by extension 'ament_gradle'
+[0.373s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_test_msgs) by extensions ['ros']
+[0.373s] Level 1:colcon.colcon_core.package_identification:_identify(src/rosbridge_suite/rosbridge_test_msgs) by extension 'ros'
+[0.374s] DEBUG:colcon.colcon_core.package_identification:Package 'src/rosbridge_suite/rosbridge_test_msgs' with type 'ros.ament_cmake' and name 'rosbridge_test_msgs'
+[0.374s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.374s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.374s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.374s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.374s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.398s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.398s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.401s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 9 installed packages in /home/ros/nemo/install
+[0.402s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 192 installed packages in /opt/ros/humble
+[0.403s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'nemo_server' build argument 'ament_gradle_args' from command line to 'None'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'nemo_server' build argument 'ament_gradle_task' from command line to 'None'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'nemo_server' build argument 'cmake_args' from command line to 'None'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'nemo_server' build argument 'cmake_target' from command line to 'None'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'nemo_server' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'nemo_server' build argument 'cmake_clean_cache' from command line to 'False'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'nemo_server' build argument 'cmake_clean_first' from command line to 'False'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'nemo_server' build argument 'cmake_force_configure' from command line to 'False'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'nemo_server' build argument 'gradle_args' from command line to 'None'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'nemo_server' build argument 'gradle_task' from command line to 'None'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'nemo_server' build argument 'ament_cmake_args' from command line to 'None'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'nemo_server' build argument 'catkin_cmake_args' from command line to 'None'
+[0.444s] Level 5:colcon.colcon_core.verb:set package 'nemo_server' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.444s] DEBUG:colcon.colcon_core.verb:Building package 'nemo_server' with the following arguments: {'ament_cmake_args': None, 'ament_gradle_args': None, 'ament_gradle_task': None, 'build_base': '/home/ros/nemo/build/nemo_server', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'gradle_args': None, 'gradle_task': None, 'install_base': '/home/ros/nemo/install/nemo_server', 'merge_install': False, 'path': '/home/ros/nemo/src/nemo_server', 'symlink_install': False, 'test_result_base': None}
+[0.446s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'ament_gradle_args' from command line to 'None'
+[0.446s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'ament_gradle_task' from command line to 'None'
+[0.446s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'cmake_args' from command line to 'None'
+[0.446s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'cmake_target' from command line to 'None'
+[0.446s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.446s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'cmake_clean_cache' from command line to 'False'
+[0.446s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'cmake_clean_first' from command line to 'False'
+[0.446s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'cmake_force_configure' from command line to 'False'
+[0.446s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'gradle_args' from command line to 'None'
+[0.446s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'gradle_task' from command line to 'None'
+[0.446s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'ament_cmake_args' from command line to 'None'
+[0.446s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'catkin_cmake_args' from command line to 'None'
+[0.446s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.446s] DEBUG:colcon.colcon_core.verb:Building package 'ros_tcp_endpoint' with the following arguments: {'ament_cmake_args': None, 'ament_gradle_args': None, 'ament_gradle_task': None, 'build_base': '/home/ros/nemo/build/ros_tcp_endpoint', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'gradle_args': None, 'gradle_task': None, 'install_base': '/home/ros/nemo/install/ros_tcp_endpoint', 'merge_install': False, 'path': '/home/ros/nemo/src/ros_tcp_endpoint', 'symlink_install': False, 'test_result_base': None}
+[0.448s] Level 5:colcon.colcon_core.verb:set package 'rosapi_msgs' build argument 'ament_gradle_args' from command line to 'None'
+[0.448s] Level 5:colcon.colcon_core.verb:set package 'rosapi_msgs' build argument 'ament_gradle_task' from command line to 'None'
+[0.448s] Level 5:colcon.colcon_core.verb:set package 'rosapi_msgs' build argument 'cmake_args' from command line to 'None'
+[0.448s] Level 5:colcon.colcon_core.verb:set package 'rosapi_msgs' build argument 'cmake_target' from command line to 'None'
+[0.448s] Level 5:colcon.colcon_core.verb:set package 'rosapi_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.448s] Level 5:colcon.colcon_core.verb:set package 'rosapi_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.448s] Level 5:colcon.colcon_core.verb:set package 'rosapi_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.448s] Level 5:colcon.colcon_core.verb:set package 'rosapi_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.448s] Level 5:colcon.colcon_core.verb:set package 'rosapi_msgs' build argument 'gradle_args' from command line to 'None'
+[0.448s] Level 5:colcon.colcon_core.verb:set package 'rosapi_msgs' build argument 'gradle_task' from command line to 'None'
+[0.448s] Level 5:colcon.colcon_core.verb:set package 'rosapi_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.448s] Level 5:colcon.colcon_core.verb:set package 'rosapi_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.448s] Level 5:colcon.colcon_core.verb:set package 'rosapi_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.448s] DEBUG:colcon.colcon_core.verb:Building package 'rosapi_msgs' with the following arguments: {'ament_cmake_args': None, 'ament_gradle_args': None, 'ament_gradle_task': None, 'build_base': '/home/ros/nemo/build/rosapi_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'gradle_args': None, 'gradle_task': None, 'install_base': '/home/ros/nemo/install/rosapi_msgs', 'merge_install': False, 'path': '/home/ros/nemo/src/rosbridge_suite/rosapi_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.449s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_msgs' build argument 'ament_gradle_args' from command line to 'None'
+[0.450s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_msgs' build argument 'ament_gradle_task' from command line to 'None'
+[0.450s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_msgs' build argument 'cmake_args' from command line to 'None'
+[0.450s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_msgs' build argument 'cmake_target' from command line to 'None'
+[0.450s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.450s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.450s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.450s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.450s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_msgs' build argument 'gradle_args' from command line to 'None'
+[0.450s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_msgs' build argument 'gradle_task' from command line to 'None'
+[0.450s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.450s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.450s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.450s] DEBUG:colcon.colcon_core.verb:Building package 'rosbridge_msgs' with the following arguments: {'ament_cmake_args': None, 'ament_gradle_args': None, 'ament_gradle_task': None, 'build_base': '/home/ros/nemo/build/rosbridge_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'gradle_args': None, 'gradle_task': None, 'install_base': '/home/ros/nemo/install/rosbridge_msgs', 'merge_install': False, 'path': '/home/ros/nemo/src/rosbridge_suite/rosbridge_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.451s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_test_msgs' build argument 'ament_gradle_args' from command line to 'None'
+[0.451s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_test_msgs' build argument 'ament_gradle_task' from command line to 'None'
+[0.451s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_test_msgs' build argument 'cmake_args' from command line to 'None'
+[0.451s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_test_msgs' build argument 'cmake_target' from command line to 'None'
+[0.451s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_test_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.451s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_test_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.451s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_test_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.451s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_test_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.451s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_test_msgs' build argument 'gradle_args' from command line to 'None'
+[0.451s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_test_msgs' build argument 'gradle_task' from command line to 'None'
+[0.451s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_test_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.451s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_test_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.452s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_test_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.452s] DEBUG:colcon.colcon_core.verb:Building package 'rosbridge_test_msgs' with the following arguments: {'ament_cmake_args': None, 'ament_gradle_args': None, 'ament_gradle_task': None, 'build_base': '/home/ros/nemo/build/rosbridge_test_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'gradle_args': None, 'gradle_task': None, 'install_base': '/home/ros/nemo/install/rosbridge_test_msgs', 'merge_install': False, 'path': '/home/ros/nemo/src/rosbridge_suite/rosbridge_test_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.453s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_library' build argument 'ament_gradle_args' from command line to 'None'
+[0.453s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_library' build argument 'ament_gradle_task' from command line to 'None'
+[0.453s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_library' build argument 'cmake_args' from command line to 'None'
+[0.453s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_library' build argument 'cmake_target' from command line to 'None'
+[0.453s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_library' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.453s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_library' build argument 'cmake_clean_cache' from command line to 'False'
+[0.453s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_library' build argument 'cmake_clean_first' from command line to 'False'
+[0.453s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_library' build argument 'cmake_force_configure' from command line to 'False'
+[0.453s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_library' build argument 'gradle_args' from command line to 'None'
+[0.453s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_library' build argument 'gradle_task' from command line to 'None'
+[0.453s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_library' build argument 'ament_cmake_args' from command line to 'None'
+[0.453s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_library' build argument 'catkin_cmake_args' from command line to 'None'
+[0.453s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_library' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.453s] DEBUG:colcon.colcon_core.verb:Building package 'rosbridge_library' with the following arguments: {'ament_cmake_args': None, 'ament_gradle_args': None, 'ament_gradle_task': None, 'build_base': '/home/ros/nemo/build/rosbridge_library', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'gradle_args': None, 'gradle_task': None, 'install_base': '/home/ros/nemo/install/rosbridge_library', 'merge_install': False, 'path': '/home/ros/nemo/src/rosbridge_suite/rosbridge_library', 'symlink_install': False, 'test_result_base': None}
+[0.455s] Level 5:colcon.colcon_core.verb:set package 'rosapi' build argument 'ament_gradle_args' from command line to 'None'
+[0.455s] Level 5:colcon.colcon_core.verb:set package 'rosapi' build argument 'ament_gradle_task' from command line to 'None'
+[0.455s] Level 5:colcon.colcon_core.verb:set package 'rosapi' build argument 'cmake_args' from command line to 'None'
+[0.455s] Level 5:colcon.colcon_core.verb:set package 'rosapi' build argument 'cmake_target' from command line to 'None'
+[0.455s] Level 5:colcon.colcon_core.verb:set package 'rosapi' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.455s] Level 5:colcon.colcon_core.verb:set package 'rosapi' build argument 'cmake_clean_cache' from command line to 'False'
+[0.455s] Level 5:colcon.colcon_core.verb:set package 'rosapi' build argument 'cmake_clean_first' from command line to 'False'
+[0.455s] Level 5:colcon.colcon_core.verb:set package 'rosapi' build argument 'cmake_force_configure' from command line to 'False'
+[0.455s] Level 5:colcon.colcon_core.verb:set package 'rosapi' build argument 'gradle_args' from command line to 'None'
+[0.455s] Level 5:colcon.colcon_core.verb:set package 'rosapi' build argument 'gradle_task' from command line to 'None'
+[0.455s] Level 5:colcon.colcon_core.verb:set package 'rosapi' build argument 'ament_cmake_args' from command line to 'None'
+[0.455s] Level 5:colcon.colcon_core.verb:set package 'rosapi' build argument 'catkin_cmake_args' from command line to 'None'
+[0.455s] Level 5:colcon.colcon_core.verb:set package 'rosapi' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.455s] DEBUG:colcon.colcon_core.verb:Building package 'rosapi' with the following arguments: {'ament_cmake_args': None, 'ament_gradle_args': None, 'ament_gradle_task': None, 'build_base': '/home/ros/nemo/build/rosapi', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'gradle_args': None, 'gradle_task': None, 'install_base': '/home/ros/nemo/install/rosapi', 'merge_install': False, 'path': '/home/ros/nemo/src/rosbridge_suite/rosapi', 'symlink_install': False, 'test_result_base': None}
+[0.457s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_server' build argument 'ament_gradle_args' from command line to 'None'
+[0.457s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_server' build argument 'ament_gradle_task' from command line to 'None'
+[0.457s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_server' build argument 'cmake_args' from command line to 'None'
+[0.457s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_server' build argument 'cmake_target' from command line to 'None'
+[0.457s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_server' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.457s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_server' build argument 'cmake_clean_cache' from command line to 'False'
+[0.457s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_server' build argument 'cmake_clean_first' from command line to 'False'
+[0.457s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_server' build argument 'cmake_force_configure' from command line to 'False'
+[0.457s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_server' build argument 'gradle_args' from command line to 'None'
+[0.457s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_server' build argument 'gradle_task' from command line to 'None'
+[0.457s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_server' build argument 'ament_cmake_args' from command line to 'None'
+[0.457s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_server' build argument 'catkin_cmake_args' from command line to 'None'
+[0.457s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_server' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.457s] DEBUG:colcon.colcon_core.verb:Building package 'rosbridge_server' with the following arguments: {'ament_cmake_args': None, 'ament_gradle_args': None, 'ament_gradle_task': None, 'build_base': '/home/ros/nemo/build/rosbridge_server', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'gradle_args': None, 'gradle_task': None, 'install_base': '/home/ros/nemo/install/rosbridge_server', 'merge_install': False, 'path': '/home/ros/nemo/src/rosbridge_suite/rosbridge_server', 'symlink_install': False, 'test_result_base': None}
+[0.458s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_suite' build argument 'ament_gradle_args' from command line to 'None'
+[0.458s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_suite' build argument 'ament_gradle_task' from command line to 'None'
+[0.458s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_suite' build argument 'cmake_args' from command line to 'None'
+[0.458s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_suite' build argument 'cmake_target' from command line to 'None'
+[0.458s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_suite' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.459s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_suite' build argument 'cmake_clean_cache' from command line to 'False'
+[0.459s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_suite' build argument 'cmake_clean_first' from command line to 'False'
+[0.459s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_suite' build argument 'cmake_force_configure' from command line to 'False'
+[0.459s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_suite' build argument 'gradle_args' from command line to 'None'
+[0.459s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_suite' build argument 'gradle_task' from command line to 'None'
+[0.459s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_suite' build argument 'ament_cmake_args' from command line to 'None'
+[0.459s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_suite' build argument 'catkin_cmake_args' from command line to 'None'
+[0.459s] Level 5:colcon.colcon_core.verb:set package 'rosbridge_suite' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.459s] DEBUG:colcon.colcon_core.verb:Building package 'rosbridge_suite' with the following arguments: {'ament_cmake_args': None, 'ament_gradle_args': None, 'ament_gradle_task': None, 'build_base': '/home/ros/nemo/build/rosbridge_suite', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'gradle_args': None, 'gradle_task': None, 'install_base': '/home/ros/nemo/install/rosbridge_suite', 'merge_install': False, 'path': '/home/ros/nemo/src/rosbridge_suite/rosbridge_suite', 'symlink_install': False, 'test_result_base': None}
+[0.459s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.462s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.463s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/ros/nemo/src/rosbridge_suite/rosapi_msgs' with build type 'ament_cmake'
+[0.463s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/ros/nemo/src/rosbridge_suite/rosapi_msgs'
+[0.467s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.467s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.467s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.472s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/ros/nemo/src/rosbridge_suite/rosbridge_msgs' with build type 'ament_cmake'
+[0.472s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/ros/nemo/src/rosbridge_suite/rosbridge_msgs'
+[0.473s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.473s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.478s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/ros/nemo/src/rosbridge_suite/rosbridge_test_msgs' with build type 'ament_cmake'
+[0.478s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/ros/nemo/src/rosbridge_suite/rosbridge_test_msgs'
+[0.479s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.479s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.483s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/ros/nemo/src/nemo_server' with build type 'ament_python'
+[0.484s] Level 1:colcon.colcon_core.shell:create_environment_hook('nemo_server', 'ament_prefix_path')
+[0.485s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/nemo_server/share/nemo_server/hook/ament_prefix_path.ps1'
+[0.486s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ros/nemo/install/nemo_server/share/nemo_server/hook/ament_prefix_path.dsv'
+[0.486s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/nemo_server/share/nemo_server/hook/ament_prefix_path.sh'
+[0.488s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.488s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.496s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ros/nemo/build/rosapi_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server /usr/bin/cmake --build /home/ros/nemo/build/rosapi_msgs -- -j4 -l4
+[0.501s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ros/nemo/build/rosbridge_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server /usr/bin/cmake --build /home/ros/nemo/build/rosbridge_msgs -- -j4 -l4
+[0.504s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ros/nemo/build/rosbridge_test_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server /usr/bin/cmake --build /home/ros/nemo/build/rosbridge_test_msgs -- -j4 -l4
+[0.836s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/ros/nemo/src/nemo_server'
+[0.839s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.839s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.175s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ros/nemo/build/rosbridge_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server /usr/bin/cmake --build /home/ros/nemo/build/rosbridge_msgs -- -j4 -l4
+[1.187s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ros/nemo/build/rosapi_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server /usr/bin/cmake --build /home/ros/nemo/build/rosapi_msgs -- -j4 -l4
+[1.237s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ros/nemo/build/rosbridge_test_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server /usr/bin/cmake --build /home/ros/nemo/build/rosbridge_test_msgs -- -j4 -l4
+[1.307s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ros/nemo/build/rosbridge_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server /usr/bin/cmake --install /home/ros/nemo/build/rosbridge_msgs
+[1.317s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ros/nemo/src/nemo_server': PYTHONPATH=/home/ros/nemo/build/nemo_server/prefix_override:/home/ros/nemo/install/nemo_server/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/nemo_server build --build-base /home/ros/nemo/build/nemo_server/build install --record /home/ros/nemo/build/nemo_server/install.log --single-version-externally-managed
+[1.364s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rosbridge_msgs)
+[1.371s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_msgs' for CMake module files
+[1.372s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_msgs' for CMake config files
+[1.373s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ros/nemo/build/rosbridge_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server /usr/bin/cmake --install /home/ros/nemo/build/rosbridge_msgs
+[1.373s] Level 1:colcon.colcon_core.shell:create_environment_hook('rosbridge_msgs', 'cmake_prefix_path')
+[1.376s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_msgs/share/rosbridge_msgs/hook/cmake_prefix_path.ps1'
+[1.376s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ros/nemo/install/rosbridge_msgs/share/rosbridge_msgs/hook/cmake_prefix_path.dsv'
+[1.377s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_msgs/share/rosbridge_msgs/hook/cmake_prefix_path.sh'
+[1.378s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_msgs/lib'
+[1.378s] Level 1:colcon.colcon_core.shell:create_environment_hook('rosbridge_msgs', 'ld_library_path_lib')
+[1.380s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_msgs/share/rosbridge_msgs/hook/ld_library_path_lib.ps1'
+[1.381s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ros/nemo/install/rosbridge_msgs/share/rosbridge_msgs/hook/ld_library_path_lib.dsv'
+[1.381s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_msgs/share/rosbridge_msgs/hook/ld_library_path_lib.sh'
+[1.381s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_msgs/bin'
+[1.382s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_msgs/lib/pkgconfig/rosbridge_msgs.pc'
+[1.382s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_msgs/lib/python3.10/site-packages'
+[1.382s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_msgs/bin'
+[1.384s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_msgs/share/rosbridge_msgs/package.ps1'
+[1.386s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ros/nemo/install/rosbridge_msgs/share/rosbridge_msgs/package.dsv'
+[1.387s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_msgs/share/rosbridge_msgs/package.sh'
+[1.388s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_msgs/share/rosbridge_msgs/package.bash'
+[1.389s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_msgs/share/rosbridge_msgs/package.zsh'
+[1.390s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ros/nemo/install/rosbridge_msgs/share/colcon-core/packages/rosbridge_msgs)
+[1.487s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rosbridge_msgs)
+[1.489s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_msgs' for CMake module files
+[1.489s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_msgs' for CMake config files
+[1.490s] Level 1:colcon.colcon_core.shell:create_environment_hook('rosbridge_msgs', 'cmake_prefix_path')
+[1.491s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_msgs/share/rosbridge_msgs/hook/cmake_prefix_path.ps1'
+[1.492s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ros/nemo/install/rosbridge_msgs/share/rosbridge_msgs/hook/cmake_prefix_path.dsv'
+[1.492s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_msgs/share/rosbridge_msgs/hook/cmake_prefix_path.sh'
+[1.492s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_msgs/lib'
+[1.492s] Level 1:colcon.colcon_core.shell:create_environment_hook('rosbridge_msgs', 'ld_library_path_lib')
+[1.494s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_msgs/share/rosbridge_msgs/hook/ld_library_path_lib.ps1'
+[1.494s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ros/nemo/install/rosbridge_msgs/share/rosbridge_msgs/hook/ld_library_path_lib.dsv'
+[1.494s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_msgs/share/rosbridge_msgs/hook/ld_library_path_lib.sh'
+[1.495s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_msgs/bin'
+[1.495s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_msgs/lib/pkgconfig/rosbridge_msgs.pc'
+[1.495s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_msgs/lib/python3.10/site-packages'
+[1.495s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_msgs/bin'
+[1.497s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_msgs/share/rosbridge_msgs/package.ps1'
+[1.497s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ros/nemo/install/rosbridge_msgs/share/rosbridge_msgs/package.dsv'
+[1.498s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_msgs/share/rosbridge_msgs/package.sh'
+[1.498s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_msgs/share/rosbridge_msgs/package.bash'
+[1.498s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_msgs/share/rosbridge_msgs/package.zsh'
+[1.499s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ros/nemo/install/rosbridge_msgs/share/colcon-core/packages/rosbridge_msgs)
+[1.499s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/ros/nemo/src/ros_tcp_endpoint' with build type 'ament_python'
+[1.500s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros_tcp_endpoint', 'ament_prefix_path')
+[1.503s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/ament_prefix_path.ps1'
+[1.503s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ros/nemo/install/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/ament_prefix_path.dsv'
+[1.504s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/ament_prefix_path.sh'
+[1.506s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.506s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.754s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/ros/nemo/src/ros_tcp_endpoint'
+[1.757s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.757s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.768s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/nemo_server' for CMake module files
+[1.769s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ros/nemo/src/nemo_server' returned '0': PYTHONPATH=/home/ros/nemo/build/nemo_server/prefix_override:/home/ros/nemo/install/nemo_server/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/nemo_server build --build-base /home/ros/nemo/build/nemo_server/build install --record /home/ros/nemo/build/nemo_server/install.log --single-version-externally-managed
+[1.770s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/nemo_server' for CMake config files
+[1.770s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/nemo_server/lib'
+[1.770s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/nemo_server/bin'
+[1.771s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/nemo_server/lib/pkgconfig/nemo_server.pc'
+[1.771s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/nemo_server/lib/python3.10/site-packages'
+[1.771s] Level 1:colcon.colcon_core.shell:create_environment_hook('nemo_server', 'pythonpath')
+[1.773s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/nemo_server/share/nemo_server/hook/pythonpath.ps1'
+[1.774s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ros/nemo/install/nemo_server/share/nemo_server/hook/pythonpath.dsv'
+[1.774s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/nemo_server/share/nemo_server/hook/pythonpath.sh'
+[1.775s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/nemo_server/bin'
+[1.775s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(nemo_server)
+[1.777s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/nemo_server/share/nemo_server/package.ps1'
+[1.778s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ros/nemo/install/nemo_server/share/nemo_server/package.dsv'
+[1.778s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/nemo_server/share/nemo_server/package.sh'
+[1.779s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/nemo_server/share/nemo_server/package.bash'
+[1.779s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/nemo_server/share/nemo_server/package.zsh'
+[1.780s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ros/nemo/install/nemo_server/share/colcon-core/packages/nemo_server)
+[1.784s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ros/nemo/build/rosbridge_test_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server /usr/bin/cmake --install /home/ros/nemo/build/rosbridge_test_msgs
+[1.826s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ros/nemo/build/rosapi_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server /usr/bin/cmake --install /home/ros/nemo/build/rosapi_msgs
+[1.867s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rosbridge_test_msgs)
+[1.871s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_test_msgs' for CMake module files
+[1.886s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_test_msgs' for CMake config files
+[1.909s] Level 1:colcon.colcon_core.shell:create_environment_hook('rosbridge_test_msgs', 'cmake_prefix_path')
+[1.911s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_test_msgs/share/rosbridge_test_msgs/hook/cmake_prefix_path.ps1'
+[1.911s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ros/nemo/install/rosbridge_test_msgs/share/rosbridge_test_msgs/hook/cmake_prefix_path.dsv'
+[1.913s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_test_msgs/share/rosbridge_test_msgs/hook/cmake_prefix_path.sh'
+[1.914s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_test_msgs/lib'
+[1.915s] Level 1:colcon.colcon_core.shell:create_environment_hook('rosbridge_test_msgs', 'ld_library_path_lib')
+[1.916s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_test_msgs/share/rosbridge_test_msgs/hook/ld_library_path_lib.ps1'
+[1.917s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ros/nemo/install/rosbridge_test_msgs/share/rosbridge_test_msgs/hook/ld_library_path_lib.dsv'
+[1.921s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_test_msgs/share/rosbridge_test_msgs/hook/ld_library_path_lib.sh'
+[1.927s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_test_msgs/bin'
+[1.928s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_test_msgs/lib/pkgconfig/rosbridge_test_msgs.pc'
+[1.928s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ros/nemo/build/rosbridge_test_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server /usr/bin/cmake --install /home/ros/nemo/build/rosbridge_test_msgs
+[1.928s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_test_msgs/lib/python3.10/site-packages'
+[1.929s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_test_msgs/bin'
+[1.930s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_test_msgs/share/rosbridge_test_msgs/package.ps1'
+[1.934s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ros/nemo/install/rosbridge_test_msgs/share/rosbridge_test_msgs/package.dsv'
+[1.937s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_test_msgs/share/rosbridge_test_msgs/package.sh'
+[1.944s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_test_msgs/share/rosbridge_test_msgs/package.bash'
+[1.947s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_test_msgs/share/rosbridge_test_msgs/package.zsh'
+[1.948s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ros/nemo/install/rosbridge_test_msgs/share/colcon-core/packages/rosbridge_test_msgs)
+[1.950s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rosapi_msgs)
+[1.953s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi_msgs' for CMake module files
+[1.954s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ros/nemo/build/rosapi_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server /usr/bin/cmake --install /home/ros/nemo/build/rosapi_msgs
+[1.954s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi_msgs' for CMake config files
+[1.956s] Level 1:colcon.colcon_core.shell:create_environment_hook('rosapi_msgs', 'cmake_prefix_path')
+[1.959s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosapi_msgs/share/rosapi_msgs/hook/cmake_prefix_path.ps1'
+[1.959s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ros/nemo/install/rosapi_msgs/share/rosapi_msgs/hook/cmake_prefix_path.dsv'
+[1.959s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosapi_msgs/share/rosapi_msgs/hook/cmake_prefix_path.sh'
+[1.960s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi_msgs/lib'
+[1.960s] Level 1:colcon.colcon_core.shell:create_environment_hook('rosapi_msgs', 'ld_library_path_lib')
+[1.962s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosapi_msgs/share/rosapi_msgs/hook/ld_library_path_lib.ps1'
+[1.962s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ros/nemo/install/rosapi_msgs/share/rosapi_msgs/hook/ld_library_path_lib.dsv'
+[1.962s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosapi_msgs/share/rosapi_msgs/hook/ld_library_path_lib.sh'
+[1.963s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi_msgs/bin'
+[1.963s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi_msgs/lib/pkgconfig/rosapi_msgs.pc'
+[1.963s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi_msgs/lib/python3.10/site-packages'
+[1.963s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi_msgs/bin'
+[1.965s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosapi_msgs/share/rosapi_msgs/package.ps1'
+[1.966s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ros/nemo/install/rosapi_msgs/share/rosapi_msgs/package.dsv'
+[1.966s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosapi_msgs/share/rosapi_msgs/package.sh'
+[1.967s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosapi_msgs/share/rosapi_msgs/package.bash'
+[1.967s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosapi_msgs/share/rosapi_msgs/package.zsh'
+[1.967s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ros/nemo/install/rosapi_msgs/share/colcon-core/packages/rosapi_msgs)
+[2.126s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ros/nemo/src/ros_tcp_endpoint': PYTHONPATH=/home/ros/nemo/build/ros_tcp_endpoint/prefix_override:/home/ros/nemo/install/ros_tcp_endpoint/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/ros_tcp_endpoint build --build-base /home/ros/nemo/build/ros_tcp_endpoint/build install --record /home/ros/nemo/build/ros_tcp_endpoint/install.log --install-scripts $base/lib/ros_tcp_endpoint --single-version-externally-managed
+[2.289s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rosbridge_test_msgs)
+[2.293s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_test_msgs' for CMake module files
+[2.294s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_test_msgs' for CMake config files
+[2.296s] Level 1:colcon.colcon_core.shell:create_environment_hook('rosbridge_test_msgs', 'cmake_prefix_path')
+[2.298s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_test_msgs/share/rosbridge_test_msgs/hook/cmake_prefix_path.ps1'
+[2.299s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ros/nemo/install/rosbridge_test_msgs/share/rosbridge_test_msgs/hook/cmake_prefix_path.dsv'
+[2.299s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_test_msgs/share/rosbridge_test_msgs/hook/cmake_prefix_path.sh'
+[2.300s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_test_msgs/lib'
+[2.300s] Level 1:colcon.colcon_core.shell:create_environment_hook('rosbridge_test_msgs', 'ld_library_path_lib')
+[2.302s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_test_msgs/share/rosbridge_test_msgs/hook/ld_library_path_lib.ps1'
+[2.302s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ros/nemo/install/rosbridge_test_msgs/share/rosbridge_test_msgs/hook/ld_library_path_lib.dsv'
+[2.302s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_test_msgs/share/rosbridge_test_msgs/hook/ld_library_path_lib.sh'
+[2.303s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_test_msgs/bin'
+[2.303s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_test_msgs/lib/pkgconfig/rosbridge_test_msgs.pc'
+[2.303s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_test_msgs/lib/python3.10/site-packages'
+[2.303s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_test_msgs/bin'
+[2.305s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_test_msgs/share/rosbridge_test_msgs/package.ps1'
+[2.305s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ros/nemo/install/rosbridge_test_msgs/share/rosbridge_test_msgs/package.dsv'
+[2.306s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_test_msgs/share/rosbridge_test_msgs/package.sh'
+[2.306s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_test_msgs/share/rosbridge_test_msgs/package.bash'
+[2.307s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_test_msgs/share/rosbridge_test_msgs/package.zsh'
+[2.307s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ros/nemo/install/rosbridge_test_msgs/share/colcon-core/packages/rosbridge_test_msgs)
+[2.307s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/ros/nemo/src/rosbridge_suite/rosbridge_library' with build type 'ament_cmake'
+[2.308s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/ros/nemo/src/rosbridge_suite/rosbridge_library'
+[2.309s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.309s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.319s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ros/nemo/build/rosbridge_library': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server LD_LIBRARY_PATH=/home/ros/nemo/install/rosbridge_test_msgs/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/ros/nemo/install/rosbridge_msgs/lib:/home/ros/nemo/install/rosapi_msgs/lib /usr/bin/cmake --build /home/ros/nemo/build/rosbridge_library -- -j4 -l4
+[2.370s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rosapi_msgs)
+[2.371s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi_msgs' for CMake module files
+[2.372s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi_msgs' for CMake config files
+[2.373s] Level 1:colcon.colcon_core.shell:create_environment_hook('rosapi_msgs', 'cmake_prefix_path')
+[2.374s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosapi_msgs/share/rosapi_msgs/hook/cmake_prefix_path.ps1'
+[2.375s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ros/nemo/install/rosapi_msgs/share/rosapi_msgs/hook/cmake_prefix_path.dsv'
+[2.375s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosapi_msgs/share/rosapi_msgs/hook/cmake_prefix_path.sh'
+[2.376s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi_msgs/lib'
+[2.376s] Level 1:colcon.colcon_core.shell:create_environment_hook('rosapi_msgs', 'ld_library_path_lib')
+[2.377s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosapi_msgs/share/rosapi_msgs/hook/ld_library_path_lib.ps1'
+[2.377s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ros/nemo/install/rosapi_msgs/share/rosapi_msgs/hook/ld_library_path_lib.dsv'
+[2.378s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosapi_msgs/share/rosapi_msgs/hook/ld_library_path_lib.sh'
+[2.378s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi_msgs/bin'
+[2.378s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi_msgs/lib/pkgconfig/rosapi_msgs.pc'
+[2.378s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi_msgs/lib/python3.10/site-packages'
+[2.378s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi_msgs/bin'
+[2.380s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosapi_msgs/share/rosapi_msgs/package.ps1'
+[2.380s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ros/nemo/install/rosapi_msgs/share/rosapi_msgs/package.dsv'
+[2.381s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosapi_msgs/share/rosapi_msgs/package.sh'
+[2.382s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosapi_msgs/share/rosapi_msgs/package.bash'
+[2.382s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosapi_msgs/share/rosapi_msgs/package.zsh'
+[2.382s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ros/nemo/install/rosapi_msgs/share/colcon-core/packages/rosapi_msgs)
+[2.495s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/ros_tcp_endpoint' for CMake module files
+[2.495s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ros/nemo/src/ros_tcp_endpoint' returned '0': PYTHONPATH=/home/ros/nemo/build/ros_tcp_endpoint/prefix_override:/home/ros/nemo/install/ros_tcp_endpoint/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/ros_tcp_endpoint build --build-base /home/ros/nemo/build/ros_tcp_endpoint/build install --record /home/ros/nemo/build/ros_tcp_endpoint/install.log --install-scripts $base/lib/ros_tcp_endpoint --single-version-externally-managed
+[2.495s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/ros_tcp_endpoint' for CMake config files
+[2.496s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/ros_tcp_endpoint/lib'
+[2.496s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/ros_tcp_endpoint/bin'
+[2.496s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/ros_tcp_endpoint/lib/pkgconfig/ros_tcp_endpoint.pc'
+[2.496s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/ros_tcp_endpoint/lib/python3.10/site-packages'
+[2.496s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros_tcp_endpoint', 'pythonpath')
+[2.498s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/pythonpath.ps1'
+[2.498s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ros/nemo/install/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/pythonpath.dsv'
+[2.498s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/pythonpath.sh'
+[2.499s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/ros_tcp_endpoint/bin'
+[2.499s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ros_tcp_endpoint)
+[2.500s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/ros_tcp_endpoint/share/ros_tcp_endpoint/package.ps1'
+[2.501s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ros/nemo/install/ros_tcp_endpoint/share/ros_tcp_endpoint/package.dsv'
+[2.501s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/ros_tcp_endpoint/share/ros_tcp_endpoint/package.sh'
+[2.501s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/ros_tcp_endpoint/share/ros_tcp_endpoint/package.bash'
+[2.502s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/ros_tcp_endpoint/share/ros_tcp_endpoint/package.zsh'
+[2.502s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ros/nemo/install/ros_tcp_endpoint/share/colcon-core/packages/ros_tcp_endpoint)
+[2.625s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ros/nemo/build/rosbridge_library' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server LD_LIBRARY_PATH=/home/ros/nemo/install/rosbridge_test_msgs/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/ros/nemo/install/rosbridge_msgs/lib:/home/ros/nemo/install/rosapi_msgs/lib /usr/bin/cmake --build /home/ros/nemo/build/rosbridge_library -- -j4 -l4
+[2.644s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ros/nemo/build/rosbridge_library': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server LD_LIBRARY_PATH=/home/ros/nemo/install/rosbridge_test_msgs/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/ros/nemo/install/rosbridge_msgs/lib:/home/ros/nemo/install/rosapi_msgs/lib /usr/bin/cmake --install /home/ros/nemo/build/rosbridge_library
+[2.690s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rosbridge_library)
+[2.692s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_library' for CMake module files
+[2.692s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ros/nemo/build/rosbridge_library' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server LD_LIBRARY_PATH=/home/ros/nemo/install/rosbridge_test_msgs/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/ros/nemo/install/rosbridge_msgs/lib:/home/ros/nemo/install/rosapi_msgs/lib /usr/bin/cmake --install /home/ros/nemo/build/rosbridge_library
+[2.693s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_library' for CMake config files
+[2.693s] Level 1:colcon.colcon_core.shell:create_environment_hook('rosbridge_library', 'cmake_prefix_path')
+[2.694s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_library/share/rosbridge_library/hook/cmake_prefix_path.ps1'
+[2.695s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ros/nemo/install/rosbridge_library/share/rosbridge_library/hook/cmake_prefix_path.dsv'
+[2.695s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_library/share/rosbridge_library/hook/cmake_prefix_path.sh'
+[2.695s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_library/bin'
+[2.695s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_library/lib/pkgconfig/rosbridge_library.pc'
+[2.696s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_library/lib/python3.10/site-packages'
+[2.696s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_library/bin'
+[2.697s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_library/share/rosbridge_library/package.ps1'
+[2.697s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ros/nemo/install/rosbridge_library/share/rosbridge_library/package.dsv'
+[2.698s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_library/share/rosbridge_library/package.sh'
+[2.698s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_library/share/rosbridge_library/package.bash'
+[2.698s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_library/share/rosbridge_library/package.zsh'
+[2.699s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ros/nemo/install/rosbridge_library/share/colcon-core/packages/rosbridge_library)
+[2.717s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rosbridge_library)
+[2.719s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_library' for CMake module files
+[2.720s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_library' for CMake config files
+[2.720s] Level 1:colcon.colcon_core.shell:create_environment_hook('rosbridge_library', 'cmake_prefix_path')
+[2.721s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_library/share/rosbridge_library/hook/cmake_prefix_path.ps1'
+[2.722s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ros/nemo/install/rosbridge_library/share/rosbridge_library/hook/cmake_prefix_path.dsv'
+[2.722s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_library/share/rosbridge_library/hook/cmake_prefix_path.sh'
+[2.722s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_library/bin'
+[2.722s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_library/lib/pkgconfig/rosbridge_library.pc'
+[2.723s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_library/lib/python3.10/site-packages'
+[2.723s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_library/bin'
+[2.724s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_library/share/rosbridge_library/package.ps1'
+[2.724s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ros/nemo/install/rosbridge_library/share/rosbridge_library/package.dsv'
+[2.725s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_library/share/rosbridge_library/package.sh'
+[2.725s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_library/share/rosbridge_library/package.bash'
+[2.726s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_library/share/rosbridge_library/package.zsh'
+[2.726s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ros/nemo/install/rosbridge_library/share/colcon-core/packages/rosbridge_library)
+[2.726s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/ros/nemo/src/rosbridge_suite/rosapi' with build type 'ament_cmake'
+[2.726s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/ros/nemo/src/rosbridge_suite/rosapi'
+[2.727s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.727s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.739s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ros/nemo/build/rosapi': CMAKE_PREFIX_PATH=/home/ros/nemo/install/rosbridge_library:/home/ros/nemo/install/rosapi_msgs:/home/ros/nemo/install/rosbridge_test_msgs:/home/ros/nemo/install/rosbridge_suite:/home/ros/nemo/install/rosbridge_server:/home/ros/nemo/install/rosbridge_msgs:/home/ros/nemo/install/rosapi:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server LD_LIBRARY_PATH=/home/ros/nemo/install/rosapi_msgs/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/ros/nemo/install/rosbridge_test_msgs/lib:/home/ros/nemo/install/rosbridge_msgs/lib /usr/bin/cmake --build /home/ros/nemo/build/rosapi -- -j4 -l4
+[3.026s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ros/nemo/build/rosapi' returned '0': CMAKE_PREFIX_PATH=/home/ros/nemo/install/rosbridge_library:/home/ros/nemo/install/rosapi_msgs:/home/ros/nemo/install/rosbridge_test_msgs:/home/ros/nemo/install/rosbridge_suite:/home/ros/nemo/install/rosbridge_server:/home/ros/nemo/install/rosbridge_msgs:/home/ros/nemo/install/rosapi:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server LD_LIBRARY_PATH=/home/ros/nemo/install/rosapi_msgs/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/ros/nemo/install/rosbridge_test_msgs/lib:/home/ros/nemo/install/rosbridge_msgs/lib /usr/bin/cmake --build /home/ros/nemo/build/rosapi -- -j4 -l4
+[3.045s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ros/nemo/build/rosapi': CMAKE_PREFIX_PATH=/home/ros/nemo/install/rosbridge_library:/home/ros/nemo/install/rosapi_msgs:/home/ros/nemo/install/rosbridge_test_msgs:/home/ros/nemo/install/rosbridge_suite:/home/ros/nemo/install/rosbridge_server:/home/ros/nemo/install/rosbridge_msgs:/home/ros/nemo/install/rosapi:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server LD_LIBRARY_PATH=/home/ros/nemo/install/rosapi_msgs/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/ros/nemo/install/rosbridge_test_msgs/lib:/home/ros/nemo/install/rosbridge_msgs/lib /usr/bin/cmake --install /home/ros/nemo/build/rosapi
+[3.089s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rosapi)
+[3.091s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi' for CMake module files
+[3.092s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ros/nemo/build/rosapi' returned '0': CMAKE_PREFIX_PATH=/home/ros/nemo/install/rosbridge_library:/home/ros/nemo/install/rosapi_msgs:/home/ros/nemo/install/rosbridge_test_msgs:/home/ros/nemo/install/rosbridge_suite:/home/ros/nemo/install/rosbridge_server:/home/ros/nemo/install/rosbridge_msgs:/home/ros/nemo/install/rosapi:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server LD_LIBRARY_PATH=/home/ros/nemo/install/rosapi_msgs/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/ros/nemo/install/rosbridge_test_msgs/lib:/home/ros/nemo/install/rosbridge_msgs/lib /usr/bin/cmake --install /home/ros/nemo/build/rosapi
+[3.092s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi' for CMake config files
+[3.093s] Level 1:colcon.colcon_core.shell:create_environment_hook('rosapi', 'cmake_prefix_path')
+[3.094s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosapi/share/rosapi/hook/cmake_prefix_path.ps1'
+[3.094s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ros/nemo/install/rosapi/share/rosapi/hook/cmake_prefix_path.dsv'
+[3.095s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosapi/share/rosapi/hook/cmake_prefix_path.sh'
+[3.095s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi/lib'
+[3.095s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi/bin'
+[3.095s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi/lib/pkgconfig/rosapi.pc'
+[3.095s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi/lib/python3.10/site-packages'
+[3.096s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi/bin'
+[3.097s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosapi/share/rosapi/package.ps1'
+[3.097s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ros/nemo/install/rosapi/share/rosapi/package.dsv'
+[3.098s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosapi/share/rosapi/package.sh'
+[3.098s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosapi/share/rosapi/package.bash'
+[3.098s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosapi/share/rosapi/package.zsh'
+[3.098s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ros/nemo/install/rosapi/share/colcon-core/packages/rosapi)
+[3.118s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rosapi)
+[3.120s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi' for CMake module files
+[3.120s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi' for CMake config files
+[3.120s] Level 1:colcon.colcon_core.shell:create_environment_hook('rosapi', 'cmake_prefix_path')
+[3.122s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosapi/share/rosapi/hook/cmake_prefix_path.ps1'
+[3.122s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ros/nemo/install/rosapi/share/rosapi/hook/cmake_prefix_path.dsv'
+[3.122s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosapi/share/rosapi/hook/cmake_prefix_path.sh'
+[3.123s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi/lib'
+[3.123s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi/bin'
+[3.123s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi/lib/pkgconfig/rosapi.pc'
+[3.123s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi/lib/python3.10/site-packages'
+[3.123s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosapi/bin'
+[3.125s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosapi/share/rosapi/package.ps1'
+[3.125s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ros/nemo/install/rosapi/share/rosapi/package.dsv'
+[3.125s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosapi/share/rosapi/package.sh'
+[3.126s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosapi/share/rosapi/package.bash'
+[3.126s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosapi/share/rosapi/package.zsh'
+[3.126s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ros/nemo/install/rosapi/share/colcon-core/packages/rosapi)
+[3.127s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/ros/nemo/src/rosbridge_suite/rosbridge_server' with build type 'ament_cmake'
+[3.127s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/ros/nemo/src/rosbridge_suite/rosbridge_server'
+[3.128s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.128s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.141s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ros/nemo/build/rosbridge_server': CMAKE_PREFIX_PATH=/home/ros/nemo/install/rosapi:/home/ros/nemo/install/rosbridge_library:/home/ros/nemo/install/rosbridge_msgs:/home/ros/nemo/install/rosapi_msgs:/home/ros/nemo/install/rosbridge_test_msgs:/home/ros/nemo/install/rosbridge_suite:/home/ros/nemo/install/rosbridge_server:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server LD_LIBRARY_PATH=/home/ros/nemo/install/rosbridge_msgs/lib:/home/ros/nemo/install/rosapi_msgs/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/ros/nemo/install/rosbridge_test_msgs/lib /usr/bin/cmake --build /home/ros/nemo/build/rosbridge_server -- -j4 -l4
+[3.433s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ros/nemo/build/rosbridge_server' returned '0': CMAKE_PREFIX_PATH=/home/ros/nemo/install/rosapi:/home/ros/nemo/install/rosbridge_library:/home/ros/nemo/install/rosbridge_msgs:/home/ros/nemo/install/rosapi_msgs:/home/ros/nemo/install/rosbridge_test_msgs:/home/ros/nemo/install/rosbridge_suite:/home/ros/nemo/install/rosbridge_server:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server LD_LIBRARY_PATH=/home/ros/nemo/install/rosbridge_msgs/lib:/home/ros/nemo/install/rosapi_msgs/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/ros/nemo/install/rosbridge_test_msgs/lib /usr/bin/cmake --build /home/ros/nemo/build/rosbridge_server -- -j4 -l4
+[3.451s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ros/nemo/build/rosbridge_server': CMAKE_PREFIX_PATH=/home/ros/nemo/install/rosapi:/home/ros/nemo/install/rosbridge_library:/home/ros/nemo/install/rosbridge_msgs:/home/ros/nemo/install/rosapi_msgs:/home/ros/nemo/install/rosbridge_test_msgs:/home/ros/nemo/install/rosbridge_suite:/home/ros/nemo/install/rosbridge_server:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server LD_LIBRARY_PATH=/home/ros/nemo/install/rosbridge_msgs/lib:/home/ros/nemo/install/rosapi_msgs/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/ros/nemo/install/rosbridge_test_msgs/lib /usr/bin/cmake --install /home/ros/nemo/build/rosbridge_server
+[3.495s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rosbridge_server)
+[3.497s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_server' for CMake module files
+[3.497s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ros/nemo/build/rosbridge_server' returned '0': CMAKE_PREFIX_PATH=/home/ros/nemo/install/rosapi:/home/ros/nemo/install/rosbridge_library:/home/ros/nemo/install/rosbridge_msgs:/home/ros/nemo/install/rosapi_msgs:/home/ros/nemo/install/rosbridge_test_msgs:/home/ros/nemo/install/rosbridge_suite:/home/ros/nemo/install/rosbridge_server:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server LD_LIBRARY_PATH=/home/ros/nemo/install/rosbridge_msgs/lib:/home/ros/nemo/install/rosapi_msgs/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/ros/nemo/install/rosbridge_test_msgs/lib /usr/bin/cmake --install /home/ros/nemo/build/rosbridge_server
+[3.498s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_server' for CMake config files
+[3.498s] Level 1:colcon.colcon_core.shell:create_environment_hook('rosbridge_server', 'cmake_prefix_path')
+[3.500s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_server/share/rosbridge_server/hook/cmake_prefix_path.ps1'
+[3.501s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ros/nemo/install/rosbridge_server/share/rosbridge_server/hook/cmake_prefix_path.dsv'
+[3.501s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_server/share/rosbridge_server/hook/cmake_prefix_path.sh'
+[3.501s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_server/lib'
+[3.502s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_server/bin'
+[3.502s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_server/lib/pkgconfig/rosbridge_server.pc'
+[3.502s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_server/lib/python3.10/site-packages'
+[3.502s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_server/bin'
+[3.503s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_server/share/rosbridge_server/package.ps1'
+[3.504s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ros/nemo/install/rosbridge_server/share/rosbridge_server/package.dsv'
+[3.504s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_server/share/rosbridge_server/package.sh'
+[3.504s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_server/share/rosbridge_server/package.bash'
+[3.504s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_server/share/rosbridge_server/package.zsh'
+[3.505s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ros/nemo/install/rosbridge_server/share/colcon-core/packages/rosbridge_server)
+[3.524s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rosbridge_server)
+[3.526s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_server' for CMake module files
+[3.526s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_server' for CMake config files
+[3.526s] Level 1:colcon.colcon_core.shell:create_environment_hook('rosbridge_server', 'cmake_prefix_path')
+[3.528s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_server/share/rosbridge_server/hook/cmake_prefix_path.ps1'
+[3.528s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ros/nemo/install/rosbridge_server/share/rosbridge_server/hook/cmake_prefix_path.dsv'
+[3.528s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_server/share/rosbridge_server/hook/cmake_prefix_path.sh'
+[3.529s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_server/lib'
+[3.529s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_server/bin'
+[3.529s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_server/lib/pkgconfig/rosbridge_server.pc'
+[3.529s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_server/lib/python3.10/site-packages'
+[3.529s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_server/bin'
+[3.531s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_server/share/rosbridge_server/package.ps1'
+[3.531s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ros/nemo/install/rosbridge_server/share/rosbridge_server/package.dsv'
+[3.531s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_server/share/rosbridge_server/package.sh'
+[3.532s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_server/share/rosbridge_server/package.bash'
+[3.532s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_server/share/rosbridge_server/package.zsh'
+[3.532s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ros/nemo/install/rosbridge_server/share/colcon-core/packages/rosbridge_server)
+[3.533s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/ros/nemo/src/rosbridge_suite/rosbridge_suite' with build type 'ament_cmake'
+[3.533s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/ros/nemo/src/rosbridge_suite/rosbridge_suite'
+[3.534s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.534s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.551s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ros/nemo/build/rosbridge_suite': CMAKE_PREFIX_PATH=/home/ros/nemo/install/rosbridge_server:/home/ros/nemo/install/rosapi:/home/ros/nemo/install/rosbridge_library:/home/ros/nemo/install/rosbridge_msgs:/home/ros/nemo/install/rosapi_msgs:/home/ros/nemo/install/rosbridge_test_msgs:/home/ros/nemo/install/rosbridge_suite:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server LD_LIBRARY_PATH=/home/ros/nemo/install/rosbridge_msgs/lib:/home/ros/nemo/install/rosapi_msgs/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/ros/nemo/install/rosbridge_test_msgs/lib /usr/bin/cmake --build /home/ros/nemo/build/rosbridge_suite -- -j4 -l4
+[3.578s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ros/nemo/build/rosbridge_suite' returned '0': CMAKE_PREFIX_PATH=/home/ros/nemo/install/rosbridge_server:/home/ros/nemo/install/rosapi:/home/ros/nemo/install/rosbridge_library:/home/ros/nemo/install/rosbridge_msgs:/home/ros/nemo/install/rosapi_msgs:/home/ros/nemo/install/rosbridge_test_msgs:/home/ros/nemo/install/rosbridge_suite:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server LD_LIBRARY_PATH=/home/ros/nemo/install/rosbridge_msgs/lib:/home/ros/nemo/install/rosapi_msgs/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/ros/nemo/install/rosbridge_test_msgs/lib /usr/bin/cmake --build /home/ros/nemo/build/rosbridge_suite -- -j4 -l4
+[3.594s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ros/nemo/build/rosbridge_suite': CMAKE_PREFIX_PATH=/home/ros/nemo/install/rosbridge_server:/home/ros/nemo/install/rosapi:/home/ros/nemo/install/rosbridge_library:/home/ros/nemo/install/rosbridge_msgs:/home/ros/nemo/install/rosapi_msgs:/home/ros/nemo/install/rosbridge_test_msgs:/home/ros/nemo/install/rosbridge_suite:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server LD_LIBRARY_PATH=/home/ros/nemo/install/rosbridge_msgs/lib:/home/ros/nemo/install/rosapi_msgs/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/ros/nemo/install/rosbridge_test_msgs/lib /usr/bin/cmake --install /home/ros/nemo/build/rosbridge_suite
+[3.602s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rosbridge_suite)
+[3.604s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_suite' for CMake module files
+[3.605s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ros/nemo/build/rosbridge_suite' returned '0': CMAKE_PREFIX_PATH=/home/ros/nemo/install/rosbridge_server:/home/ros/nemo/install/rosapi:/home/ros/nemo/install/rosbridge_library:/home/ros/nemo/install/rosbridge_msgs:/home/ros/nemo/install/rosapi_msgs:/home/ros/nemo/install/rosbridge_test_msgs:/home/ros/nemo/install/rosbridge_suite:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server LD_LIBRARY_PATH=/home/ros/nemo/install/rosbridge_msgs/lib:/home/ros/nemo/install/rosapi_msgs/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/ros/nemo/install/rosbridge_test_msgs/lib /usr/bin/cmake --install /home/ros/nemo/build/rosbridge_suite
+[3.605s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_suite' for CMake config files
+[3.606s] Level 1:colcon.colcon_core.shell:create_environment_hook('rosbridge_suite', 'cmake_prefix_path')
+[3.608s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_suite/share/rosbridge_suite/hook/cmake_prefix_path.ps1'
+[3.608s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ros/nemo/install/rosbridge_suite/share/rosbridge_suite/hook/cmake_prefix_path.dsv'
+[3.609s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_suite/share/rosbridge_suite/hook/cmake_prefix_path.sh'
+[3.609s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_suite/bin'
+[3.609s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_suite/lib/pkgconfig/rosbridge_suite.pc'
+[3.610s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_suite/lib/python3.10/site-packages'
+[3.610s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_suite/bin'
+[3.612s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_suite/share/rosbridge_suite/package.ps1'
+[3.612s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ros/nemo/install/rosbridge_suite/share/rosbridge_suite/package.dsv'
+[3.613s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_suite/share/rosbridge_suite/package.sh'
+[3.613s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_suite/share/rosbridge_suite/package.bash'
+[3.613s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_suite/share/rosbridge_suite/package.zsh'
+[3.614s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ros/nemo/install/rosbridge_suite/share/colcon-core/packages/rosbridge_suite)
+[3.631s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rosbridge_suite)
+[3.632s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_suite' for CMake module files
+[3.633s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_suite' for CMake config files
+[3.633s] Level 1:colcon.colcon_core.shell:create_environment_hook('rosbridge_suite', 'cmake_prefix_path')
+[3.634s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_suite/share/rosbridge_suite/hook/cmake_prefix_path.ps1'
+[3.635s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ros/nemo/install/rosbridge_suite/share/rosbridge_suite/hook/cmake_prefix_path.dsv'
+[3.635s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ros/nemo/install/rosbridge_suite/share/rosbridge_suite/hook/cmake_prefix_path.sh'
+[3.635s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_suite/bin'
+[3.635s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_suite/lib/pkgconfig/rosbridge_suite.pc'
+[3.636s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_suite/lib/python3.10/site-packages'
+[3.636s] Level 1:colcon.colcon_core.environment:checking '/home/ros/nemo/install/rosbridge_suite/bin'
+[3.637s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_suite/share/rosbridge_suite/package.ps1'
+[3.637s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ros/nemo/install/rosbridge_suite/share/rosbridge_suite/package.dsv'
+[3.638s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_suite/share/rosbridge_suite/package.sh'
+[3.638s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_suite/share/rosbridge_suite/package.bash'
+[3.638s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros/nemo/install/rosbridge_suite/share/rosbridge_suite/package.zsh'
+[3.639s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ros/nemo/install/rosbridge_suite/share/colcon-core/packages/rosbridge_suite)
+[3.639s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[3.639s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[3.640s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[3.640s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[3.645s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[3.645s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[3.645s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[3.645s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[3.646s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.Notifications was not provided by any .service files
+[3.646s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[3.648s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ros/nemo/install/local_setup.ps1'
+[3.649s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/ros/nemo/install/_local_setup_util_ps1.py'
+[3.651s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ros/nemo/install/setup.ps1'
+[3.652s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ros/nemo/install/local_setup.sh'
+[3.653s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/ros/nemo/install/_local_setup_util_sh.py'
+[3.653s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ros/nemo/install/setup.sh'
+[3.654s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ros/nemo/install/local_setup.bash'
+[3.655s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ros/nemo/install/setup.bash'
+[3.656s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ros/nemo/install/local_setup.zsh'
+[3.657s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ros/nemo/install/setup.zsh'

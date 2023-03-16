@@ -1,0 +1,45 @@
+[0.010s] Invoking command in '/home/ros/nemo/build/rosapi': CMAKE_PREFIX_PATH=/home/ros/nemo/install/rosbridge_library:/home/ros/nemo/install/rosapi_msgs:/home/ros/nemo/install/rosbridge_test_msgs:/home/ros/nemo/install/rosbridge_suite:/home/ros/nemo/install/rosbridge_server:/home/ros/nemo/install/rosbridge_msgs:/home/ros/nemo/install/rosapi:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server LD_LIBRARY_PATH=/home/ros/nemo/install/rosapi_msgs/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/ros/nemo/install/rosbridge_test_msgs/lib:/home/ros/nemo/install/rosbridge_msgs/lib /usr/bin/cmake --build /home/ros/nemo/build/rosapi -- -j4 -l4
+[0.051s] Built target ament_cmake_python_copy_rosapi
+[0.264s] running egg_info
+[0.265s] writing rosapi.egg-info/PKG-INFO
+[0.265s] writing dependency_links to rosapi.egg-info/dependency_links.txt
+[0.266s] writing top-level names to rosapi.egg-info/top_level.txt
+[0.268s] reading manifest file 'rosapi.egg-info/SOURCES.txt'
+[0.268s] writing manifest file 'rosapi.egg-info/SOURCES.txt'
+[0.289s] Built target ament_cmake_python_build_rosapi_egg
+[0.297s] Invoked command in '/home/ros/nemo/build/rosapi' returned '0': CMAKE_PREFIX_PATH=/home/ros/nemo/install/rosbridge_library:/home/ros/nemo/install/rosapi_msgs:/home/ros/nemo/install/rosbridge_test_msgs:/home/ros/nemo/install/rosbridge_suite:/home/ros/nemo/install/rosbridge_server:/home/ros/nemo/install/rosbridge_msgs:/home/ros/nemo/install/rosapi:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server LD_LIBRARY_PATH=/home/ros/nemo/install/rosapi_msgs/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/ros/nemo/install/rosbridge_test_msgs/lib:/home/ros/nemo/install/rosbridge_msgs/lib /usr/bin/cmake --build /home/ros/nemo/build/rosapi -- -j4 -l4
+[0.316s] Invoking command in '/home/ros/nemo/build/rosapi': CMAKE_PREFIX_PATH=/home/ros/nemo/install/rosbridge_library:/home/ros/nemo/install/rosapi_msgs:/home/ros/nemo/install/rosbridge_test_msgs:/home/ros/nemo/install/rosbridge_suite:/home/ros/nemo/install/rosbridge_server:/home/ros/nemo/install/rosbridge_msgs:/home/ros/nemo/install/rosapi:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server LD_LIBRARY_PATH=/home/ros/nemo/install/rosapi_msgs/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/ros/nemo/install/rosbridge_test_msgs/lib:/home/ros/nemo/install/rosbridge_msgs/lib /usr/bin/cmake --install /home/ros/nemo/build/rosapi
+[0.323s] -- Install configuration: ""
+[0.323s] -- Up-to-date: /home/ros/nemo/install/rosapi/share/rosapi/environment/pythonpath.sh
+[0.323s] -- Up-to-date: /home/ros/nemo/install/rosapi/share/rosapi/environment/pythonpath.dsv
+[0.323s] -- Up-to-date: /home/ros/nemo/install/rosapi/local/lib/python3.10/dist-packages/rosapi-1.3.1-py3.10.egg-info
+[0.323s] -- Installing: /home/ros/nemo/install/rosapi/local/lib/python3.10/dist-packages/rosapi-1.3.1-py3.10.egg-info/SOURCES.txt
+[0.324s] -- Installing: /home/ros/nemo/install/rosapi/local/lib/python3.10/dist-packages/rosapi-1.3.1-py3.10.egg-info/PKG-INFO
+[0.324s] -- Installing: /home/ros/nemo/install/rosapi/local/lib/python3.10/dist-packages/rosapi-1.3.1-py3.10.egg-info/top_level.txt
+[0.324s] -- Installing: /home/ros/nemo/install/rosapi/local/lib/python3.10/dist-packages/rosapi-1.3.1-py3.10.egg-info/dependency_links.txt
+[0.324s] -- Up-to-date: /home/ros/nemo/install/rosapi/local/lib/python3.10/dist-packages/rosapi
+[0.324s] -- Up-to-date: /home/ros/nemo/install/rosapi/local/lib/python3.10/dist-packages/rosapi/proxy.py
+[0.324s] -- Up-to-date: /home/ros/nemo/install/rosapi/local/lib/python3.10/dist-packages/rosapi/__init__.py
+[0.324s] -- Up-to-date: /home/ros/nemo/install/rosapi/local/lib/python3.10/dist-packages/rosapi/stringify_field_types.py
+[0.324s] -- Up-to-date: /home/ros/nemo/install/rosapi/local/lib/python3.10/dist-packages/rosapi/objectutils.py
+[0.325s] -- Up-to-date: /home/ros/nemo/install/rosapi/local/lib/python3.10/dist-packages/rosapi/params.py
+[0.325s] -- Up-to-date: /home/ros/nemo/install/rosapi/local/lib/python3.10/dist-packages/rosapi/glob_helper.py
+[0.354s] Listing '/home/ros/nemo/install/rosapi/local/lib/python3.10/dist-packages/rosapi'...
+[0.358s] -- Up-to-date: /home/ros/nemo/install/rosapi/share/ament_index/resource_index/package_run_dependencies/rosapi
+[0.358s] -- Up-to-date: /home/ros/nemo/install/rosapi/share/ament_index/resource_index/parent_prefix_path/rosapi
+[0.359s] -- Up-to-date: /home/ros/nemo/install/rosapi/share/rosapi/environment/ament_prefix_path.sh
+[0.359s] -- Up-to-date: /home/ros/nemo/install/rosapi/share/rosapi/environment/ament_prefix_path.dsv
+[0.359s] -- Up-to-date: /home/ros/nemo/install/rosapi/share/rosapi/environment/path.sh
+[0.359s] -- Up-to-date: /home/ros/nemo/install/rosapi/share/rosapi/environment/path.dsv
+[0.359s] -- Up-to-date: /home/ros/nemo/install/rosapi/share/rosapi/local_setup.bash
+[0.359s] -- Up-to-date: /home/ros/nemo/install/rosapi/share/rosapi/local_setup.sh
+[0.359s] -- Up-to-date: /home/ros/nemo/install/rosapi/share/rosapi/local_setup.zsh
+[0.359s] -- Up-to-date: /home/ros/nemo/install/rosapi/share/rosapi/local_setup.dsv
+[0.359s] -- Installing: /home/ros/nemo/install/rosapi/share/rosapi/package.dsv
+[0.360s] -- Up-to-date: /home/ros/nemo/install/rosapi/share/ament_index/resource_index/packages/rosapi
+[0.360s] -- Up-to-date: /home/ros/nemo/install/rosapi/share/rosapi/cmake/rosapiConfig.cmake
+[0.360s] -- Up-to-date: /home/ros/nemo/install/rosapi/share/rosapi/cmake/rosapiConfig-version.cmake
+[0.360s] -- Up-to-date: /home/ros/nemo/install/rosapi/share/rosapi/package.xml
+[0.360s] -- Up-to-date: /home/ros/nemo/install/rosapi/lib/rosapi/rosapi_node
+[0.360s] -- Up-to-date: /home/ros/nemo/install/rosapi/share/rosapi/mapping_rules.yaml
+[0.363s] Invoked command in '/home/ros/nemo/build/rosapi' returned '0': CMAKE_PREFIX_PATH=/home/ros/nemo/install/rosbridge_library:/home/ros/nemo/install/rosapi_msgs:/home/ros/nemo/install/rosbridge_test_msgs:/home/ros/nemo/install/rosbridge_suite:/home/ros/nemo/install/rosbridge_server:/home/ros/nemo/install/rosbridge_msgs:/home/ros/nemo/install/rosapi:/opt/ros/humble:/home/ros/nemo/install/ros_tcp_endpoint:/home/ros/nemo/install/nemo_server LD_LIBRARY_PATH=/home/ros/nemo/install/rosapi_msgs/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/ros/nemo/install/rosbridge_test_msgs/lib:/home/ros/nemo/install/rosbridge_msgs/lib /usr/bin/cmake --install /home/ros/nemo/build/rosapi

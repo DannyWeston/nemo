@@ -4,18 +4,31 @@ writing dependency_links to ../../build/nemo_server/nemo_server.egg-info/depende
 writing entry points to ../../build/nemo_server/nemo_server.egg-info/entry_points.txt
 writing requirements to ../../build/nemo_server/nemo_server.egg-info/requires.txt
 writing top-level names to ../../build/nemo_server/nemo_server.egg-info/top_level.txt
+package init file 'nemo_server/lib/__init__.py' not found (or not a regular file)
 reading manifest file '../../build/nemo_server/nemo_server.egg-info/SOURCES.txt'
 writing manifest file '../../build/nemo_server/nemo_server.egg-info/SOURCES.txt'
 running build
 running build_py
+copying nemo_server/localiser.py -> /home/ros/nemo/build/nemo_server/build/lib/nemo_server
+copying nemo_server/lib/camera_listener.py -> /home/ros/nemo/build/nemo_server/build/lib/nemo_server/lib
+copying nemo_server/lib/pressure_listener.py -> /home/ros/nemo/build/nemo_server/build/lib/nemo_server/lib
+copying nemo_server/lib/odom_listener.py -> /home/ros/nemo/build/nemo_server/build/lib/nemo_server/lib
 running install
 /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
   warnings.warn(
 running install_lib
+copying /home/ros/nemo/build/nemo_server/build/lib/nemo_server/lib/camera_listener.py -> /home/ros/nemo/install/nemo_server/lib/python3.10/site-packages/nemo_server/lib
+copying /home/ros/nemo/build/nemo_server/build/lib/nemo_server/lib/pressure_listener.py -> /home/ros/nemo/install/nemo_server/lib/python3.10/site-packages/nemo_server/lib
+copying /home/ros/nemo/build/nemo_server/build/lib/nemo_server/lib/odom_listener.py -> /home/ros/nemo/install/nemo_server/lib/python3.10/site-packages/nemo_server/lib
+copying /home/ros/nemo/build/nemo_server/build/lib/nemo_server/localiser.py -> /home/ros/nemo/install/nemo_server/lib/python3.10/site-packages/nemo_server
+byte-compiling /home/ros/nemo/install/nemo_server/lib/python3.10/site-packages/nemo_server/lib/camera_listener.py to camera_listener.cpython-310.pyc
+byte-compiling /home/ros/nemo/install/nemo_server/lib/python3.10/site-packages/nemo_server/lib/pressure_listener.py to pressure_listener.cpython-310.pyc
+byte-compiling /home/ros/nemo/install/nemo_server/lib/python3.10/site-packages/nemo_server/lib/odom_listener.py to odom_listener.cpython-310.pyc
+byte-compiling /home/ros/nemo/install/nemo_server/lib/python3.10/site-packages/nemo_server/localiser.py to localiser.cpython-310.pyc
 running install_data
 running install_egg_info
 removing '/home/ros/nemo/install/nemo_server/lib/python3.10/site-packages/nemo_server-0.0.0-py3.10.egg-info' (and everything under it)
 Copying ../../build/nemo_server/nemo_server.egg-info to /home/ros/nemo/install/nemo_server/lib/python3.10/site-packages/nemo_server-0.0.0-py3.10.egg-info
 running install_scripts
-Installing camera_sub script to /home/ros/nemo/install/nemo_server/lib/nemo_server
+Installing localiser script to /home/ros/nemo/install/nemo_server/lib/nemo_server
 writing list of installed files to '/home/ros/nemo/build/nemo_server/install.log'
