@@ -1,35 +1,24 @@
-[35m[1mConsolidate compiler generated dependencies of target rosbridge_test_msgs__rosidl_generator_c[0m
 [  0%] Built target rosbridge_test_msgs__cpp
 [  0%] Built target ament_cmake_python_copy_rosbridge_test_msgs
 [ 12%] Built target rosbridge_test_msgs__rosidl_generator_c
-[35m[1mConsolidate compiler generated dependencies of target rosbridge_test_msgs__rosidl_typesupport_fastrtps_cpp[0m
-[35m[1mConsolidate compiler generated dependencies of target rosbridge_test_msgs__rosidl_typesupport_introspection_cpp[0m
-[35m[1mConsolidate compiler generated dependencies of target rosbridge_test_msgs__rosidl_typesupport_cpp[0m
-[ 25%] Built target rosbridge_test_msgs__rosidl_typesupport_introspection_cpp
-[ 37%] Built target rosbridge_test_msgs__rosidl_typesupport_fastrtps_cpp
-[ 49%] Built target rosbridge_test_msgs__rosidl_typesupport_cpp
-[35m[1mConsolidate compiler generated dependencies of target rosbridge_test_msgs__rosidl_typesupport_fastrtps_c[0m
-[35m[1mConsolidate compiler generated dependencies of target rosbridge_test_msgs__rosidl_typesupport_introspection_c[0m
+[ 24%] Built target rosbridge_test_msgs__rosidl_typesupport_cpp
+[ 37%] Built target rosbridge_test_msgs__rosidl_typesupport_introspection_cpp
+[ 49%] Built target rosbridge_test_msgs__rosidl_typesupport_fastrtps_cpp
 [ 61%] Built target rosbridge_test_msgs__rosidl_typesupport_fastrtps_c
-[35m[1mConsolidate compiler generated dependencies of target rosbridge_test_msgs__rosidl_typesupport_c[0m
 [ 73%] Built target rosbridge_test_msgs__rosidl_typesupport_introspection_c
 [ 85%] Built target rosbridge_test_msgs__rosidl_typesupport_c
-[ 85%] Built target rosbridge_test_msgs
 running egg_info
 writing rosbridge_test_msgs.egg-info/PKG-INFO
 writing dependency_links to rosbridge_test_msgs.egg-info/dependency_links.txt
 writing top-level names to rosbridge_test_msgs.egg-info/top_level.txt
 reading manifest file 'rosbridge_test_msgs.egg-info/SOURCES.txt'
 writing manifest file 'rosbridge_test_msgs.egg-info/SOURCES.txt'
+[ 85%] Built target rosbridge_test_msgs
+[ 85%] Built target ament_cmake_python_build_rosbridge_test_msgs_egg
 [ 86%] Built target rosbridge_test_msgs__py
-[35m[1mConsolidate compiler generated dependencies of target rosbridge_test_msgs__rosidl_generator_py[0m
-[ 86%] Built target ament_cmake_python_build_rosbridge_test_msgs_egg
 [ 97%] Built target rosbridge_test_msgs__rosidl_generator_py
-[35m[1mConsolidate compiler generated dependencies of target rosbridge_test_msgs__rosidl_typesupport_introspection_c__pyext[0m
-[ 98%] Built target rosbridge_test_msgs__rosidl_typesupport_introspection_c__pyext
-[35m[1mConsolidate compiler generated dependencies of target rosbridge_test_msgs__rosidl_typesupport_fastrtps_c__pyext[0m
-[35m[1mConsolidate compiler generated dependencies of target rosbridge_test_msgs__rosidl_typesupport_c__pyext[0m
-[ 99%] Built target rosbridge_test_msgs__rosidl_typesupport_fastrtps_c__pyext
+[ 98%] Built target rosbridge_test_msgs__rosidl_typesupport_fastrtps_c__pyext
+[ 99%] Built target rosbridge_test_msgs__rosidl_typesupport_introspection_c__pyext
 [100%] Built target rosbridge_test_msgs__rosidl_typesupport_c__pyext
 -- Install configuration: ""
 -- Up-to-date: /home/ros/nemo/install/rosbridge_test_msgs/share/ament_index/resource_index/rosidl_interfaces/rosbridge_test_msgs

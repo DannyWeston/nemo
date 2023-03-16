@@ -32,7 +32,7 @@ Listing '/home/ros/nemo/install/rosapi/local/lib/python3.10/dist-packages/rosapi
 -- Up-to-date: /home/ros/nemo/install/rosapi/share/rosapi/local_setup.sh
 -- Up-to-date: /home/ros/nemo/install/rosapi/share/rosapi/local_setup.zsh
 -- Up-to-date: /home/ros/nemo/install/rosapi/share/rosapi/local_setup.dsv
--- Up-to-date: /home/ros/nemo/install/rosapi/share/rosapi/package.dsv
+-- Installing: /home/ros/nemo/install/rosapi/share/rosapi/package.dsv
 -- Up-to-date: /home/ros/nemo/install/rosapi/share/ament_index/resource_index/packages/rosapi
 -- Up-to-date: /home/ros/nemo/install/rosapi/share/rosapi/cmake/rosapiConfig.cmake
 -- Up-to-date: /home/ros/nemo/install/rosapi/share/rosapi/cmake/rosapiConfig-version.cmake

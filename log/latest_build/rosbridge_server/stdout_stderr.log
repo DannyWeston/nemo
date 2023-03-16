@@ -29,7 +29,7 @@ Listing '/home/ros/nemo/install/rosbridge_server/local/lib/python3.10/dist-packa
 -- Up-to-date: /home/ros/nemo/install/rosbridge_server/share/rosbridge_server/local_setup.sh
 -- Up-to-date: /home/ros/nemo/install/rosbridge_server/share/rosbridge_server/local_setup.zsh
 -- Up-to-date: /home/ros/nemo/install/rosbridge_server/share/rosbridge_server/local_setup.dsv
--- Up-to-date: /home/ros/nemo/install/rosbridge_server/share/rosbridge_server/package.dsv
+-- Installing: /home/ros/nemo/install/rosbridge_server/share/rosbridge_server/package.dsv
 -- Up-to-date: /home/ros/nemo/install/rosbridge_server/share/ament_index/resource_index/packages/rosbridge_server
 -- Up-to-date: /home/ros/nemo/install/rosbridge_server/share/rosbridge_server/cmake/rosbridge_serverConfig.cmake
 -- Up-to-date: /home/ros/nemo/install/rosbridge_server/share/rosbridge_server/cmake/rosbridge_serverConfig-version.cmake

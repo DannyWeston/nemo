@@ -1,36 +1,25 @@
-[35m[1mConsolidate compiler generated dependencies of target rosapi_msgs__rosidl_generator_c[0m
+[  0%] Built target rosapi_msgs__cpp
 [ 13%] Built target rosapi_msgs__rosidl_generator_c
-[ 13%] Built target rosapi_msgs__cpp
-[35m[1mConsolidate compiler generated dependencies of target rosapi_msgs__rosidl_typesupport_fastrtps_c[0m
-[35m[1mConsolidate compiler generated dependencies of target rosapi_msgs__rosidl_typesupport_introspection_c[0m
 [ 13%] Built target ament_cmake_python_copy_rosapi_msgs
-[35m[1mConsolidate compiler generated dependencies of target rosapi_msgs__rosidl_typesupport_c[0m
-[35m[1mConsolidate compiler generated dependencies of target rosapi_msgs__rosidl_typesupport_introspection_cpp[0m
-[ 25%] Built target rosapi_msgs__rosidl_typesupport_c
-[ 37%] Built target rosapi_msgs__rosidl_typesupport_introspection_c
+[ 25%] Built target rosapi_msgs__rosidl_typesupport_cpp
+[ 37%] Built target rosapi_msgs__rosidl_typesupport_fastrtps_cpp
 [ 50%] Built target rosapi_msgs__rosidl_typesupport_introspection_cpp
 [ 62%] Built target rosapi_msgs__rosidl_typesupport_fastrtps_c
-[35m[1mConsolidate compiler generated dependencies of target rosapi_msgs__rosidl_typesupport_cpp[0m
-[35m[1mConsolidate compiler generated dependencies of target rosapi_msgs__rosidl_typesupport_fastrtps_cpp[0m
-[ 74%] Built target rosapi_msgs__rosidl_typesupport_cpp
-[ 86%] Built target rosapi_msgs__rosidl_typesupport_fastrtps_cpp
+[ 74%] Built target rosapi_msgs__rosidl_typesupport_introspection_c
+[ 86%] Built target rosapi_msgs__rosidl_typesupport_c
 [ 86%] Built target rosapi_msgs
 [ 86%] Built target rosapi_msgs__py
-[35m[1mConsolidate compiler generated dependencies of target rosapi_msgs__rosidl_generator_py[0m
 running egg_info
 writing rosapi_msgs.egg-info/PKG-INFO
 writing dependency_links to rosapi_msgs.egg-info/dependency_links.txt
 writing top-level names to rosapi_msgs.egg-info/top_level.txt
 reading manifest file 'rosapi_msgs.egg-info/SOURCES.txt'
-[ 97%] Built target rosapi_msgs__rosidl_generator_py
 writing manifest file 'rosapi_msgs.egg-info/SOURCES.txt'
-[35m[1mConsolidate compiler generated dependencies of target rosapi_msgs__rosidl_typesupport_c__pyext[0m
-[35m[1mConsolidate compiler generated dependencies of target rosapi_msgs__rosidl_typesupport_introspection_c__pyext[0m
-[35m[1mConsolidate compiler generated dependencies of target rosapi_msgs__rosidl_typesupport_fastrtps_c__pyext[0m
+[ 97%] Built target rosapi_msgs__rosidl_generator_py
 [ 97%] Built target ament_cmake_python_build_rosapi_msgs_egg
-[ 98%] Built target rosapi_msgs__rosidl_typesupport_c__pyext
+[ 98%] Built target rosapi_msgs__rosidl_typesupport_fastrtps_c__pyext
 [ 99%] Built target rosapi_msgs__rosidl_typesupport_introspection_c__pyext
-[100%] Built target rosapi_msgs__rosidl_typesupport_fastrtps_c__pyext
+[100%] Built target rosapi_msgs__rosidl_typesupport_c__pyext
 -- Install configuration: ""
 -- Up-to-date: /home/ros/nemo/install/rosapi_msgs/share/ament_index/resource_index/rosidl_interfaces/rosapi_msgs
 -- Up-to-date: /home/ros/nemo/install/rosapi_msgs/include/rosapi_msgs/rosapi_msgs
