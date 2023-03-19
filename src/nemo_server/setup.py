@@ -21,7 +21,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'localiser = nemo_server.localiser:main'
+            'localiser = nemo_server.localiser:main',
+            'planner = nemo_server.planner:main'
         ],
     },
 )
