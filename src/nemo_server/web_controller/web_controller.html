@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-100">
   <head>
     <meta charset="utf-8" />
 
@@ -8,53 +8,144 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
-    <!-- ROS JS Lib CDN -->
-    <script type="text/javascript" src="http://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+    <!-- ROS Lib JS -->
+    <script type="text/javascript" src="./js/roslib.js"></script>
 
     <!-- Custom JS + CSS -->
     <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript" src="./js/math.js"></script>
     <script type="text/javascript" src="./js/ros.js"></script>
 
     <title>NEMO Web Controller</title>
-
 </head>
-  <body>
-    <h1>NEMO Robot Interface</h1>
-    <h2>DannyWeston</h2>
 
-    <hr/>
+<body class="d-flex flex-column h-100">
+    <nav class="navbar navbar-expand-md navbar-light py-0">
+        <div class="container">
+            <h2 class="navbar-header py-5 mx-auto">NEMO Robot Web Controller</h2>
+        </div>
+    </nav>
 
-    <div>
-        <label>Endpoint:</label>
-        <input type="text" id="txtEndpoint" name="endpoint" value="192.168.0.81:9090" />
-        <br/>
+    <main role="main"> 
+        <div class="container-fluid h-100">
+            <!-- Connection -->
+            <div class="row mb-5">
+                <h2>Status</h2>
+                <div id="connectionStatus" class="mb-2">
+                    <span class="innerSymbol" style="color: red;">&#9679;</span>
+                    <span class="innerText">Disconnected</span>
+                </div>
 
-        <label>Topic:</label>
-        <input type="text" id="txtTopic" name="topic" value="/nemo/odom" />
-        <br/>
+                <div class="col-md-6">
+                    <label for="txtEndpoint" class="form-label">Robot Address:</label>
+                    <input id="txtEndpoint" type="text" value="192.168.0.81:9090" />
+                    
+                    <button id="btnConnect" class="btn btn-primary" onclick="connectToROS();" >Connect</button>
+                    <button id="btnDisconnect" class="btn btn-danger" onclick="disconnectFromROS();">Disconnect</button>
+                </div>
+            </div>
 
-        <input id="btnConnect" type="button" value="Connect" onclick="connectToROS();" />
-        <p>Connection: <span id="status" style="font-weight: bold;">N/A</span></p>
-    </div>
+            <!-- Metrics -->
+            <div class="row mb-5">
+                <h3>Metrics</h3>
 
-    <div>
-        <h1>Odometry:</h1>
+                <!-- Battery -->
+                <div class="col-md-3">
+                    <h4 class="d-inline mr-1">Battery: <span class="rosMetric batteryHigh" id="batteryLevel"></span></h4>
+                </div>
 
-        <h2>Position:</h2>
-        <p id="odomPosition">
-                
-        </p>
+                <!-- Position -->
+                <div class="col-md-3 mb-2 mb-md-0">
+                    <h4>Position (metres):</h4>
+                    X: <span class="rosMetric" id="odomPositionX"></span><br>
+                    Y: <span class="rosMetric" id="odomPositionY"></span><br>
+                    Z: <span class="rosMetric" id="odomPositionZ"></span><br>
+                </div>
 
-        <h2>Orientation:</h2>
-        <p id="odomOrientation">
-                
-        </p>
-    </div>
+                <!-- Orientation -->
+                <div class="col-md-3 mb-2 mb-md-0">
+                    <h4>Orientation (Radians):</h4>
+                    Pitch: <span class="rosMetric" id="odomOrientationX"></span><br>
+                    Roll: <span class="rosMetric" id="odomOrientationY"></span><br>
+                    Yaw: <span class="rosMetric" id="odomOrientationZ"></span><br>
+                </div>
 
-    <div>
-        <h1>Camera view:</h1>
+                <!-- Identified Fish -->
+                <div class="col-md-3 mb-2 mb-md-0">
+                    <h4>Fish In View:</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item rosMetric fishFound" id="fishNum1">Goldfish</li>
+                    </ul>
+                </div>
+            </div>
 
-        <img id="imgCameraView" />
-    </div>
-  </body>
+            <!-- Controls -->
+            <div class="row mb-2">
+                <h3>Controls</h3>
+
+                <!-- Robot Status (start/stop robot) -->
+                <div class="col-md-3 mb-2 mb-md-0">
+                    <h4>Robot Status</h4>
+                    <button id="btnConnect" class="btn btn-primary" onclick="startRobot();" >Start</button>
+                    <button id="btnDisconnect" class="btn btn-danger" onclick="stopRobot();">Stop</button>
+                </div>
+
+                <!-- Robot Control (manual/autonomous) -->
+                <div class="col-md-3 mb-2 mb-md-0">
+                    <h4>Manual Control</h4>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Manual</label>
+                    </div>
+                </div>
+
+                <!-- LED Lights Control -->
+                <div class="col-md-3 mb-2 mb-md-0">
+                    <h4>Robot Lights</h4>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Lights</label>
+                    </div>
+                </div>
+
+                <!-- Video Footage Recording -->
+                <div class="col-md-3 mb-2 mb-md-0">
+                    <h4>Video Recording</h4>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Video Recording</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More Controls -->
+            <div class="row mb-5">
+                <!-- Fish Identification -->
+                <div class="col-md-3 mb-2 mb-md-0">
+                    <h4>Fish Identification</h4>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Show Fish Bounding Box</label>
+                    </div>
+                </div>
+            </div>
+                    
+            <!-- Camera View -->
+            <div class="row">
+                <div class="text-center">
+                    <img class="w-100 h-100 w-md-75 h-md-75" id="imgCameraView" src="./img/placeholder.jpg" />
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="d-flex justify-content-center mt-auto py-3">
+        <div class="container">
+            <div class="text-center">
+                &copy; DannyWeston <script>document.write(/\d{4}/.exec(Date())[0])</script>
+            </div>
+        </div>
+    </footer>
+</body>
+
 </html>
