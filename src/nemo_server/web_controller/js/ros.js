@@ -5,7 +5,6 @@
     on a given endpoint
 */
 
-
 let connected = false;
 let ros = null;
 let endpoint = null;
@@ -61,6 +60,41 @@ function setupOdometry(){
     });
 }
 
+function setupBattery(){
+    let topic = "/nemo/battery";
+
+    const bat_listener = new ROSLIB.Topic({
+        ros,
+        name: topic,
+        messageType: "sensor_msgs/BatteryState",
+    });
+
+    const dp = 2;
+
+    // Listen for odometry
+    bat_listener.subscribe((message) => {
+        let ePercent = document.getElementById("batPercentage");
+        let eDischarge = document.getElementById("batDischarge");
+        let eCharging = document.getElementById("batCharging");
+        let eCharge = document.getElementById("batCharge");
+        let eCapacity = document.getElementById("batCapacity");
+        let eVoltage = document.getElementById("batVoltage");
+
+        ePercent.innerHTML = message.percentage.toFixed(dp) * 100;
+        eDischarge.innerHTML = message.current.toFixed(dp);
+
+        let chargeMsg = "Unknown";
+        if (message.power_supply_status == 1) chargeMsg = "True";
+        else if (message.power_supply_status == 2) chargeMsg = "False";
+        eCharging.innerHTML = chargeMsg;
+
+        eCharge.innerHTML = message.charge.toFixed(dp);
+        eCapacity.innerHTML = message.capacity.toFixed(dp);
+        eVoltage.innerHTML = message.voltage.toFixed(dp);
+
+    });
+}
+
 function connectToROS(){
     endpoint = document.getElementById('txtEndpoint').value;
 
@@ -84,6 +118,8 @@ function connectToROS(){
     setupImages();
 
     setupOdometry();
+
+    setupBattery();
 }
 
 function disconnectFromROS(){
@@ -98,8 +134,6 @@ function onConnect(){
 
     document.getElementById("btnDisconnect").style.display = "inline";
     document.getElementById("btnConnect").style.display = "none";
-
-    document.getElementById("batteryLevel").innerText = "100%";
 }
 
 function onDisconnect(){
