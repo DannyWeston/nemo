@@ -18,7 +18,12 @@
     justify-content: center;
 }
 
-#btnDisconnect {
+hr {
+    margin-top: 2vh!important;
+    margin-bottom: 2vh;
+}
+
+.hide {
     display: none;
 }
 
@@ -33,3 +38,4 @@
 .batteryLow {
     color: red;
 }
+
