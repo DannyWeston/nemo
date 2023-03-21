@@ -1,17 +1,22 @@
+import os
+import glob
+
 from setuptools import setup
 
 package_name = 'nemo_server'
-lib = package_name + '/lib'
+lib = os.path.join(package_name, 'lib')
 
 setup(
     name=package_name,
-    version='0.0.0',
+    version='0.0.1',
     packages=[package_name, lib],
     data_files=[
-        ('share/ament_index/resource_index/packages',
-            ['resource/' + package_name]),
+        ('share/ament_index/resource_index/packages', ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name, 'launch'), glob.glob('launch/*.py')),
+        (os.path.join('share', package_name, 'config'), glob.glob('config/*.yaml'))
     ],
+
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='Daniel Weston',
@@ -21,8 +26,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'localiser = nemo_server.localiser:main',
             'planner = nemo_server.planner:main'
         ],
     },
 )
+

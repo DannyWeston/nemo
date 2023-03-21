@@ -1,25 +1,25 @@
-[  0%] Built target ament_cmake_python_copy_rosbridge_msgs
-[  2%] Built target rosbridge_msgs__cpp
-[ 12%] Built target rosbridge_msgs__rosidl_generator_c
+[ 10%] Built target rosbridge_msgs__rosidl_generator_c
+[ 12%] Built target rosbridge_msgs__cpp
+[ 12%] Built target ament_cmake_python_copy_rosbridge_msgs
 [ 23%] Built target rosbridge_msgs__rosidl_typesupport_cpp
-[ 33%] Built target rosbridge_msgs__rosidl_typesupport_fastrtps_cpp
-[ 43%] Built target rosbridge_msgs__rosidl_typesupport_introspection_c
-[ 53%] Built target rosbridge_msgs__rosidl_typesupport_c
-[ 64%] Built target rosbridge_msgs__rosidl_typesupport_introspection_cpp
-[ 74%] Built target rosbridge_msgs__rosidl_typesupport_fastrtps_c
+[ 33%] Built target rosbridge_msgs__rosidl_typesupport_fastrtps_c
+[ 43%] Built target rosbridge_msgs__rosidl_typesupport_fastrtps_cpp
+[ 53%] Built target rosbridge_msgs__rosidl_typesupport_introspection_c
+[ 64%] Built target rosbridge_msgs__rosidl_typesupport_c
+[ 74%] Built target rosbridge_msgs__rosidl_typesupport_introspection_cpp
 [ 74%] Built target rosbridge_msgs
 [ 76%] Built target rosbridge_msgs__py
 [ 84%] Built target rosbridge_msgs__rosidl_generator_py
+[ 89%] Built target rosbridge_msgs__rosidl_typesupport_fastrtps_c__pyext
+[ 94%] Built target rosbridge_msgs__rosidl_typesupport_c__pyext
+[100%] Built target rosbridge_msgs__rosidl_typesupport_introspection_c__pyext
 running egg_info
 writing rosbridge_msgs.egg-info/PKG-INFO
 writing dependency_links to rosbridge_msgs.egg-info/dependency_links.txt
 writing top-level names to rosbridge_msgs.egg-info/top_level.txt
 reading manifest file 'rosbridge_msgs.egg-info/SOURCES.txt'
 writing manifest file 'rosbridge_msgs.egg-info/SOURCES.txt'
-[ 89%] Built target rosbridge_msgs__rosidl_typesupport_fastrtps_c__pyext
-[ 89%] Built target ament_cmake_python_build_rosbridge_msgs_egg
-[ 94%] Built target rosbridge_msgs__rosidl_typesupport_introspection_c__pyext
-[100%] Built target rosbridge_msgs__rosidl_typesupport_c__pyext
+[100%] Built target ament_cmake_python_build_rosbridge_msgs_egg
 -- Install configuration: ""
 -- Up-to-date: /home/ros/nemo/install/rosbridge_msgs/share/ament_index/resource_index/rosidl_interfaces/rosbridge_msgs
 -- Up-to-date: /home/ros/nemo/install/rosbridge_msgs/include/rosbridge_msgs/rosbridge_msgs
