@@ -1,12 +1,19 @@
 import time
-import sys
 
 import rclpy
 from rclpy.node import Node
 
 from .lib.states import ControlState, PlanningState, VideoRecordingState
 
+from .lib.pid import PID
+
 from .lib.camera_listener import CameraListener
+from .lib.odom_listener import OdomListener
+
+from .lib.movement import MovementPublisher
+
+from .lib.localiser import Localiser
+
 from .lib.goal_finder import GoalFinder
 from .lib.states import StateManager
 
@@ -18,9 +25,18 @@ class Planner(Node):
 
         self.camera_listener = CameraListener(self, logger=self.get_logger())
 
-        self.goal_finder = GoalFinder()
-        
+        self.localiser = Localiser(self, logger=self.get_logger())
+
+        self.mover = MovementPublisher(self)
+
+        self.goal_finder = GoalFinder(logger=self.get_logger())
+
         self.state_manager = StateManager(self, logger=self.get_logger())
+
+        self.align_pid = PID(kp = 0.001)
+
+        self.target_depth = 0.3 # Target depth of 0.3 metres
+        self.depth_pid = PID(kp = 1, ki = 0.7, kd = 0.1, min=-1.0, max=1.0)
 
         self.hz = 30
         self.it = 0
@@ -62,22 +78,31 @@ class Planner(Node):
 
             return False
             
-        raise Exception("Unencounterable planner control state reached")
+        raise Exception("Impossible planner control state reached")
 
     def handle_planner_state(self):
-        self.get_logger().info(f'Planner iteration {self.it}')
-
-        # Should be in autononmous mode 
-        self.it += 1
+        # Autononmous mode
+        self.mover.velX = 0.0
+        self.mover.velY = 0.0
+        self.mover.velZ = 0.0
+        self.mover.velPitch = 0.0
+        self.mover.velRoll = 0.0
+        self.mover.velYaw = 0.0
 
         # Hazards get priority
         self.check_hazards()
+
+        # Maintain PID depth
+        self.adjust_depth()
 
         if self.state_manager.planning_state is PlanningState.Hazard:
             self.avoid_hazard()
 
         elif self.state_manager.planning_state is (PlanningState.Searching or PlanningState.Idle):
-            self.find_goal()
+            self.search_goal()
+        
+        elif self.state_manager.planning_state is PlanningState.Aligning:
+            self.align_goal()
 
         elif self.state_manager.planning_state is PlanningState.Following:
             self.follow_goal()
@@ -85,39 +110,73 @@ class Planner(Node):
         elif self.state_manager.planning_state is PlanningState.Success:
             self.goal_reached()
 
-    def check_hazards(self):
-        # Do something
+        self.mover.publish()
 
+    def check_hazards(self):
         hazard = False
         if hazard: self.planning_state = PlanningState.Hazard
 
     def avoid_hazard(self):
-        pass
+        self.get_logger().info("Avoiding a hazard")
+
+    def adjust_depth(self):
+        _, depth, _ = self.localiser.get_position()
+        error = self.target_depth - depth
+
+        self.mover.velY = self.depth_pid.update(error)
 
     def follow_goal(self):
-        pass
+        if self.camera_listener.img is None: return # Can't follow a goal with no image
 
-    def find_goal(self):
-        pass
+        if not self.goal_finder.follow(self.camera_listener.img):
+            # Lost track of goal so look for new one
+            self.state_manager.planning_state = PlanningState.Searching
+            return
+
+        self.get_logger().info("Following identified goal...")
+
+        # Drive towards goal at 0.2 m/s
+        self.mover.velX = 0.2
+
+    def search_goal(self):
+        if self.camera_listener.img is None: return # Can't find a goal with no image
+       
+        if self.goal_finder.search(self.camera_listener.img):
+            # Found a goal, rotate change state
+            self.state_manager.planning_state = PlanningState.Aligning
+            return
+
+        # Didn't find a goal, continue random search
 
     def goal_reached(self):
+        self.get_logger().info("Reached a goal")
+
         # TODO: Increment fish found counter, add to map etc.
         self.planning_state = PlanningState.Searching
 
-    def check_goals(self):
-        self.goal_finder.search(self.camera_listener.img)
+    def align_goal(self):
+        if self.camera_listener.img is None: return # Can't align to a goal whenw e have no image
 
+        if not self.goal_finder.search(self.camera_listener.img):
+            # Could no longer find the goal, change back to search
+            self.state_manager.planning_state = PlanningState.Searching
+            return
+        
+        if 4 < self.goal_finder.goal:
+            # Facing goal so can now start following (reset align_pid to 0 for next usage)
+            self.align_pid.reset()
+            self.state_manager.planning_state = PlanningState.Following
+            return
+        
+        # Pipe error of located goal into PID Controller
+        pid_out = self.align_pid.update(error=self.goal_finder.goal)
+
+        # Rotate to face goal
+        self.mover.velZ = pid_out
+        
     def shutdown(self):
         # Clearup
         self.camera_listener.shutdown()
-
-    # def pub_masked_img(self):
-    #     if self.masked_img is None: return
-
-    #     msg = CompressedImage()
-    #     msg.format = 'jpg'
-    #     msg.data = np.array(cv2.imencode('.jpg', self.masked_img)[1]).tostring() # Encode to jpg
-    #     self.publisher.publish(msg)
 
 def main(args=None):
     rclpy.init(args=args)

@@ -1,28 +1,20 @@
-from .history_buffer import HistoryBuffer
+from sensor_msgs.msg import FluidPressure
 
 class PressureListener():
 
-    def __init__(self, logger=None):
+    def __init__(self, node, topic="/nemo/pressure", rate=10, logger=None):
         self.logger = logger
+        self.rate = rate
+        self.topic= topic
 
-        # water pressure per meter of depth (assuming 1000 kg / m^3 @ 4 degrees Celsius)
-        # With standard gravitational constant of 9.80665 m  /s^2
-        # = 9.80665 kPa / m 
-        # air pressure taken to be 101.325 kPa\
-        self.air_pressure = 101325 
-        self.water_pressure_per_metre = 9806.65
+        self.air_pressure = 101325.0 # Air pressure in Pa
+        self.water_pressure = 10122.0 # Water pressure/metre in Pa/m
 
-        self.pressure_data = HistoryBuffer(10) # History buffer with queue size of 10
+        # Allow for queue that is 1 second's worth of data
+        self.sub = node.create_subscription(FluidPressure, topic, self.callback, rate)
 
-        self.topic = '/nemo/pressure'
+        self.value = None # History buffer with queue size of 10
 
     def callback(self, msg):
-        # Apply thresholding to water pressure reading
-        reading = max(msg.fluid_pressure, self.air_pressure) - self.air_pressure
-
-        self.pressure_data.insert(reading)
-
-        water_pressure = self.pressure_data.mean_value()
-        depth = water_pressure / self.water_pressure_per_metre
-
-        #self.logger.info(f'{water_pressure:.2f}, {depth:.2f}') 
+        # Take minimum reading as air pressure
+        self.value = max(msg.fluid_pressure, self.air_pressure)

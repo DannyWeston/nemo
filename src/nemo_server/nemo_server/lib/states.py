@@ -8,8 +8,8 @@ class StateManager():
         self.planning_topic = planning_topic
 
         # Default state to paused
-        self.control_state = ControlState.Paused
-        self.planning_state = PlanningState.Idle
+        self.control_state = ControlState.Auto
+        self.planning_state = PlanningState.Searching
         self.vid_rec_state = VideoRecordingState.Record
 
         # Only really need a low rate for control/planning subscribers
@@ -48,6 +48,7 @@ class PlanningState(Enum):
     Success = 3,    # Transitioning from a target that was met 
     Hazard = 4,     # Avoiding a collision
     Avoiding = 5,   # Avoiding a collision
+    Aligning = 6
 
 class VideoRecordingState(Enum):
     DoNotRecord = 0,

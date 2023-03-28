@@ -1,24 +1,33 @@
-from .math import euler_from_quaternion
+from .math import euler_to_quat, quat_to_euler
 
-from .history_buffer import HistoryBuffer
+from nav_msgs.msg import Odometry
 
 class OdomListener():
-    def __init__(self, logger = None):
+    def __init__(self, node, topic="/nemo/odom", rate=10, logger=None):
         self.logger = logger
 
-        self.topic = '/nemo/odom'
+        self.topic = topic
+
+        self.rate = rate
         
-        self.odom_data_x = HistoryBuffer(50) # History buffer with queue size of 50
-        self.odom_data_y = HistoryBuffer(50) # History buffer with queue size of 50
-        self.odom_data_z = HistoryBuffer(50) # History buffer with queue size of 50
-        self.odom_data_pitch = HistoryBuffer(50) # History buffer with queue size of 50
-        self.odom_data_roll = HistoryBuffer(50) # History buffer with queue size of 50
-        self.odom_data_yaw = HistoryBuffer(50) # History buffer with queue size of 50
+        # Allow for queue that is 1 second's worth of data
+        self.sub = node.create_subscription(Odometry, self.topic, self.callback, self.rate)
+
+        self.posX = 0
+        self.posY = 0
+        self.posZ = 0
+
+        self.rotX = 0
+        self.rotY = 0
+        self.rotZ = 0
 
     def callback(self, msg):
         # Extract information from msg
-        x, y, z = msg.pose.pose.position.x, msg.pose.pose.position.y, msg.pose.pose.position.z
-        temp_rot = euler_from_quaternion(msg.pose.pose.orientation)
-        pitch, roll, yaw = temp_rot[0], temp_rot[1], temp_rot[2]
+        self.posX = msg.pose.pose.position.x
+        self.posY = msg.pose.pose.position.y
+        self.posZ = msg.pose.pose.position.z
 
-        #self.logger.info(f'({x:.2f}, {y:.2f}, {z:.2f}) ({pitch:.2f}, {roll:.2f}, {yaw:.2f})')
+        pitch, roll, yaw = quat_to_euler(msg.pose.pose.orientation)
+        self.rotX = pitch
+        self.rotY = roll
+        self.rotZ = yaw
