@@ -1,0 +1,18 @@
+unity2ros:
+  ros__parameters:
+    ROS_IP: "0.0.0.0"
+
+planner:
+  ros__parameters:
+    default_video_directory: "/home/ros/recordings"
+
+camera_pub:
+  ros__parameters:
+    pixel_width: 640
+    pixel_height: 480
+    frame_rate: 30
+    topic: '/nemo/image'
+
+rosbridge:
+  ros__parameters:
+    somethingelse: "Hello"

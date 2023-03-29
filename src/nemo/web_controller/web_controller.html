@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html class="h-100">
+  <head>
+    <meta charset="utf-8" />
+
+    <!-- Bootstrap v5.2.3 -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="./js/lib/jquery-3.6.4.min.js"></script>
+    <script src="./js/lib/bootstrap.min.js"></script>
+    <script src="./js/lib/bootstrap.bundle.min.js"></script>
+
+    <!-- ROS Lib JS -->
+    <script type="text/javascript" src="./js/lib/roslib.js"></script>
+
+    <!-- Custom JS + CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript" src="./js/ros/battery.js"></script>
+    <script type="text/javascript" src="./js/ros/lights.js"></script>
+    <script type="text/javascript" src="./js/ros/odom.js"></script>
+    <script type="text/javascript" src="./js/ros/camera.js"></script>
+    <script type="text/javascript" src="./js/ros/planner.js"></script>
+
+    <script type="text/javascript" src="./js/ros/math.js"></script>
+
+    <script type="text/javascript" src="./js/ros/robot.js"></script>
+
+    <title>NEMO Web Controller</title>
+</head>
+
+<body class="d-flex flex-column h-100">
+    <nav class="navbar navbar-expand-md navbar-light py-0">
+        <div class="container">
+            <span class="border-bottom border-light py-5 mb-0 mx-auto">
+                <h2 class="navbar-header ">NEMO Robot Web Controller</h2>
+            </span>
+        </div>
+    </nav>
+
+    <main role="main"> 
+        <div class="container-fluid h-100">
+            <!-- Connection -->
+            <div class="row">
+                <h2>Status</h2>
+                <div id="connectionStatus" class="mb-2">
+                    <span class="innerSymbol" style="color: red;">&#9679;</span>
+                    <span class="innerText">Disconnected</span>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="txtEndpoint" class="form-label">Robot Address:</label>
+                    <input id="txtEndpoint" type="text" value="192.168.0.81:9090" />
+                    
+                    <button id="btnConnect" class="btn btn-primary" onclick="{rc.connect()}">Connect</button>
+                    <button id="btnDisconnect" class="btn btn-danger hide" onclick="{rc.disconnect()}">Disconnect</button>
+                </div>
+            </div>
+
+            <!-- Metrics -->
+            <div class="row section">
+                <hr />
+                <h3>Metrics</h3>
+
+                <!-- Battery -->
+                <div class="col-md-3 mb-2 mb-md-0">
+                    <h4>Battery:</h4>
+                    Level: <span class="clear-on-disc" id="batPercentage"></span>%<br>
+                    Charging: <span class="clear-on-disc" id="batCharging"></span><br>
+                    Current Charge: <span class="clear-on-disc" id="batCharge"></span> Ah<br>
+                    Max Charge: <span class="clear-on-disc" id="batCapacity"></span> Ah<br>
+                    Discharge Rate: <span class="clear-on-disc" id="batDischarge"></span> Ah<br>
+                    Voltage: <span class="clear-on-disc" id="batVoltage"></span> V<br>
+                </div>
+
+                <!-- Position -->
+                <div class="col-md-3 mb-2 mb-md-0">
+                    <h4>Position (Metres):</h4>
+                    X: <span class="clear-on-disc" id="odomPositionX"></span><br>
+                    Y: <span class="clear-on-disc" id="odomPositionY"></span><br>
+                    Z: <span class="clear-on-disc" id="odomPositionZ"></span><br>
+                </div>
+
+                <!-- Orientation -->
+                <div class="col-md-3 mb-2 mb-md-0">
+                    <h4>Orientation (Radians):</h4>
+                    Pitch: <span class="clear-on-disc" id="odomOrientationX"></span><br>
+                    Roll: <span class="clear-on-disc" id="odomOrientationY"></span><br>
+                    Yaw: <span class="clear-on-disc" id="odomOrientationZ"></span><br>
+                </div>
+
+                <!-- Identified Fish -->
+                <div class="col-md-3 mb-2 mb-md-0">
+                    <h4>Fish In View:</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item clear-on-disc fishFound" id="fishNum1">Goldfish</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="row section mb-2">
+                <hr />
+                <h3>Controls</h3>
+
+                <!-- Robot Status (start/stop robot) -->
+                <div class="col-md-3 mb-2 mb-md-0">
+                    <h4>Robot Status</h4>
+                    <button id="btnStartRobot" class="btn btn-primary" onclick="{rc.planner.startRobot()}">Start</button>
+                    <button id="btnStopRobot" class="btn btn-danger" onclick="{rc.planner.pauseRobot()}">Stop</button>
+                </div>
+
+                <!-- Robot Control (manual/autonomous) -->
+                <div class="col-md-3 mb-2 mb-md-0">
+                    <h4>Manual Control</h4>
+                    <div class="col-md-3 mb-2 mb-md-0">
+                        <button id="btnManual" class="btn btn-danger" onclick="{rc.planner.manualControl()}" >Manual</button>
+                        <button id="btnAutonomous" class="btn btn-primary" onclick="{rc.planner.autonomousControl()}">Auto</button>
+                    </div>
+                </div>
+
+                <!-- LED Lights Control -->
+                <div class="col-md-3 mb-2 mb-md-0">
+                    <h4>Lights</h4>
+                    <button id="btnEnableLights" class="btn btn-primary" onclick="{rc.lights.enable()}" >Enable</button>
+                    <button id="btnDisableLights" class="btn btn-danger" onclick="{rc.lights.disable()}">Disable</button>
+                </div>
+
+                <!-- Fish Location Tracking (start/stop robot) -->
+                <div class="col-md-3 mb-2 mb-md-0">
+                    <h4>Track Fish Locations</h4>
+                    <button id="btnEnableLocRecord" class="btn btn-primary" onclick="{rc.planner.enableTracking()}">Start</button>
+                    <button id="btnDisableLocRecord" class="btn btn-danger" onclick="{rc.planner.disableTracking()}">Stop</button>
+                </div>
+            </div>
+                    
+            <!-- Camera View -->
+            <div class="row section">
+                <hr />
+                <h3>Camera View</h3>
+
+                <!-- Fish Bounding Boxes-->
+                <div class="col-md-3 mb-2">
+                    <h4>Show Fish Boxes</h4>
+                    <button id="btnShowFishBoxes" class="btn btn-primary" onclick="{rc.camera.showFishBoxes()}" >Show</button>
+                    <button id="btnHideFishBoxes" class="btn btn-danger" onclick="{rc.camera.hideFishBoxes()}">Hide</button>
+                </div>
+
+                <!-- Video Footage Recording -->
+                <div class="col-md-3 mb-2 mb-md-0">
+                    <h4>Video Recording</h4>
+                    <button id="btnStartRecording" class="btn btn-primary" onclick="{rc.camera.startRecording()}" >Start</button>
+                    <button id="btnStopRecording" class="btn btn-danger" onclick="{rc.camera.stopRecording()}">Stop</button>
+                </div>
+
+                <!-- Camera view -->
+                <div class="text-center">
+                    <img id="imgCameraView" class="w-100 h-100 w-md-75 h-md-75"src="./img/placeholder.jpg" />
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="d-flex justify-content-center mt-auto py-3">
+        <div class="container">
+            <div class="text-center">
+                &copy; DannyWeston <script>document.write(/\d{4}/.exec(Date())[0])</script>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

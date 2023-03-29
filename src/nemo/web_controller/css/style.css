@@ -1,0 +1,41 @@
+#imgCameraView {
+    object-fit: contain;
+}
+
+#connectionStatus {
+    line-height: 1.2;
+    font-size: 1.5em;
+}
+
+#connectionStatus > .innerText {
+    display: inline;
+}
+
+#noCameraView {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+hr {
+    margin-top: 2vh!important;
+    margin-bottom: 2vh;
+}
+
+.hide {
+    display: none;
+}
+
+.batteryHigh {
+    color: green;
+}
+
+.batteryMedium {
+    color: yellow;
+}
+
+.batteryLow {
+    color: red;
+}
+

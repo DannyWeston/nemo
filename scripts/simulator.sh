@@ -1,4 +1,3 @@
-cd /home/ros/nemo/
-./scripts/colcon_build.sh
+cd ../
 source install/setup.bash
-ros2 launch nemo_server simulator.py
+ros2 launch nemo simulator.py
