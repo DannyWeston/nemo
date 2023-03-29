@@ -36,7 +36,7 @@ class Planner(Node):
         self.align_pid = PID(kp = 0.001)
 
         self.target_depth = 0.3 # Target depth of 0.3 metres
-        self.depth_pid = PID(kp = 1, ki = 0.7, kd = 0.1, min=-1.0, max=1.0)
+        self.depth_pid = PID(kp = 2, ki = 0.6, kd = 0.3, min=-1.0, max=1.0)
 
         self.hz = 30
         self.it = 0
@@ -45,8 +45,7 @@ class Planner(Node):
 
     def update(self):
         # Check for movement updates
-        if self.handle_control_state(): 
-            self.handle_planner_state() # Auto movement
+        self.handle_control_state()
 
         # Check for video recording updates
         self.handle_recording_state()
@@ -62,32 +61,51 @@ class Planner(Node):
     def handle_control_state(self): # Return False if not in automatic mode
         cstate = self.state_manager.control_state
 
-        if cstate is ControlState.Auto: return True
+        if cstate is ControlState.ManualToAuto:
+            # Transitioning to automatic control
+            self.transition_to_auto()
+            return
+        
+        if cstate is ControlState.AutoToManual:
+            # Transitioning to automatic control
+            self.transition_to_manual()
+            return
+
+        if cstate is ControlState.Auto: 
+            self.handle_planner_state()
+            return
 
         if cstate is ControlState.Shutdown:
             self.shutdown()
-            return False
+            return
 
         if cstate is ControlState.Paused:
             # Send pause signal to all movement-related things
-
-            return False
+            return
 
         if cstate is ControlState.Manual:
             # Don't do anything as manual control is activated
-
-            return False
+            return
             
         raise Exception("Impossible planner control state reached")
 
+    def transition_to_manual(self):
+        self.mover.zero_vel()
+
+        self.mover.publish()
+
+        self.state_manager.control_state = ControlState.Manual
+
+    def transition_to_auto(self):
+        self.mover.zero_vel()
+
+        self.mover.publish()
+
+        self.state_manager.control_state = ControlState.Auto
+
     def handle_planner_state(self):
         # Autononmous mode
-        self.mover.velX = 0.0
-        self.mover.velY = 0.0
-        self.mover.velZ = 0.0
-        self.mover.velPitch = 0.0
-        self.mover.velRoll = 0.0
-        self.mover.velYaw = 0.0
+        self.mover.zero_vel()
 
         # Hazards get priority
         self.check_hazards()
@@ -121,9 +139,10 @@ class Planner(Node):
 
     def adjust_depth(self):
         _, depth, _ = self.localiser.get_position()
+
         error = self.target_depth - depth
 
-        self.mover.velY = self.depth_pid.update(error)
+        self.mover.velY = -self.depth_pid.update(error)
 
     def follow_goal(self):
         if self.camera_listener.img is None: return # Can't follow a goal with no image

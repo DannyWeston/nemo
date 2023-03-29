@@ -1,6 +1,6 @@
 unity2ros:
   ros__parameters:
-    ROS_IP: "192.168.0.81"
+    ROS_IP: "127.0.0.1"
 
 planner:
   ros__parameters:

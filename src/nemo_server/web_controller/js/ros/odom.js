@@ -4,7 +4,7 @@ class Odom {
         this.topic = topic;
 
         this.listener = new ROSLIB.Topic({
-            ros,
+            ros: rosObj,
             name: topic,
             messageType: "nav_msgs/Odometry",
         });

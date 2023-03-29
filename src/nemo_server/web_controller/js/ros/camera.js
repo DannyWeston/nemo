@@ -14,7 +14,7 @@ class Camera {
         $('#btnStartRecording').show();
 
         this.listener = new ROSLIB.Topic({
-            ros, 
+            ros: rosObj, 
             name: topic,
             messageType: 'sensor_msgs/CompressedImage'
         });

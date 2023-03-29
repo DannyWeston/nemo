@@ -8,7 +8,6 @@ from .video_recorder import VideoRecorder
 from sensor_msgs.msg import CompressedImage
 
 class CameraListener():
-
     def __init__(self, node, topic="/nemo/image", rate = 30, logger = None):
         self.topic = topic
         self.logger = logger

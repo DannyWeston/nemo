@@ -5,16 +5,25 @@ class MovementPublisher():
         self.maxLinVel = maxLinVel
         self.maxAngVel = maxAngVel
 
-        self.velX = 0
-        self.velY = 0
-        self.velZ = 0
+        self.velX = 0.0
+        self.velY = 0.0
+        self.velZ = 0.0
 
-        self.velPitch = 0
-        self.velRoll = 0
-        self.velYaw = 0
+        self.velPitch = 0.0
+        self.velRoll = 0.0
+        self.velYaw = 0.0
 
         # Create publisher
         self.pub = node.create_publisher(Twist, topic, 10)
+
+    def zero_vel(self):
+        self.velX = 0.0
+        self.velY = 0.0
+        self.velZ = 0.0
+
+        self.velPitch = 0.0
+        self.velRoll = 0.0
+        self.velYaw = 0.0
 
     def publish(self):
         # TODO: Clamp values within min/max

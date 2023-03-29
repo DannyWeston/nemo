@@ -7,7 +7,7 @@ class Lights {
         $("#btnDisableLights").show();
 
         this.listener = new ROSLIB.Topic({
-            ros,
+            ros: rosObj,
             name: topic,
             messageType: "std_msgs/Bool",
         });

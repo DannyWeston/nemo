@@ -26,7 +26,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'planner = nemo_server.planner:main'
+            'planner = nemo_server.planner:main',
+            'camera = nemo_server.lib.camera:main'
         ],
     },
 )

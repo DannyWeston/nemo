@@ -10,7 +10,7 @@ class StateManager():
         # Default state to paused
         self.control_state = ControlState.Auto
         self.planning_state = PlanningState.Searching
-        self.vid_rec_state = VideoRecordingState.Record
+        self.vid_rec_state = VideoRecordingState.DoNotRecord
 
         # Only really need a low rate for control/planning subscribers
         self.control_sub = node.create_subscription(UInt8, control_topic, self.control_callback, rate)
@@ -21,6 +21,9 @@ class StateManager():
 
     def control_callback(self, msg):
         state = int(msg.data) # From uint8 to int
+
+        # TODO: if changing to manual control, the autonomous planner should be reset
+        #       in order for safety
 
         self.control_state = ControlState(state) # Set internal state
 
@@ -34,20 +37,21 @@ class StateManager():
 
         self.vid_rec_state = VideoRecordingState(state)
 
-
 class ControlState(Enum):
-    Paused = 0,     # Stationary robot
-    Manual = 1,     # Manually Controlled by user
-    Auto = 2,       # Using planner to find goals
-    Shutdown = 3,   # Used to signal a shutdown of the system
+    Paused = 0          # Stationary robot
+    Shutdown = 1        # Used to signal a shutdown of the system
+    Manual = 2          # Manually Controlled by user
+    ManualToAuto = 3    # Transitioning from automatic to manual
+    Auto = 4            # Using planner to find goals
+    AutoToManual = 5    # Transitioning from manual to automatic
 
 class PlanningState(Enum):
-    Idle = 0,       # Doing nothing
-    Searching = 1,  # Attempting to find a goal to follow
-    Following = 2,  # Following a goal that is in sight
-    Success = 3,    # Transitioning from a target that was met 
-    Hazard = 4,     # Avoiding a collision
-    Avoiding = 5,   # Avoiding a collision
+    Idle = 0       # Doing nothing
+    Searching = 1  # Attempting to find a goal to follow
+    Following = 2  # Following a goal that is in sight
+    Success = 3    # Transitioning from a target that was met 
+    Hazard = 4     # Avoiding a collision
+    Avoiding = 5   # Avoiding a collision
     Aligning = 6
 
 class VideoRecordingState(Enum):

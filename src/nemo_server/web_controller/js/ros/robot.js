@@ -5,81 +5,84 @@
     on a given endpoint
 */
 
-let connected = false;
-let ros = null;
-let endpoint = null;
-
-var camera;
-var odom;
-var battery;
-var lights;
-var planner;
-
 $(window).on('load', () => $(".section").hide());
 
-function connectToROS(){
-    endpoint = document.getElementById('txtEndpoint').value;
+class RosConnection {
+    constructor(){
+        this.ros = null;
+        this.endpoint = null;
 
-    ros = new ROSLIB.Ros({ url: "ws://" + endpoint });
+        this.planner = null;
+        this.lights = null;
+        this.odom = null;
+        this.battery = null;
+        this.camera = null;
 
-    // When the Rosbridge server connects, fill the span with id "status" with "successful"
-    ros.on("connection", onConnect);
+        this.connected = false;
+    }
 
-    // When the Rosbridge server experiences an error, fill the "status" span with the returned error
-    ros.on("error", (error) => {
-        document.getElementById("status").innerHTML = `errored out (${error})`;
-    });
+    onConnect(){
+        this.connected = true;
 
-    // When the Rosbridge server shuts down, fill the "status" span with "closed"
-    ros.on("close", onDisconnect);
+        $("#connectionStatus > .innerSymbol").css("color", "green");
+        $("#connectionStatus > .innerText").text("Connected to " + this.endpoint);
+
+        $("#btnConnect").hide();
+        $("#btnDisconnect").show();
+
+        $(".section").show();
+        
+        // Setup nodes
+        this.battery = new Battery(this.ros, "/nemo/battery");
+
+        this.odom = new Odom(this.ros, "/nemo/odom");
+
+        this.camera = new Camera(this.ros, "/nemo/image");
+
+        this.planner = new Planner(this.ros, "/nemo/planner");
+
+        this.lights = new Lights(this.ros, "/nemo/lights");
+    }
+
+    onDisconnect(){
+        this.connected = false;
+        
+        if (this.camera != null) this.camera.receivedImage = false;
+
+        $("#connectionStatus > .innerSymbol").css("color", "red");
+        $("#connectionStatus > .innerText").text("Disconnected");
+
+        $('#imgCameraView').attr("src", "./img/placeholder.jpg");
+
+        $("#btnDisconnect").hide();
+        $("#btnConnect").show();
+
+        $(".section").hide();
+
+        /* Clear metric elements */
+        $(".clear-on-disc").text("");
+    }
+        
+    connect(){
+        this.endpoint = $('#txtEndpoint').val();
+
+        this.ros = new ROSLIB.Ros({ url: "ws://" + this.endpoint });
+
+        // When the Rosbridge server connects, fill the span with id "status" with "successful"
+        this.ros.on("connection", () => this.onConnect());
+
+        // When the Rosbridge server experiences an error, fill the "status" span with the returned error
+        this.ros.on("error", (error) => {
+            alert(error);
+        });
+
+        // When the Rosbridge server shuts down, fill the "status" span with "closed"
+        this.ros.on("close", () => this.onDisconnect());
+    }
+
+    disconnect(){
+        this.ros.close();
+    }
 }
 
-function disconnectFromROS(){
-    ros.close();
-}
-
-function onConnect(){
-    connected = true;
-
-    $("#connectionStatus > .innerSymbol").css("color", "green");
-    $("#connectionStatus > .innerText").text("Connected to " + endpoint);
-
-    $("#btnConnect").hide();
-    $("#btnDisconnect").show();
-
-    $(".section").show();
-    
-    // Setup nodes
-    battery = new Battery(ros, "/nemo/battery");
-
-    odom = new Odom(ros, "/nemo/odom");
-
-    camera = new Camera(ros, "/nemo/image");
-
-    planner = new Planner(ros, "/nemo/planner");
-
-    lights = new Lights(ros, "/nemo/lights");
-}
-
-function onDisconnect(){
-    connected = false;
-    camera.receivedImage = false;
-
-    $("#connectionStatus > .innerSymbol").css("color", "red");
-    $("#connectionStatus > .innerText").text("Disconnected");
-
-    $('#imgCameraView').attr("src", "./img/placeholder.jpg");
-
-    $("#btnDisconnect").hide();
-    $("#btnConnect").show();
-
-    $(".section").hide();
-
-    /* Clear metric elements */
-    $(".clear-on-disc").text("");
-}
-
-function execIfConnected(func){
-    if (connected) func();
-    else (console.log("Not connected to a robot!"))
-}
+const rc = new RosConnection();

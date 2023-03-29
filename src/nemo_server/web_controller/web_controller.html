@@ -50,8 +50,8 @@
                     <label for="txtEndpoint" class="form-label">Robot Address:</label>
                     <input id="txtEndpoint" type="text" value="192.168.0.81:9090" />
                     
-                    <button id="btnConnect" class="btn btn-primary" onclick="connectToROS();" >Connect</button>
-                    <button id="btnDisconnect" class="btn btn-danger hide" onclick="disconnectFromROS();">Disconnect</button>
+                    <button id="btnConnect" class="btn btn-primary" onclick="{rc.connect()}">Connect</button>
+                    <button id="btnDisconnect" class="btn btn-danger hide" onclick="{rc.disconnect()}">Disconnect</button>
                 </div>
             </div>
 
@@ -104,31 +104,31 @@
                 <!-- Robot Status (start/stop robot) -->
                 <div class="col-md-3 mb-2 mb-md-0">
                     <h4>Robot Status</h4>
-                    <button id="btnStartRobot" class="btn btn-primary" onclick="execIfConnected(planner.startRobot);">Start</button>
-                    <button id="btnStopRobot" class="btn btn-danger" onclick="execIfConnected(planner.pauseRobot);">Stop</button>
+                    <button id="btnStartRobot" class="btn btn-primary" onclick="{rc.planner.startRobot()}">Start</button>
+                    <button id="btnStopRobot" class="btn btn-danger" onclick="{rc.planner.pauseRobot()}">Stop</button>
                 </div>
 
                 <!-- Robot Control (manual/autonomous) -->
                 <div class="col-md-3 mb-2 mb-md-0">
                     <h4>Manual Control</h4>
                     <div class="col-md-3 mb-2 mb-md-0">
-                        <button id="btnManual" class="btn btn-danger" onclick="execIfConnected(planner.manualControl);" >Manual</button>
-                        <button id="btnAutonomous" class="btn btn-primary" onclick="execIfConnected(planner.autonomousControl);">Auto</button>
+                        <button id="btnManual" class="btn btn-danger" onclick="{rc.planner.manualControl()}" >Manual</button>
+                        <button id="btnAutonomous" class="btn btn-primary" onclick="{rc.planner.autonomousControl()}">Auto</button>
                     </div>
                 </div>
 
                 <!-- LED Lights Control -->
                 <div class="col-md-3 mb-2 mb-md-0">
                     <h4>Lights</h4>
-                    <button id="btnEnableLights" class="btn btn-primary" onclick="execIfConnected(lights.enable);" >Enable</button>
-                    <button id="btnDisableLights" class="btn btn-danger" onclick="execIfConnected(lights.disable);">Disable</button>
+                    <button id="btnEnableLights" class="btn btn-primary" onclick="{rc.lights.enable()}" >Enable</button>
+                    <button id="btnDisableLights" class="btn btn-danger" onclick="{rc.lights.disable()}">Disable</button>
                 </div>
 
                 <!-- Fish Location Tracking (start/stop robot) -->
                 <div class="col-md-3 mb-2 mb-md-0">
                     <h4>Track Fish Locations</h4>
-                    <button id="btnEnableLocRecord" class="btn btn-primary" onclick="execIfConnected(planner.enableTracking);">Start</button>
-                    <button id="btnDisableLocRecord" class="btn btn-danger" onclick="execIfConnected(planner.disableTracking);">Stop</button>
+                    <button id="btnEnableLocRecord" class="btn btn-primary" onclick="{rc.planner.enableTracking()}">Start</button>
+                    <button id="btnDisableLocRecord" class="btn btn-danger" onclick="{rc.planner.disableTracking()}">Stop</button>
                 </div>
             </div>
                     
@@ -140,15 +140,15 @@
                 <!-- Fish Bounding Boxes-->
                 <div class="col-md-3 mb-2">
                     <h4>Show Fish Boxes</h4>
-                    <button id="btnShowFishBoxes" class="btn btn-primary" onclick="execIfConnected(camera.showFishBoxes);" >Show</button>
-                    <button id="btnHideFishBoxes" class="btn btn-danger" onclick="execIfConnected(camera.hideFishBoxes);">Hide</button>
+                    <button id="btnShowFishBoxes" class="btn btn-primary" onclick="{rc.camera.showFishBoxes()}" >Show</button>
+                    <button id="btnHideFishBoxes" class="btn btn-danger" onclick="{rc.camera.hideFishBoxes()}">Hide</button>
                 </div>
 
                 <!-- Video Footage Recording -->
                 <div class="col-md-3 mb-2 mb-md-0">
                     <h4>Video Recording</h4>
-                    <button id="btnStartRecording" class="btn btn-primary" onclick="execIfConnected(camera.startRecording);" >Start</button>
-                    <button id="btnStopRecording" class="btn btn-danger" onclick="execIfConnected(camera.stopRecording);">Stop</button>
+                    <button id="btnStartRecording" class="btn btn-primary" onclick="{rc.camera.startRecording()}" >Start</button>
+                    <button id="btnStopRecording" class="btn btn-danger" onclick="{rc.camera.stopRecording()}">Stop</button>
                 </div>
 
                 <!-- Camera view -->
