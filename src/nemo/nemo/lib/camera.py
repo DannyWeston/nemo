@@ -21,14 +21,14 @@ class Camera(Node):
         self.declare_parameter('pixel_height', 480)
 
         self.res = (
-            self.get_parameter('pixel_width').get_parameter_value().value,
-            self.get_parameter('pixel_height').get_parameter_value().value,
+            self.get_parameter('pixel_width').value,
+            self.get_parameter('pixel_height').value,
         )
 
         # Fetch frame rate setting
         self.declare_parameter('frame_rate', 30)
 
-        self.rate = self.get_parameter('frame_rate').get_parameter_value().value
+        self.rate = self.get_parameter('frame_rate').value
 
         # Fetch topic setting
         self.declare_parameter('topic', '/nemo/image')
