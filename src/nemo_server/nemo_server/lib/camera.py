@@ -30,8 +30,8 @@ class Camera(Node):
 
         # Default to 640x480 at 30fps
         self.camera.set(cv2.CAP_PROP_FPS, rate)
-        self.camera.set(cv2.CV_PROP_FRAME_WIDTH, res[0]) 
-        self.camera.set(cv2.CV_PROP_FRAME_HEIGHT, res[1])
+        self.camera.set(cv2.CAP_PROP_FRAME_WIDTH, res[0]) 
+        self.camera.set(cv2.CAP_PROP_FRAME_HEIGHT, res[1])
 
     def publish_image(self):
         self.raw_image = self.get_image() 
