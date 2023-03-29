@@ -33,7 +33,7 @@ class Camera(Node):
         # Fetch topic setting
         self.declare_parameter('topic', '/nemo/image')
 
-        self.topic = self.get_parameter('pixel_height').get_parameter_value().string_value
+        self.topic = self.get_parameter('topic').get_parameter_value().string_value
 
         # Setup publisher
         self.publisher = self.create_publisher(CompressedImage, self.topic, 1)
