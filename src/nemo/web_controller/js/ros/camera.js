@@ -19,6 +19,12 @@ class Camera {
             messageType: 'sensor_msgs/CompressedImage'
         });
 
+        this.publisher = new ROSLIB.Topic({
+            ros: rosObj, 
+            name: "/nemo/recorder",
+            messageType: 'std_msgs/UInt8'
+        });
+
         this.listener.subscribe((msg) => this.onMessage(msg));
     }
 
@@ -40,10 +46,18 @@ class Camera {
     startRecording(){
         $('#btnStartRecording').hide();
         $('#btnStopRecording').show();
+
+        this.publisher.publish(new ROSLIB.Message({
+            data : 1
+        }));
     }
 
     stopRecording(){
         $('#btnStopRecording').hide();
         $('#btnStartRecording').show();
+
+        this.publisher.publish(new ROSLIB.Message({
+            data : 0
+        }));
     }
 }

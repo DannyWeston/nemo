@@ -2,8 +2,8 @@ class Planner {
     constructor(rosObj){
         this.ros = rosObj;
 
-        this.manualId = 5;
-        this.autoId = 3;
+        this.manualId = 4;
+        this.autoId = 2;
 
         this.controlTopic = new ROSLIB.Topic({
             ros: rosObj,
@@ -13,15 +13,17 @@ class Planner {
 
         this.planningTopic = new ROSLIB.Topic({
             ros: rosObj,
-            name: "/nemo/planning",
+            name: "/nemo/planner",
             messageType: 'std_msgs/UInt8'
         });
 
+        this.controlTopic.subscribe((msg) => this.onControlMsg(msg));
+        this.planningTopic.subscribe((msg) => this.onPlanningMsg(msg));
+
+        this.manualControl();
+
         $("#btnStopRobot").hide();
         $("#btnStartRobot").show();
-
-        $("#btnAutonomous").hide();
-        $("#btnManual").show();
 
         $("#btnDisableLocRecord").hide();
         $("#btnEnableLocRecord").show();
@@ -38,8 +40,7 @@ class Planner {
     }
 
     manualControl(){
-        $("#btnManual").hide();
-        $("#btnAutonomous").show();
+        this.inManualUI();
 
         var msg = new ROSLIB.Message({
             data : this.manualId
@@ -50,8 +51,7 @@ class Planner {
     }
 
     autonomousControl(){
-        $("#btnAutonomous").hide();
-        $("#btnManual").show();
+        this.inAutoUI();
 
         var msg = new ROSLIB.Message({
             data : this.autoId
@@ -59,6 +59,21 @@ class Planner {
 
         // Activate manual control
         this.controlTopic.publish(msg);
+    }
+
+    onControlMsg(msg){
+        if (msg.data == this.manualId){
+            // Switching to manual control
+            this.inManualUI();
+        }
+        else if (msg.data == this.autoId){
+            // Switching to autonomous control
+            this.inAutoUI();
+        }
+    }
+
+    onPlanningMsg(msg){
+        
     }
 
     enableTracking(){
@@ -69,5 +84,15 @@ class Planner {
     disableTracking(){
         $("#btnDisableLocRecord").hide();
         $("#btnEnableLocRecord").show();
+    }
+
+    inManualUI(){
+        $("#btnManual").hide();
+        $("#btnAutonomous").show();
+    }
+
+    inAutoUI(){
+        $("#btnAutonomous").hide();
+        $("#btnManual").show();
     }
 }

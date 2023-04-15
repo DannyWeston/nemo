@@ -1,6 +1,9 @@
 import numpy as np
 import math
 
+AIR_PRESSURE = 101325.0
+WATER_PRESSURE_PER_METRE = 10122.0
+
 def quat_to_euler(quaternion):
     x = quaternion.x
     y = quaternion.y

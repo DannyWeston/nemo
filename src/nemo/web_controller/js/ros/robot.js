@@ -35,7 +35,7 @@ class RosConnection {
         // Setup nodes
         this.battery = new Battery(this.ros, "/nemo/battery");
 
-        this.odom = new Odom(this.ros, "/nemo/odom");
+        this.odom = new Pose(this.ros, "/nemo/pose");
 
         this.camera = new Camera(this.ros, "/nemo/image");
 

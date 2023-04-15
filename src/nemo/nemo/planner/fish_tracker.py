@@ -1,7 +1,15 @@
 import cv2
 
-class GoalFinder():
-    def __init__(self, logger=None):
+from cv_bridge import CvBridge
+
+from ..lib.pid import PID
+
+class FishTracker():
+    def __init__(self):
+        self.img = None
+
+        self.br = CvBridge()
+
         self.follow_res = (160, 90)
 
         self.fish_colours_hsv_lower = [
@@ -14,18 +22,26 @@ class GoalFinder():
             (70, 255, 255),     # Green
         ]
 
-        self.logger = logger
-
         self.goal = 0
+        
+        self.follow_pid = PID(kp = 0.001)
 
-    def search(self, img):
-        height, width, _ = img.shape
+    def img_callback(self, msg):
+        self.img = self.br.compressed_imgmsg_to_cv2(msg)
+
+    def search(self):
+        if self.img is None: return None
+
+        height, width, _ = self.img.shape
+
         threshold = (width * height) * 0.05 # Only 3% threshold required
 
-        return self.check_for_goals(img=img, threshold=threshold)
+        return self.check_for_goals(threshold)
 
-    def check_for_goals(self, img, threshold, size=None):
+    def check_for_goals(self, threshold, size=None):
         # Check if the image is marked to be resized
+        img = self.img
+
         height, width, _ = img.shape
         if size is not None and size != (width, height):
             img = cv2.resize(img, size, interpolation=cv2.INTER_NEAREST)
@@ -66,8 +82,8 @@ class GoalFinder():
 
         return True
 
-    def follow(self, img):
+    def follow(self):
         # Reduce size of image for use in following
         # We don't need as much resolution to follow as we have already identified our target
         threshold = (self.follow_res[0] * self.follow_res[1]) * 0.05 # Only 5% threshold required
-        return self.check_for_goals(img=img, threshold=threshold, size=self.follow_res)
+        return self.check_for_goals(img=self.img, threshold=threshold, size=self.follow_res)

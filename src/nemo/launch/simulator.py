@@ -28,6 +28,20 @@ def generate_launch_description():
         parameters=[config]
     )
 
+    recorder = Node(
+        package='nemo',
+        executable='recorder',
+        name='recorder',
+        parameters=[config]
+    )
+
+    localiser = Node(
+        package='nemo',
+        executable='localiser',
+        name='localiser',
+        parameters=[config]
+    )
+
     rosbridge = Node(
         package='rosbridge_server',
         executable='rosbridge_websocket',
@@ -35,8 +49,11 @@ def generate_launch_description():
         parameters=[config]
     )
     
-    ld.add_action(unity2ros)
-    ld.add_action(planner)
-    ld.add_action(rosbridge)
+    ld.add_action(unity2ros) # Unity 2 Ros
+    ld.add_action(rosbridge) # ROSLIB Websocket
 
+    # Nemo Actions
+    ld.add_action(planner)
+    ld.add_action(recorder)
+    ld.add_action(localiser)
     return ld

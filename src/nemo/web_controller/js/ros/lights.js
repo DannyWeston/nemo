@@ -3,29 +3,30 @@ class Lights {
         this.ros = rosObj;
         this.topic = topic;
 
-        $("#btnEnableLights").hide();
-        $("#btnDisableLights").show();
+        $("#sliderLights").show();
 
         this.listener = new ROSLIB.Topic({
             ros: rosObj,
             name: topic,
-            messageType: "std_msgs/Bool",
+            messageType: "std_msgs/UInt8",
+        });
+
+        $("#sliderLights").on('input', () => {
+            this.sendUpdate(parseInt($("#sliderLights").val()))
         });
 
         this.listener.subscribe((msg) => this.onMessage(msg));
+
+        this.sendUpdate(parseInt($("#sliderLights").val()))
+    }
+
+    sendUpdate(value){
+        this.listener.publish(new ROSLIB.Message({
+            data : value
+        }));
     }
 
     onMessage(msg){
-        msg.data ? this.enable() : this.disable();
-    }
-
-    enable(){
-        $("#btnEnableLights").hide();
-        $("#btnDisableLights").show();
-    }
-
-    disable(){
-        $("#btnDisableLights").hide();
-        $("#btnEnableLights").show();
+        $("#sliderLights").val(msg.data);
     }
 }

@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <script type="text/javascript" src="./js/ros/battery.js"></script>
     <script type="text/javascript" src="./js/ros/lights.js"></script>
-    <script type="text/javascript" src="./js/ros/odom.js"></script>
+    <script type="text/javascript" src="./js/ros/pose.js"></script>
     <script type="text/javascript" src="./js/ros/camera.js"></script>
     <script type="text/javascript" src="./js/ros/planner.js"></script>
 
@@ -74,17 +74,17 @@
                 <!-- Position -->
                 <div class="col-md-3 mb-2 mb-md-0">
                     <h4>Position (Metres):</h4>
-                    X: <span class="clear-on-disc" id="odomPositionX"></span><br>
-                    Y: <span class="clear-on-disc" id="odomPositionY"></span><br>
-                    Z: <span class="clear-on-disc" id="odomPositionZ"></span><br>
+                    X: <span class="clear-on-disc" id="posePosX"></span><br>
+                    Y: <span class="clear-on-disc" id="posePosY"></span><br>
+                    Z: <span class="clear-on-disc" id="posePosZ"></span><br>
                 </div>
 
                 <!-- Orientation -->
                 <div class="col-md-3 mb-2 mb-md-0">
                     <h4>Orientation (Radians):</h4>
-                    Pitch: <span class="clear-on-disc" id="odomOrientationX"></span><br>
-                    Roll: <span class="clear-on-disc" id="odomOrientationY"></span><br>
-                    Yaw: <span class="clear-on-disc" id="odomOrientationZ"></span><br>
+                    Pitch: <span class="clear-on-disc" id="poseRotX"></span><br>
+                    Roll: <span class="clear-on-disc" id="poseRotY"></span><br>
+                    Yaw: <span class="clear-on-disc" id="poseRotZ"></span><br>
                 </div>
 
                 <!-- Identified Fish -->
@@ -120,8 +120,7 @@
                 <!-- LED Lights Control -->
                 <div class="col-md-3 mb-2 mb-md-0">
                     <h4>Lights</h4>
-                    <button id="btnEnableLights" class="btn btn-primary" onclick="{rc.lights.enable()}" >Enable</button>
-                    <button id="btnDisableLights" class="btn btn-danger" onclick="{rc.lights.disable()}">Disable</button>
+                    <input type="range" min="0" max="255" class="form-range" id="sliderLights">
                 </div>
 
                 <!-- Fish Location Tracking (start/stop robot) -->
@@ -152,7 +151,7 @@
                 </div>
 
                 <!-- Camera view -->
-                <div class="text-center">
+                <div class="text-center p-0">
                     <img id="imgCameraView" class="w-100 h-100 w-md-75 h-md-75"src="./img/placeholder.jpg" />
                 </div>
             </div>

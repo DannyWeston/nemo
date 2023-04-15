@@ -21,10 +21,24 @@ def generate_launch_description():
         parameters=[config]
     )
 
-    camera_pub = Node(
+    recorder = Node(
         package='nemo',
-        executable='camera',
-        name='camera',
+        executable='recorder',
+        name='recorder',
+        parameters=[config]
+    )
+
+    localiser = Node(
+        package='nemo',
+        executable='localiser',
+        name='localiser',
+        parameters=[config]
+    )
+
+    hardware = Node(
+        package='nemo',
+        executable='hardware',
+        name='hardware',
         parameters=[config]
     )
 
@@ -35,9 +49,12 @@ def generate_launch_description():
         parameters=[config]
     )
     
-    ld.add_action(planner)
-    ld.add_action(camera_pub)
+    ld.add_action(rosbridge) # ROSLIB Websocket
 
-    ld.add_action(rosbridge)
+    # Nemo Actions
+    ld.add_action(planner)
+    ld.add_action(recorder)
+    ld.add_action(localiser)
+    ld.add_action(hardware)
 
     return ld

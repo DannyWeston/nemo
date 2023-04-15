@@ -4,14 +4,24 @@ unity2ros:
 
 planner:
   ros__parameters:
-    default_video_directory: "/home/ros/recordings"
+    rate: 10
 
-camera_pub:
+camera:
   ros__parameters:
-    pixel_width: 640
-    pixel_height: 480
+    width: 640
+    height: 480
     frame_rate: 30
-    topic: '/nemo/image'
+
+recorder:
+  ros__parameters:
+    width: 640
+    height: 480
+    frame_rate: 30
+    video_dir: "/home/ros/recordings"
+
+localiser:
+  ros__parameters:
+    rate: 10
 
 rosbridge:
   ros__parameters:
