@@ -5,6 +5,8 @@ class Planner {
         this.manualId = 4;
         this.autoId = 2;
 
+        this.auto = false;
+
         this.controlTopic = new ROSLIB.Topic({
             ros: rosObj,
             name: "/nemo/control",
@@ -20,7 +22,7 @@ class Planner {
         this.controlTopic.subscribe((msg) => this.onControlMsg(msg));
         this.planningTopic.subscribe((msg) => this.onPlanningMsg(msg));
 
-        this.manualControl();
+        this.setManualMode();
 
         $("#btnStopRobot").hide();
         $("#btnStartRobot").show();
@@ -39,7 +41,9 @@ class Planner {
         $("#btnStartRobot").show();
     }
 
-    manualControl(){
+    setManualMode(){
+        this.auto = false;
+        
         this.inManualUI();
 
         var msg = new ROSLIB.Message({
@@ -50,7 +54,9 @@ class Planner {
         this.controlTopic.publish(msg);
     }
 
-    autonomousControl(){
+    setAutonomousMode(){
+        this.auto = true;
+
         this.inAutoUI();
 
         var msg = new ROSLIB.Message({
@@ -64,10 +70,12 @@ class Planner {
     onControlMsg(msg){
         if (msg.data == this.manualId){
             // Switching to manual control
+            this.auto = false;
             this.inManualUI();
         }
         else if (msg.data == this.autoId){
             // Switching to autonomous control
+            this.auto = true;
             this.inAutoUI();
         }
     }

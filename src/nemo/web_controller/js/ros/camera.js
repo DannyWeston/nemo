@@ -25,6 +25,8 @@ class Camera {
             messageType: 'std_msgs/UInt8'
         });
 
+        this.recording = false;
+
         this.listener.subscribe((msg) => this.onMessage(msg));
     }
 
@@ -44,6 +46,8 @@ class Camera {
     }
 
     startRecording(){
+        this.recording = true;
+
         $('#btnStartRecording').hide();
         $('#btnStopRecording').show();
 
@@ -53,6 +57,8 @@ class Camera {
     }
 
     stopRecording(){
+        this.recording = false;
+        
         $('#btnStopRecording').hide();
         $('#btnStartRecording').show();
 

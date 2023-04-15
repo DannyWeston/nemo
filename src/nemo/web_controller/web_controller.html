@@ -14,15 +14,18 @@
 
     <!-- Custom JS + CSS -->
     <link rel="stylesheet" href="./css/style.css">
+
+    <script type="text/javascript" src="./js/ros/math.js"></script> <!-- Useful math functions -->
+    <script type="text/javascript" src="./js/input/input.js"></script> <!-- Controller Input Handler -->
+
     <script type="text/javascript" src="./js/ros/battery.js"></script>
     <script type="text/javascript" src="./js/ros/lights.js"></script>
     <script type="text/javascript" src="./js/ros/pose.js"></script>
     <script type="text/javascript" src="./js/ros/camera.js"></script>
     <script type="text/javascript" src="./js/ros/planner.js"></script>
+    <script type="text/javascript" src="./js/ros/thruster.js"></script>
 
-    <script type="text/javascript" src="./js/ros/math.js"></script>
-
-    <script type="text/javascript" src="./js/ros/robot.js"></script>
+    <script type="text/javascript" src="./js/ros/robot.js"></script> <!-- Main Robot Script -->
 
     <title>NEMO Web Controller</title>
 </head>
@@ -31,7 +34,7 @@
     <nav class="navbar navbar-expand-md navbar-light py-0">
         <div class="container">
             <span class="border-bottom border-light py-5 mb-0 mx-auto">
-                <h2 class="navbar-header ">NEMO Robot Web Controller</h2>
+                <h2 class="navbar-header ">NEMO Web Controller</h2>
             </span>
         </div>
     </nav>
@@ -40,18 +43,26 @@
         <div class="container-fluid h-100">
             <!-- Connection -->
             <div class="row">
-                <h2>Status</h2>
-                <div id="connectionStatus" class="mb-2">
-                    <span class="innerSymbol" style="color: red;">&#9679;</span>
-                    <span class="innerText">Disconnected</span>
-                </div>
-
                 <div class="col-md-6">
+                    <h2>Status</h2>
+                    <div id="rosConnStatus" class="mb-2">
+                        <h4 class="innerSymbol d-inline" style="color: red;">&#9679;</h4>
+                        <h4 class="innerText d-inline">Disconnected</h4>
+                    </div>
+                    
                     <label for="txtEndpoint" class="form-label">Robot Address:</label>
                     <input id="txtEndpoint" type="text" value="192.168.0.81:9090" />
                     
                     <button id="btnConnect" class="btn btn-primary" onclick="{rc.connect()}">Connect</button>
                     <button id="btnDisconnect" class="btn btn-danger hide" onclick="{rc.disconnect()}">Disconnect</button>
+                </div>
+
+                <div class="col-md-6">
+                    <h2>Controller:</h2>
+                    <div id="contConn" class="mb-2">
+                        <h4 class="innerSymbol d-inline" style="color: red;">&#9679;</h4>
+                        <h4 class="innerText d-inline">Disconnected</h4>
+                    </div>
                 </div>
             </div>
 
@@ -112,8 +123,8 @@
                 <div class="col-md-3 mb-2 mb-md-0">
                     <h4>Manual Control</h4>
                     <div class="col-md-3 mb-2 mb-md-0">
-                        <button id="btnManual" class="btn btn-danger" onclick="{rc.planner.manualControl()}" >Manual</button>
-                        <button id="btnAutonomous" class="btn btn-primary" onclick="{rc.planner.autonomousControl()}">Auto</button>
+                        <button id="btnManual" class="btn btn-danger" onclick="{rc.planner.setManualMode()}" >Manual</button>
+                        <button id="btnAutonomous" class="btn btn-primary" onclick="{rc.planner.setAutonomousMode()}">Auto</button>
                     </div>
                 </div>
 

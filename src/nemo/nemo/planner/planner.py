@@ -32,7 +32,7 @@ class Planner(Node):
         self.camera_sub = self.create_subscription(CompressedImage, "/nemo/image", self.tracker.img_callback, 1) # Queue size of 1
 
         # Module for maintaining a set depth
-        self.depth = Depth()
+        self.depth = Depth(self.get_depth_parameters())
         self.target_sub = self.create_subscription(Float32, "/nemo/depth", self.depth.target_callback, 1) # Queue size of 1
 
         # Module for retrieving Nemo's location
@@ -55,6 +55,21 @@ class Planner(Node):
         self.declare_parameter('rate', 10)
         self.rate = self.get_parameter('rate').value
         self.create_timer(1.0 / self.rate, self.update)
+
+    def get_depth_parameters(self):
+        self.declare_parameter('depth_pid.kp', 0.4)
+        self.declare_parameter('depth_pid.ki', 0.8)
+        self.declare_parameter('depth_pid.kd', 0.1)
+        self.declare_parameter('depth_pid.min', -1.0)
+        self.declare_parameter('depth_pid.max', 1.0)
+
+        return {
+            "kp": self.get_parameter('depth_pid.kp').value,
+            "ki": self.get_parameter('depth_pid.ki').value,
+            "kd": self.get_parameter('depth_pid.kd').value,
+            "min": self.get_parameter('depth_pid.min').value,
+            "max": self.get_parameter('depth_pid.max').value
+        }
 
     def planner_callback(self, msg):
         self.p_state = PlannerState(int(msg.data))
@@ -89,6 +104,7 @@ class Planner(Node):
             case ControlState.ManualToAuto: # Transitioning to automatic control
                 self.zero_vel()
                 self.publish()
+                self.depth.reset()
                 self.get_logger().info("Changing to autonomous control")
                 self.c_state = ControlState.Auto
             

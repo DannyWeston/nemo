@@ -9,7 +9,7 @@ def generate_launch_description():
     config = os.path.join(
         get_package_share_directory('nemo'),
         'config',
-        'parameters.yaml'
+        'start.yaml'
     )
 
     ld = LaunchDescription()

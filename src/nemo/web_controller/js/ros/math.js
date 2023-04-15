@@ -25,3 +25,12 @@ function eulerToQuaternion(x, y, z) {
   
     return(quat);
 }
+
+// Clamp a given number to minimum and maximum
+function clamp(value, min, max){
+    return Math.min(Math.max(value, min), max);
+}
+
+function roundToInc(value, inc){
+    return Math.round(value / inc) * inc;
+}

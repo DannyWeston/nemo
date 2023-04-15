@@ -2,15 +2,6 @@
     object-fit: contain;
 }
 
-#connectionStatus {
-    line-height: 1.2;
-    font-size: 1.5em;
-}
-
-#connectionStatus > .innerText {
-    display: inline;
-}
-
 #noCameraView {
     min-height: 50vh;
     display: flex;
