@@ -36,6 +36,7 @@ setup(
             'planner = nemo.planner.planner:main',
             'recorder = nemo.recorder.recorder:main',
             'localiser = nemo.localiser.localiser:main',
+            'camera = nemo.hardware.camera:main',
         ],
     },
 )
