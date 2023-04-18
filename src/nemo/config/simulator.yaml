@@ -28,7 +28,3 @@ recorder:
 localiser:
   ros__parameters:
     rate: 10
-
-rosbridge:
-  ros__parameters:
-    somethingelse: "Hello"

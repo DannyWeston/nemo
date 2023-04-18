@@ -1,10 +1,12 @@
-unity2ros:
-  ros__parameters:
-    ROS_IP: "0.0.0.0"
-
 planner:
   ros__parameters:
     rate: 10
+    depth_pid: 
+      kp: 0.4
+      ki: 0.8
+      kd: 0.1
+      min: -1.0
+      max: 1.0
 
 camera:
   ros__parameters:
@@ -23,6 +25,6 @@ localiser:
   ros__parameters:
     rate: 10
 
-rosbridge:
+hardware:
   ros__parameters:
-    somethingelse: "Hello"
+    show_ip: true

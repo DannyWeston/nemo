@@ -16,9 +16,9 @@ class Pose {
         const dp = 2;
 
         let euler = quaternionToEuler(
-            msg.orientation.x, 
-            msg.orientation.y, 
-            msg.orientation.z, 
+            msg.orientation.x,
+            msg.orientation.y,
+            msg.orientation.z,
             msg.orientation.w
         );
 
@@ -26,8 +26,8 @@ class Pose {
         $("#posePosY").text(msg.position.y.toFixed(dp));
         $("#posePosZ").text(msg.position.z.toFixed(dp));
 
-        $("#poseRotX").text(euler[0].toFixed(dp));
+        $("#poseRotX").text(euler[2].toFixed(dp));
         $("#poseRotY").text(euler[1].toFixed(dp));
-        $("#poseRotZ").text(euler[2].toFixed(dp));
+        $("#poseRotZ").text(euler[0].toFixed(dp));
     }
 }

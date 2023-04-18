@@ -42,6 +42,13 @@ def generate_launch_description():
         parameters=[config]
     )
 
+    camera = Node(
+        package='nemo',
+        executable='camera',
+        name='camera',
+        parameters=[config]
+    )
+
     rosbridge = Node(
         package='rosbridge_server',
         executable='rosbridge_websocket',
@@ -56,5 +63,6 @@ def generate_launch_description():
     ld.add_action(recorder)
     ld.add_action(localiser)
     ld.add_action(hardware)
+    ld.add_action(camera)
 
     return ld

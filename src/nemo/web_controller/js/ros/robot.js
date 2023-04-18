@@ -91,7 +91,7 @@ class RosConnection {
 
         // When the Rosbridge server experiences an error, fill the "status" span with the returned error
         this.ros.on("error", (error) => {
-            alert(error);
+            // Do nothing for now
         });
 
         // When the Rosbridge server shuts down, fill the "status" span with "closed"
@@ -126,6 +126,19 @@ class RosConnection {
                     else {
                         this.planner.setAutonomousMode();
                     }
+                }
+                break;
+
+            case 5:
+                if (!!this.lights){
+                    this.lights.increase();
+                    console.log("Increase");
+                }
+                break;
+            case 4:
+                if (!!this.lights){
+                    this.lights.decrease();
+                    console.log("Decrease");
                 }
                 break;
 
