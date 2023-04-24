@@ -17,9 +17,9 @@ class Thruster:
 
         self.handle = self.initialise(gpio_pin)
 
+    def initialise(self, gpio_pin):
         GPIO.setup(self.pin, GPIO.OUT)
 
-    def initialise(self, gpio_pin):
         handle = GPIO.PWM(gpio_pin, 50)
         handle.start(0)
 
