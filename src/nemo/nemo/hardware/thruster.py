@@ -29,7 +29,7 @@ class Thruster:
         frac = speed / 100.0
         self.value = self.centre_duty + ((self.max_duty - self.centre_duty) * frac)
 
-        self.handle.ChangeDutyCycle(self.value)
+        self.handle.ChangeDutyCycle(min(100.0, max(0.0, self.value)))
 
     def get_speed(self):
         return (100.0 * (self.value - self.centre_duty)) / (self.max_duty - self.centre_duty) 
