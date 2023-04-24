@@ -27,7 +27,7 @@ class Hardware(Node):
         self.max_thruster_speed = 0.5
 
         # Listen for thruster updates
-        self.thruster_sub = self.create_subscription(Twist, self.thruster_topic, self.thruster_callback, 1) # Queue size of 1
+        self.thruster_sub = self.create_subscription(Twist, "/nemo/props", self.thruster_callback, 1) # Queue size of 1
 
     def thruster_callback(self, msg):
         fl = msg.linear.x
