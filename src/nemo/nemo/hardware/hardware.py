@@ -5,11 +5,72 @@ import socket
 import fcntl
 import struct
 
+import math
+
+from .thruster import Thruster
+
+from geometry_msgs.msg import Twist
+
 class Hardware(Node):
     def __init__(self):
         super().__init__('hardware')
 
-        self.get_logger().info(self.get_ip_address('eth0'))
+        self.thrusters = { 
+            "ul": Thruster(7),
+            "ur": Thruster(11),
+            "fl": Thruster(13),
+            "fr": Thruster(15)
+        }
+
+        self.thruster_diff = 0.3
+
+        self.max_thruster_speed = 0.5
+
+        # Listen for thruster updates
+        self.thruster_sub = self.create_subscription(Twist, self.thruster_topic, self.thruster_callback, 1) # Queue size of 1
+
+    def thruster_callback(self, msg):
+        fl = msg.linear.x
+        fr = msg.linear.x
+
+        ul = msg.linear.z
+        ur = msg.linear.z
+
+        if (msg.angular.x < 0): fl -= msg.angular.x
+        else: fr += msg.angular.x
+
+        if (msg.angular.z < 0): ul -= msg.angular.z
+        else: ur += msg.angular.z
+
+        if self.max_thruster_speed * self.max_thruster_speed < self.square_magnitude(fl, fr):
+            fl, fr = self.normalise(fl, fr)
+            fl *= self.max_thruster_speed
+            fr *= self.max_thruster_speed
+
+        if self.max_thruster_speed * self.max_thruster_speed < self.square_magnitude(ul, ur):
+            ul, ur = self.normalise(ul, ur)
+            ul *= self.max_thruster_speed
+            ur *= self.max_thruster_speed
+
+        fl = (fl / self.max_thruster_speed) * 100.0
+        fr = (fr / self.max_thruster_speed) * 100.0
+        ul = (ul / self.max_thruster_speed) * 100.0
+        ur = (ur / self.max_thruster_speed) * 100.0
+
+        self.thrusters["fl"].set_speed(fl)
+        self.thrusters["fr"].set_speed(fr)
+        self.thrusters["ul"].set_speed(ul)
+        self.thrusters["ur"].set_speed(ur)
+
+    def magnitude(self, x, y):
+        return math.sqrt(x * x + y * y)
+    
+    def square_magnitude(self, x, y):
+        return x * x + y * y
+
+    def normalise(self, x, y):
+        dist = self.magnitude(x, y)
+        return (x / dist, y / dist)
 
     def get_ip_address(self, ifname):
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)

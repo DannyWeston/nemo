@@ -48,6 +48,13 @@ def generate_launch_description():
         name='rosbridge',
         parameters=[config]
     )
+
+    tracker = Node(
+        package='nemo',
+        executable='tracker',
+        name='tracker',
+        parameters=[config]
+    )
     
     ld.add_action(unity2ros) # Unity 2 Ros
     ld.add_action(rosbridge) # ROSLIB Websocket
@@ -56,4 +63,5 @@ def generate_launch_description():
     ld.add_action(planner)
     ld.add_action(recorder)
     ld.add_action(localiser)
+    ld.add_action(tracker)
     return ld

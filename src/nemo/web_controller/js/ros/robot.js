@@ -53,6 +53,8 @@ class RosConnection {
         this.lights = new Lights(this.ros, "/nemo/lights");
 
         this.thruster = new Thruster(this.ros, "/nemo/props");
+
+        this.grid = new OccupancyGrid(this.ros, "/nemo/map");
     }
 
     onDisconnect(){
@@ -79,6 +81,7 @@ class RosConnection {
         this.battery = null;
         this.camera = null;
         this.thruster = null;
+        this.grid = null;
     }
 
     connect(){

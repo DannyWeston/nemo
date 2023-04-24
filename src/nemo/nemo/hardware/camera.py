@@ -43,7 +43,6 @@ class Camera(Node):
         ret, frame = self.camera.read()
 
         if not ret: # Can't publish due to error
-            self.get_logger().info("Could not get image due to error")
             return
 
         # Handle publishing of frame

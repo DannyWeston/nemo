@@ -10,7 +10,11 @@
     <script src="./js/lib/bootstrap.bundle.min.js"></script>
 
     <!-- ROS Lib JS -->
+    <script type="text/javascript" src="./js/lib/easeljs.js"></script>
+    <script type="text/javascript" src="./js/lib/eventemitter2.js"></script>
     <script type="text/javascript" src="./js/lib/roslib.js"></script>
+    <script type="text/javascript" src="./js/lib/ros2d.js"></script>
+
 
     <!-- Custom JS + CSS -->
     <link rel="stylesheet" href="./css/style.css">
@@ -23,6 +27,7 @@
     <script type="text/javascript" src="./js/ros/pose.js"></script>
     <script type="text/javascript" src="./js/ros/camera.js"></script>
     <script type="text/javascript" src="./js/ros/planner.js"></script>
+    <script type="text/javascript" src="./js/ros/grid.js"></script>
     <script type="text/javascript" src="./js/ros/thruster.js"></script>
 
     <script type="text/javascript" src="./js/ros/robot.js"></script> <!-- Main Robot Script -->
@@ -134,11 +139,15 @@
                     <input type="range" min="0" max="255" class="form-range" id="sliderLights">
                 </div>
 
-                <!-- Fish Location Tracking (start/stop robot) -->
+                <!-- Minimap View -->
                 <div class="col-md-3 mb-2 mb-md-0">
-                    <h4>Track Fish Locations</h4>
-                    <button id="btnEnableLocRecord" class="btn btn-primary" onclick="{rc.planner.enableTracking()}">Start</button>
-                    <button id="btnDisableLocRecord" class="btn btn-danger" onclick="{rc.planner.disableTracking()}">Stop</button>
+                    <h4>Show Minimap</h4>
+                    <div class="mb-2">
+                        <button id="btnShowMap" class="btn btn-primary" onclick="{rc.grid.showMap()}">Show</button>
+                        <button id="btnHideMap" class="btn btn-danger" onclick="{rc.grid.hideMap()}">Hide</button>
+                    </div>
+                                
+                    <div id="map"></div>
                 </div>
             </div>
                     
@@ -166,6 +175,7 @@
                     <img id="imgCameraView" class="w-100 h-100 w-md-75 h-md-75"src="./img/placeholder.jpg" />
                 </div>
             </div>
+
         </div>
     </main>
 

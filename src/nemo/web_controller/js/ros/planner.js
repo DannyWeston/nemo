@@ -84,16 +84,6 @@ class Planner {
         
     }
 
-    enableTracking(){
-        $("#btnEnableLocRecord").hide();
-        $("#btnDisableLocRecord").show();
-    }
-
-    disableTracking(){
-        $("#btnDisableLocRecord").hide();
-        $("#btnEnableLocRecord").show();
-    }
-
     inManualUI(){
         $("#btnManual").hide();
         $("#btnAutonomous").show();

@@ -4,27 +4,31 @@ unity2ros:
 
 planner:
   ros__parameters:
-    rate: 10
-    depth_pid: 
+    rate: 3
+    autodepth: 
       kp: 0.4
       ki: 0.8
       kd: 0.1
-      min: -1.0
-      max: 1.0
-
-camera:
-  ros__parameters:
-    width: 640
-    height: 480
-    frame_rate: 30
+      min_depth: -0.3
+      max_depth: -1.0
 
 recorder:
   ros__parameters:
-    width: 640
-    height: 480
+    width: 1280
+    height: 720
     frame_rate: 30
     video_dir: "/home/ros/recordings"
 
 localiser:
   ros__parameters:
     rate: 10
+    map_dir: "/home/ros/maps"
+
+tracker:
+  ros__parameters:
+    rate: 5
+    classes_path: "build/nemo/build/lib/nemo/data/classes.txt"
+    model_path: "build/nemo/build/lib/nemo/data/model.onnx"
+    image_size:
+      x: 640
+      y: 640

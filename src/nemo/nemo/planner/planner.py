@@ -13,31 +13,36 @@ from geometry_msgs.msg import Twist
 from enum import Enum
 
 # Nemo Lib Imports
-from .fish_tracker import FishTracker
+#from .fish_tracker import FishTracker
 
-from .depth import Depth
+from nemo_interfaces.msg import TrackerMsg
+
+from .autodepth import AutoDepth
 
 from ..lib.math import quat_to_euler
-
 
 class Planner(Node):
     def __init__(self):
         super().__init__('planner')
 
+        params = self.get_parameters()
+
         self.p_state = PlannerState.Searching # Default planner state is searching
         self.c_state = ControlState.Paused # Default control state is paused
 
         # Module for tracking fish
-        self.tracker = FishTracker()
-        self.camera_sub = self.create_subscription(CompressedImage, "/nemo/image", self.tracker.img_callback, 1) # Queue size of 1
+        # self.tracker = FishTracker()
+        self.found_id = None
+        self.camera_sub = self.create_subscription(TrackerMsg, "/nemo/tracker", self.tracker_callback, 1) # Queue size of 1
 
         # Module for maintaining a set depth
-        self.depth = Depth(self.get_depth_parameters())
-        self.target_sub = self.create_subscription(Float32, "/nemo/depth", self.depth.target_callback, 1) # Queue size of 1
+        self.depth = AutoDepth(params['autodepth.kp'], params['autodepth.ki'], params['autodepth.kd'], params['autodepth.min_depth'], params['autodepth.max_depth'], params['autodepth.tolerance'])
+        self.depth_control_sub = self.create_subscription(Float32, "/nemo/depth", self.depth_control_callback, 1) # Queue size of 1
 
         # Module for retrieving Nemo's location
         self.position = None
         self.orientation = None
+        self.quat_orientation = None # Orientation as Quaternion
         self.pose_sub = self.create_subscription(Pose, "/nemo/pose", self.pose_callback, 1) # Queue size of 1
 
         # Module for sending movement updates to the hardware
@@ -52,65 +57,24 @@ class Planner(Node):
         self.control_sub = self.create_subscription(UInt8, "/nemo/control", self.control_callback, 1) # Queue size of 1
 
         # Setup updates
-        self.declare_parameter('rate', 10)
+        self.declare_parameter('rate', 3)
         self.rate = self.get_parameter('rate').value
         self.create_timer(1.0 / self.rate, self.update)
 
-    def get_depth_parameters(self):
-        self.declare_parameter('depth_pid.kp', 0.4)
-        self.declare_parameter('depth_pid.ki', 0.8)
-        self.declare_parameter('depth_pid.kd', 0.1)
-        self.declare_parameter('depth_pid.min', -1.0)
-        self.declare_parameter('depth_pid.max', 1.0)
-
-        return {
-            "kp": self.get_parameter('depth_pid.kp').value,
-            "ki": self.get_parameter('depth_pid.ki').value,
-            "kd": self.get_parameter('depth_pid.kd').value,
-            "min": self.get_parameter('depth_pid.min').value,
-            "max": self.get_parameter('depth_pid.max').value
-        }
-
-    def planner_callback(self, msg):
-        self.p_state = PlannerState(int(msg.data))
-
-    def control_callback(self, msg):
-        self.c_state = ControlState(int(msg.data))
-
-    def pose_callback(self, msg):
-        self.position = (msg.position.x, msg.position.y, msg.position.z)
-
-        self.orientation = quat_to_euler(msg.orientation)
-
-    def publish(self):
-        # Make the message
-        msg = Twist()
-        msg.linear.x = self.linear_vel[0]
-        msg.linear.y = self.linear_vel[1]
-        msg.linear.z = self.linear_vel[2]
-
-        msg.angular.x = self.angular_vel[0]
-        msg.angular.y = self.angular_vel[1]
-        msg.angular.z = self.angular_vel[2]
-
-        self.mover_pub.publish(msg)
-
-    def zero_vel(self):
-        self.linear_vel = [0.0, 0.0, 0.0]
-        self.angular_vel = [0.0, 0.0, 0.0]
-
+    # Update functions
+    
     def update(self):
         match self.c_state:
             case ControlState.ManualToAuto: # Transitioning to automatic control
                 self.zero_vel()
-                self.publish()
+                self.publish_vel()
                 self.depth.reset()
                 self.get_logger().info("Changing to autonomous control")
                 self.c_state = ControlState.Auto
             
             case ControlState.AutoToManual: # Transitioning to automatic control
                 self.zero_vel()
-                self.publish()
+                self.publish_vel()
                 self.get_logger().info("Changing to manual control")
                 self.c_state = ControlState.Manual
 
@@ -123,11 +87,11 @@ class Planner(Node):
 
             case ControlState.Paused: # TODO: Ensure EVERYTHING is stopped
                 self.zero_vel()
-                self.publish()
+                self.publish_vel()
 
             case _:
                 self.zero_vel()
-                self.publish()
+                self.publish_vel()
                 self.c_state = ControlState.Paused
                 self.get_logger().info("Impossible control state reached, defaulting to paused")
 
@@ -146,12 +110,13 @@ class Planner(Node):
                 self.avoid_hazard()
 
             case PlannerState.Searching:
-                if self.tracker.search(): self.p_state = PlannerState.Following
+                #if self.tracker.search(): self.p_state = PlannerState.Following
+                pass
 
             case PlannerState.Following:
                 self.follow_goal()
 
-        self.publish()
+        self.publish_vel()
 
     def check_hazards(self):
         hazard = False
@@ -161,39 +126,80 @@ class Planner(Node):
         self.get_logger().info("Attempting to avoid a hazard...")
 
     def follow_goal(self):
-        if not self.tracker.follow(): # Lost track of goal so look for new one
-            self.p_state = PlannerState.Searching
-            return
+        # if not self.tracker.follow(): # Lost track of goal so look for new one
+        #     self.p_state = PlannerState.Searching
+        #     return
 
         self.get_logger().info("Following identified goal...")
 
         # Drive towards goal at 0.2 m/s
         self.linear_vel[1] = 0.2
 
-    # def align_goal(self):
-    #     pass
-    #     if self.camera_listener.img is None: return # Can't align to a goal when we have no image
+    # Functions
 
-    #     if not self.goal_finder.search(self.camera_listener.img):
-    #         # Could no longer find the goal, change back to search
-    #         self.state_manager.planning_state = PlannerState.Searching
-    #         return
-        
-    #     if 4 < self.goal_finder.goal:
-    #         # Facing goal so can now start following (reset align_pid to 0 for next usage)
-    #         self.align_pid.reset()
-    #         self.state_manager.planning_state = PlannerState.Following
-    #         return
-        
-    #     # Pipe error of located goal into PID Controller
-    #     pid_out = self.align_pid.update(error=self.goal_finder.goal)
+    def zero_vel(self):
+        self.linear_vel = [0.0, 0.0, 0.0]
+        self.angular_vel = [0.0, 0.0, 0.0]
 
-    #     # Rotate to face goal
-    #     self.mover.velZ = pid_out
-        
-    def shutdown(self):
-        pass
+    # Callbacks
 
+    def planner_callback(self, msg):
+        self.p_state = PlannerState(int(msg.data))
+
+    def control_callback(self, msg):
+        self.c_state = ControlState(int(msg.data))
+
+    def tracker_callback(self, msg):
+        self.found_id = msg.id
+        self.get_logger().info(f'Fish {self.found_id} identified')
+
+    def pose_callback(self, msg):
+        self.position = (msg.position.x, msg.position.y, msg.position.z)
+
+        self.quat_orientation = msg.orientation
+
+        self.orientation = quat_to_euler(msg.orientation)
+    
+    def depth_control_callback(self, msg):
+        self.depth.set_target(msg.data)
+
+    # Publishers
+
+    def publish_vel(self):
+        # Make the message
+        msg = Twist()
+        msg.linear.x = self.linear_vel[0]
+        msg.linear.y = self.linear_vel[1]
+        msg.linear.z = self.linear_vel[2]
+
+        msg.angular.x = self.angular_vel[0]
+        msg.angular.y = self.angular_vel[1]
+        msg.angular.z = self.angular_vel[2]
+
+        self.mover_pub.publish(msg)
+
+    # Helper functions
+
+    def get_parameters(self):
+        self.declare_parameter('autodepth.kp', 0.4)
+        self.declare_parameter('autodepth.ki', 0.8)
+        self.declare_parameter('autodepth.kd', 0.1)
+        self.declare_parameter('autodepth.min_depth', -0.3)
+        self.declare_parameter('autodepth.max_depth', -1.0)
+        self.declare_parameter('autodepth.tolerance', 0.02)
+
+        # Depth parameters
+
+        params = dict()
+        params["autodepth.kp"] = self.get_parameter('autodepth.kp').value
+        params["autodepth.ki"] = self.get_parameter('autodepth.ki').value
+        params["autodepth.kd"] = self.get_parameter('autodepth.kd').value
+        params["autodepth.min_depth"] = self.get_parameter('autodepth.min_depth').value
+        params["autodepth.max_depth"] = self.get_parameter('autodepth.max_depth').value
+        params["autodepth.tolerance"] = self.get_parameter('autodepth.tolerance').value
+
+        return params
+    
 class PlannerState(Enum):
     Searching = 1  # Attempting to find a goal to follow
     Following = 2  # Following a goal that is in sight
@@ -218,6 +224,5 @@ def main(args=None):
     except ExternalShutdownException:
         pass
     finally:
-        planner.shutdown()
         rclpy.try_shutdown()
         planner.destroy_node()
