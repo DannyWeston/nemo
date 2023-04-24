@@ -36,11 +36,11 @@ class Hardware(Node):
         ul = msg.linear.z
         ur = msg.linear.z
 
-        if (msg.angular.x < 0): fl -= msg.angular.x
-        else: fr += msg.angular.x
+        if (msg.angular.z < 0): fl -= msg.angular.z
+        else: fr += msg.angular.z
 
-        if (msg.angular.z < 0): ul -= msg.angular.z
-        else: ur += msg.angular.z
+        if (msg.angular.x < 0): ul -= msg.angular.x
+        else: ur += msg.angular.x
 
         if self.max_thruster_speed * self.max_thruster_speed < self.square_magnitude(fl, fr):
             fl, fr = self.normalise(fl, fr)
