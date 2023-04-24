@@ -5,7 +5,7 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
 
 class Thruster:
-    def __init__(self, gpio_pin, min_duty=1, max_duty=7):
+    def __init__(self, gpio_pin, min_duty=4, max_duty=7):
         self.pin = gpio_pin
 
         self.min_duty = min_duty
