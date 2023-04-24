@@ -16,10 +16,10 @@ class Hardware(Node):
         super().__init__('hardware')
 
         self.thrusters = { 
-            "ul": Thruster(7),
-            "ur": Thruster(11),
-            "fl": Thruster(13),
-            "fr": Thruster(15)
+            "fl": Thruster(7),
+            "fr": Thruster(11),
+            "ul": Thruster(13),
+            "ur": Thruster(15)
         }
 
         self.thruster_diff = 0.3
