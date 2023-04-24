@@ -15,7 +15,7 @@ class Thruster:
 
         self.value = 0.0
 
-        self.handle = self.initialise()
+        self.handle = self.initialise(gpio_pin)
 
         GPIO.setup(self.pin, GPIO.OUT)
 
