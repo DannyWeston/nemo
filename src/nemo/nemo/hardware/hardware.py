@@ -92,6 +92,5 @@ def main(args=None):
     except ExternalShutdownException:
         pass
     finally:
-        node.shutdown()
         rclpy.try_shutdown()
         node.destroy_node()
