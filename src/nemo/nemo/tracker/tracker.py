@@ -78,6 +78,8 @@ class Tracker(Node):
             msg.y1 = self.found_coords[1]
             msg.x2 = self.found_coords[2]
             msg.y2 = self.found_coords[3]
+            
+            msg.width = self.img.shape[0]
 
             self.tracker_pub.publish(msg)
 

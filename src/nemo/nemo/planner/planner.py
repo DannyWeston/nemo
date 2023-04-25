@@ -12,14 +12,18 @@ from geometry_msgs.msg import Twist
 # General Python imports
 from enum import Enum
 
+import time
+import random
+
 # Nemo Lib Imports
-#from .fish_tracker import FishTracker
 
 from nemo_interfaces.msg import TrackerMsg
 
 from .autodepth import AutoDepth
 
 from ..lib.math import quat_to_euler
+
+from ..lib.pid import PID
 
 class Planner(Node):
     def __init__(self):
@@ -31,8 +35,10 @@ class Planner(Node):
         self.c_state = ControlState.Paused # Default control state is paused
 
         # Module for tracking fish
-        # self.tracker = FishTracker()
         self.found_id = None
+        self.found_box = None
+        self.found_width = None
+        self.fish_pid = PID(kp=5, ki=1, kd=3, min=-1.0, max=1.0)
         self.camera_sub = self.create_subscription(TrackerMsg, "/nemo/tracker", self.tracker_callback, 1) # Queue size of 1
 
         # Module for maintaining a set depth
@@ -44,6 +50,8 @@ class Planner(Node):
         self.orientation = None
         self.quat_orientation = None # Orientation as Quaternion
         self.pose_sub = self.create_subscription(Pose, "/nemo/pose", self.pose_callback, 1) # Queue size of 1
+
+        self.random_start = None
 
         # Module for sending movement updates to the hardware
         self.linear_vel = [0.0, 0.0, 0.0]
@@ -110,8 +118,7 @@ class Planner(Node):
                 self.avoid_hazard()
 
             case PlannerState.Searching:
-                #if self.tracker.search(): self.p_state = PlannerState.Following
-                pass
+                self.search_goal()
 
             case PlannerState.Following:
                 self.follow_goal()
@@ -126,14 +133,28 @@ class Planner(Node):
         self.get_logger().info("Attempting to avoid a hazard...")
 
     def follow_goal(self):
-        # if not self.tracker.follow(): # Lost track of goal so look for new one
-        #     self.p_state = PlannerState.Searching
-        #     return
-
         self.get_logger().info("Following identified goal...")
 
         # Drive towards goal at 0.2 m/s
-        self.linear_vel[1] = 0.2
+        self.linear_vel[0] = 0.2
+
+        # Calculate distance between bounding box center and center of screen
+        dist = (self.found_box[2] - self.found_box[0] - self.found_width) / 2.0  # Camera width
+
+        self.angular_vel[2] = self.fish_pid.update(dist) # Update yaw with resultant of PID
+
+    def search_goal(self):
+        if self.random_start:
+            now = time.time()
+            elapsed = now - self.random_start
+            if 5 < now: # If 5 seconds has passed since the start of the random walk  
+                self.random_start = None
+                return
+        else:
+            self.linear_vel[0] = 0.3
+            self.angular_vel[2] = random.uniform(-0.3, 0.3)
+
+            self.random_start = time.time()
 
     # Functions
 
@@ -151,6 +172,8 @@ class Planner(Node):
 
     def tracker_callback(self, msg):
         self.found_id = msg.id
+        self.found_box = [msg.x1, msg.y1, msg.x2, msg.y2]
+        self.found_width = msg.width
         self.get_logger().info(f'Fish {self.found_id} identified')
 
     def pose_callback(self, msg):

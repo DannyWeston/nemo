@@ -11,6 +11,7 @@ from .thruster import Thruster
 
 from geometry_msgs.msg import Twist
 
+
 class Hardware(Node):
     def __init__(self):
         super().__init__('hardware')
@@ -36,10 +37,10 @@ class Hardware(Node):
         ul = msg.linear.z
         ur = msg.linear.z
 
-        if (msg.angular.z < 0): fl -= msg.angular.z
+        if msg.angular.z < 0: fl -= msg.angular.z
         else: fr += msg.angular.z
 
-        if (msg.angular.x < 0): ul -= msg.angular.x
+        if msg.angular.x < 0: ul -= msg.angular.x
         else: ur += msg.angular.x
 
         if self.max_thruster_speed * self.max_thruster_speed < self.square_magnitude(fl, fr):
@@ -62,6 +63,11 @@ class Hardware(Node):
         self.thrusters["ul"].set_speed(ul)
         self.thrusters["ur"].set_speed(ur)
 
+        self.get_logger().info(self.thrusters["fl"].get_speed())
+        self.get_logger().info(self.thrusters["fr"].get_speed())
+        self.get_logger().info(self.thrusters["ul"].get_speed())
+        self.get_logger().info(self.thrusters["ur"].get_speed())
+
     def magnitude(self, x, y):
         return math.sqrt(x * x + y * y)
     
@@ -71,14 +77,6 @@ class Hardware(Node):
     def normalise(self, x, y):
         dist = self.magnitude(x, y)
         return (x / dist, y / dist)
-
-    def get_ip_address(self, ifname):
-        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        return socket.inet_ntoa(fcntl.ioctl(
-            s.fileno(),
-            0x8915,  # SIOCGIFADDR
-            struct.pack('256s', ifname[:15])
-        )[20:24])
 
 def main(args=None):
     rclpy.init(args=args)

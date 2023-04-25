@@ -102,14 +102,6 @@
                     Roll: <span class="clear-on-disc" id="poseRotY"></span><br>
                     Yaw: <span class="clear-on-disc" id="poseRotZ"></span><br>
                 </div>
-
-                <!-- Identified Fish -->
-                <div class="col-md-3 mb-2 mb-md-0">
-                    <h4>Fish In View:</h4>
-                    <ul class="list-group">
-                        <li class="list-group-item clear-on-disc fishFound" id="fishNum1">Goldfish</li>
-                    </ul>
-                </div>
             </div>
 
             <!-- Controls -->
@@ -117,15 +109,8 @@
                 <hr />
                 <h3>Controls</h3>
 
-                <!-- Robot Status (start/stop robot) -->
-                <div class="col-md-3 mb-2 mb-md-0">
-                    <h4>Robot Status</h4>
-                    <button id="btnStartRobot" class="btn btn-primary" onclick="{rc.planner.startRobot()}">Start</button>
-                    <button id="btnStopRobot" class="btn btn-danger" onclick="{rc.planner.pauseRobot()}">Stop</button>
-                </div>
-
                 <!-- Robot Control (manual/autonomous) -->
-                <div class="col-md-3 mb-2 mb-md-0">
+                <div class="col-md-4 mb-2 mb-md-0">
                     <h4>Manual Control</h4>
                     <div class="col-md-3 mb-2 mb-md-0">
                         <button id="btnManual" class="btn btn-danger" onclick="{rc.planner.setManualMode()}" >Manual</button>
@@ -134,13 +119,13 @@
                 </div>
 
                 <!-- LED Lights Control -->
-                <div class="col-md-3 mb-2 mb-md-0">
+                <div class="col-md-4 mb-2 mb-md-0">
                     <h4>Lights</h4>
                     <input type="range" min="0" max="255" class="form-range" id="sliderLights">
                 </div>
 
                 <!-- Minimap View -->
-                <div class="col-md-3 mb-2 mb-md-0">
+                <div class="col-md-4 mb-2 mb-md-0">
                     <h4>Show Minimap</h4>
                     <div class="mb-2">
                         <button id="btnShowMap" class="btn btn-primary" onclick="{rc.grid.showMap()}">Show</button>
@@ -155,13 +140,6 @@
             <div class="row section">
                 <hr />
                 <h3>Camera View</h3>
-
-                <!-- Fish Bounding Boxes-->
-                <div class="col-md-3 mb-2">
-                    <h4>Show Fish Boxes</h4>
-                    <button id="btnShowFishBoxes" class="btn btn-primary" onclick="{rc.camera.showFishBoxes()}" >Show</button>
-                    <button id="btnHideFishBoxes" class="btn btn-danger" onclick="{rc.camera.hideFishBoxes()}">Hide</button>
-                </div>
 
                 <!-- Video Footage Recording -->
                 <div class="col-md-3 mb-2 mb-md-0">
